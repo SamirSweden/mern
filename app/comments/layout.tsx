@@ -14,8 +14,3 @@ export default function CommentLayout({children} : {children: React.ReactNode}){
         {children}
     </>
 }
-
-
-
-
-

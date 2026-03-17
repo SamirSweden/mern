@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 const links = [
   { href: "/comments", label: "comments" },
   { href: "/todos", label: "todos" },
+  { href: "/movie", label: "movie" },
 ];
 
 const Header = () => {
