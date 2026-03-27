@@ -11,14 +11,32 @@ const bannerContent = {
 
 const Banner = () => {
     return (
-        <section className={'invest__banner h-screen'}>
-            <div className="max-w-[1230px] px-[15px] mx-auto w-full h-full">
-                <div className="flex items-center justify-between h-full max-[880px]:flex-col">
-                    <Image src={bannerImg} width={600} height={700} alt={'kraken img'} />
-                    <div className="max-w-[550px] w-full">
-                        <h2 className={'font-extrabold text-5xl mb-6 text-white text-wrap'}>{bannerContent.title}</h2>
-                        <p className={'font-bold text-xl mb-8 text-wrap'}>{bannerContent.desc}</p>
-                        <span className={'text-gray-500 text-wrap'}>{bannerContent.basedText}</span>
+        <section className="invest__banner min-h-screen py-16 md:py-24">
+            <div className="max-w-[1230px] px-4 md:px-6 mx-auto w-full h-full">
+
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 h-full">
+
+                    <div className="w-full max-w-[500px]">
+                        <Image
+                            src={bannerImg}
+                            alt="kraken img"
+                            className="w-full h-auto object-contain"
+                        />
+                    </div>
+
+                    <div className="max-w-[550px] w-full text-center lg:text-left">
+
+                        <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-6 text-white">
+                            {bannerContent.title}
+                        </h2>
+
+                        <p className="font-bold text-base sm:text-lg md:text-xl mb-6">
+                            {bannerContent.desc}
+                        </p>
+
+                        <span className="text-gray-500 text-sm sm:text-base">
+                    {bannerContent.basedText}
+                </span>
                     </div>
                 </div>
             </div>

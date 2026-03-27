@@ -25,7 +25,7 @@ const Header = () => {
                     <div className="flex items-center justify-between">
                         <div className="header__logo flex items-center gap-[50px]">
                             <Link className={'z-50 text-center text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>Kraken</Link>
-                            <ul className="header__near flex items-center gap-4 max-[600px]:hidden py-3 px-4 bg-[#171717] rounded-lg">
+                            <ul className="header__near flex items-center gap-4 max-[600px]:hidden py-3 px-4 bg-[#171717] rounded-lg shadow-2xl shadow-gray-300">
                                 {links.map((link) => {
                                     const icon = link.icon;
 
@@ -50,7 +50,7 @@ const Header = () => {
                             {isOpen ?  <X size={30} /> : <TextAlignEnd size={30} />}
                         </button>
 
-                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-md
+                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl
                      bg-transparent transition-transform duration-300
                     inset-0`}>
                             <ul className="flex flex-col gap-[7px] bg-transparent shadow-2xl border border-white max-w-[294px] w-full rounded-3xl !p-[20px]">
