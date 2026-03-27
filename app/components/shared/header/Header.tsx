@@ -66,7 +66,7 @@ const Header = () => {
                                 ))}
                             </ul>
                             <div className="header__apps  flex flex-col gap-[10px] !px-5 items-center justify-center fixed bottom-7 left-0 w-full mx-3 ">
-                                <button onClick={() => router.push('/login')} className="login  bg-yellow-400 py-[20px] px-[30px] outline-none border-none  cursor-pointer  w-full rounded-xl text-black capitalize ">
+                                <button onClick={() => router.push('/login')} className="login  bg-yellow-400 py-[20px] px-[20px] w-full outline-none border-none  cursor-pointer  w-full rounded-xl text-black capitalize ">
                                     login
                                 </button>
                             </div>
