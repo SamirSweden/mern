@@ -27,61 +27,7 @@ export default function RootLayout({
   <body 
     suppressHydrationWarning
     className={`${geistSans.variable} ${geistMono.variable} antialiased relative min-h-screen overflow-x-hidden`}
-    style={{
-      backgroundColor: '#050505', 
-    }}
   >
-    <div className="fixed inset-0 -z-10">
-      {/* Основной тёмно-зелёный фон — без blur-фильтров, просто градиент */}
-      <div className="absolute inset-0 bg-[#050505]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_60%_at_50%_0%,#052e16_0%,transparent_70%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_80%_100%,#052e16_0%,transparent_60%)]" />
-
-      {/* Акцентные пятна — используем will-change для стабильности */}
-      <div 
-        className="absolute top-20 -left-20 w-[600px] h-[600px] rounded-full"
-        style={{ 
-          background: 'radial-gradient(circle, rgba(16,185,129,0.15) 0%, transparent 70%)',
-          filter: 'blur(80px)',
-          willChange: 'transform',
-        }} 
-      />
-      <div 
-        className="absolute bottom-20 -right-20 w-[600px] h-[600px] rounded-full"
-        style={{ 
-          background: 'radial-gradient(circle, rgba(21,128,61,0.15) 0%, transparent 70%)',
-          filter: 'blur(80px)',
-          willChange: 'transform',
-        }} 
-      />
-      <div 
-        className="absolute top-1/2 left-1/3 w-[400px] h-[400px] rounded-full"
-        style={{ 
-          background: 'radial-gradient(circle, rgba(132,204,22,0.08) 0%, transparent 70%)',
-          filter: 'blur(80px)',
-          willChange: 'transform',
-        }} 
-      />
-
-      {/* Шум — через inline style для стабильного рендера на всех браузерах */}
-      <div 
-        className="absolute inset-0 opacity-[0.035]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          backgroundSize: '200px 200px',
-        }}
-      />
-
-      {/* Сетка */}
-      <div 
-        className="absolute inset-0 opacity-10"
-        style={{
-          backgroundImage: 'linear-gradient(rgba(16,185,129,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(16,185,129,0.04) 1px, transparent 1px)',
-          backgroundSize: '64px 64px',
-        }}
-      />
-    </div>
-
     {children}
   </body>
 </html>

@@ -1,7 +1,10 @@
-import Header from "./components/header/Header";
+'use client'
 
 import type { Metadata } from "next";
-import Footer from "./UI/Footer";
+import { useEffect } from "react";
+import {useRouter} from "next/router";
+import {clearInterval} from "node:timers";
+
 
 export const metadata: Metadata = {
     title:'404 - not found'
@@ -9,13 +12,23 @@ export const metadata: Metadata = {
 
 
 export default function NotFound(){
+    const router = useRouter();
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            router.push('/');
+        }, 1000)
+
+        return () => clearInterval(timer)
+    }, [router])
+
     return (
         <>
-            <Header />
-            <h1 className="text-white text-center text-2xl py-[200px]">
-                домой волтер - 404
-            </h1>
-            <Footer />
+            <div className="h-screen flex items-center justify-center bg-black text-white flex-col">
+                <h1 className="text-4xl font-bold">404</h1>
+                <p>Page not found </p>
+                <p className="text-sm opacity-60 mt-2">main page</p>
+            </div>
         </>
     )
 }
