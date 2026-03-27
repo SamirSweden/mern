@@ -35,7 +35,7 @@ const ProCard = () => {
 
     return (
         <>
-            <div className={'py-12 px-0 bg-[#111]'}>
+            <div className={'py-6 px-0 bg-[#111]'}>
                 <div className="max-w-[1230px] px-4 md:px-6 mx-auto w-full h-full">
                     <div className="grid grid-cols-3 gap-2 max-[930px]:grid-cols-2 max-[930px]:gap-5 max-[620px]:grid-cols-1">
                         {cards.map((card) => {
