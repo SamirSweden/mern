@@ -2,13 +2,10 @@
 
 import type { Metadata } from "next";
 import { useEffect } from "react";
-import {useRouter} from "next/router";
-import {clearInterval} from "node:timers";
+import {useRouter} from "next/navigation";
 
 
-export const metadata: Metadata = {
-    title:'404 - not found'
-}
+
 
 
 export default function NotFound(){
