@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
+import ClientWrapper from "@/app/components/ClientWrapper";
+
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -18,15 +20,22 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
+
   return (
    <html lang="en" className={jetbrains.variable}>
     <body
       suppressHydrationWarning
       className={`${jetbrains.variable}`}
     >
-      {children}
+
+      <ClientWrapper>
+        {children}
+      </ClientWrapper>
+
       <Analytics />
     </body>
-</html>
+  </html>
   );
 }
