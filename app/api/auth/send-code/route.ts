@@ -4,11 +4,15 @@ import { Resend } from "resend"
 
 
 
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 
 
 export async function POST(req: Request){
+    if(!process.env.RESEND_API_KEY){
+        return  NextResponse.json({error: "no api key here"} , {status: 500})
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const { email } = await req.json()
 
