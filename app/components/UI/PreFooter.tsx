@@ -10,7 +10,7 @@ const bannerContent = {
 const PreFooter = () => {
     return (
         <>
-            <section className={'bg-[#692FE4] py-14 prefooter'}>
+            <section className={'bg-[#692FE4] py-14 prefooter rounded-t-[80px]'}>
                 <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
                     <div className="flex items-center justify-center flex-col gap-10">
                         <h2 className={'text-white text-3xl sm:text-4xl md:text-5xl  text-wrap break-words leading-tight'}>{bannerContent.title}</h2>
