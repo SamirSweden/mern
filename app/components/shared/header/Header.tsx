@@ -20,11 +20,11 @@ const Header = () => {
 
     return (
         <>
-            <header className={'header py-[20px] px-0'}>
-                <div className="max-w-[1230px] px-[15px] mx-auto w-full h-full">
+            <header className={'header py-5 px-0'}>
+                <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
                     <div className="flex items-center justify-between">
-                        <div className="header__logo flex items-center gap-[50px]">
-                            <Link className={'z-50 text-center text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>Kraken</Link>
+                        <div className="header__logo flex items-center gap-12.5">
+                            <Link className={'z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>Kraken</Link>
                             <ul className="header__near flex items-center gap-4 max-[600px]:hidden py-3 px-4 bg-[#171717] rounded-lg shadow-2xl shadow-gray-300">
                                 {links.map((link) => {
                                     const icon = link.icon;
