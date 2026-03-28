@@ -16,8 +16,6 @@ const Header = () => {
     const [isOpen , setIsOpen] = useState(false)
     const router = useRouter();
 
-
-
     return (
         <>
             <header className={'header py-5 px-0'}>
@@ -41,9 +39,9 @@ const Header = () => {
                             </ul>
                         </div>
                         <div className={'flex items-center '}>
-                            <button onClick={() => router.push('/login')}
+                            <button onClick={() => router.push('/sign-in')}
                             className={'max-[600px]:hidden bg-white text-black py-[10px] px-[20px] capitalize font-mono  rounded-2xl cursor-pointer hover:bg-yellow-300'}
-                            >log in</button>
+                            >sign in</button>
                         </div>
 
                         <button onClick={() => setIsOpen(!isOpen)} className={'min-[600px]:hidden z-50 text-bold'}>
