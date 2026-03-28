@@ -1,6 +1,6 @@
 'use client'
 
-import { useState , useEffect } from "react";
+import { useEffect } from "react";
 import Image from "next/image";
 
 const Logo = "https://assets-cms.kraken.com/images/51n36hrp/facade/05e644b980a0dc12baa6db4c5dbcacb70c95c468-361x100.png?w=1536&fit=min"

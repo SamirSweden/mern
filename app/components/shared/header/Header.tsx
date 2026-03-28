@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import {HomeIcon, GlobeLock, TextAlignEnd, X, Menu} from "lucide-react";
-import {useRouter} from "next/navigation";
+import {useRouter , usePathname} from "next/navigation";
 import {useState} from "react";
 
 
@@ -15,6 +15,8 @@ const links = [
 const Header = () => {
     const [isOpen , setIsOpen] = useState(false)
     const router = useRouter();
+    const pathname = usePathname()
+
 
     return (
         <>
@@ -26,10 +28,11 @@ const Header = () => {
                             <ul className="header__near flex items-center gap-4 max-[600px]:hidden py-3 px-4 bg-[#171717] rounded-lg shadow-2xl shadow-gray-300">
                                 {links.map((link) => {
                                     const icon = link.icon;
+                                    const isActive = pathname === link.href;
 
                                     return (
                                         <li key={link.href}>
-                                            <Link href={link.href} className={'flex items-center gap-2 hover:text-yellow-500'}>
+                                            <Link href={link.href} className={`flex items-center gap-2 hover:text-yellow-500 ${isActive ? "py-1 px-3 bg-[#382d2c] rounded-full" : ""}`}>
                                                 {link.icon}
                                                 {link.label}
                                             </Link>
