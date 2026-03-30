@@ -35,7 +35,7 @@ export default  function WhyCard() {
     return (
         <>
             {data.map((d) => (
-                <div key={d.id} className={'bg-[#111] py-4 px-5 rounded-lg flex flex-col h-full'}>
+                <div key={d.id} className={'shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)] py-4 px-5 rounded-lg flex flex-col h-full'}>
                     <div>
                         <h2 className={'text-white text-3xl font-sans capitalize mb-4 text-justify'}>{d.title}</h2>
                         <p className={'text-gray-400  text-sm md:text-base '}>{d.text}</p>

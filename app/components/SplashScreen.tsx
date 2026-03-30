@@ -26,5 +26,3 @@ const SplashScreen = ({finishLoading} : { finishLoading: () => void}) => {
 
 
 export default SplashScreen
-
-

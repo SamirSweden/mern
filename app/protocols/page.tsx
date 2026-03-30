@@ -12,10 +12,3 @@ const Protocols = () => {
 }
 
 export default Protocols
-
-
-
-
-
-
-

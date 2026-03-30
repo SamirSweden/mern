@@ -27,7 +27,7 @@ const BannerCard = () => {
                 <div className="max-w-[1230px] px-4 md:px-6 mx-auto w-full">
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6
-                               bg-[#171717]
+                               shadow-[inset_4px_4px_150px_0_hsla(0,0%,100%,.15)]
                                 py-17 px-6 md:px-10 rounded-2xl mb-3">
 
                         {data.map((d) => (

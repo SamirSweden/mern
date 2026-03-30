@@ -57,10 +57,10 @@ const ProCard = () => {
                         })}
                     </div>
 
-                    <div className={'flex items-center justify-center mt-14'}>
+                    <div className={'flex items-center justify-center mt-14 max-[425px]:w-full'}>
                         <button
                             onClick={() => router.push("/login")}
-                            className={'bg-violet-700 text-white py-3 px-4 rounded-4xl cursor-pointer hover:bg-violet-500  capitalize shadow-2xl hover:shadow-yellow-400   transition transform duration-300 hover:-translate-y-4 '}
+                            className={'bg-violet-700 text-white py-3 max-[425px]:w-full px-4 rounded-4xl cursor-pointer hover:bg-violet-500  capitalize shadow-2xl hover:shadow-yellow-400   transition transform duration-300 hover:-translate-y-4 '}
                         >
                             sign up
                         </button>
