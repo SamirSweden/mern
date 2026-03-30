@@ -36,10 +36,10 @@ const ScaleCard = () => {
                 const Icon = offer.icon;
 
                 return (
-                    <div key={offer.id} className={'flex items-center flex-col gap-5'}>
+                    <div key={offer.id} className={'flex items-center rounded-2xl flex-col gap-5 max-[530px]:shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] py-4 px-6  max-[530px]:items-start'}>
                         <Icon size={45}  />
-                        <h2 className={'text-center text-2xl'}>{offer.title}</h2>
-                        <p className={'text-center font-semibold'}>{offer.text}</p>
+                        <h2 className={'text-center text-2xl max-[530px]:text-left max-[341px]:text-xl'}>{offer.title}</h2>
+                        <p className={'text-center font-semibold max-[530px]:text-justify max-[341px]:text-sm'}>{offer.text}</p>
                     </div>
                 )
             })}

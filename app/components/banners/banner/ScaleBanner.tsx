@@ -24,12 +24,12 @@ const ScaleBanner = () => {
                             <h2 className={'text-white mt-5 mb-10 text-3xl md:text-3xl sm:text-lg text-wrap font-extrabold'}>{scaleContent.heading}</h2>
                         </div>
                     </div>
-                    <div className="grid grid-cols-3 gap-4">
+                    <div className="grid grid-cols-3 gap-4 max-[970px]:grid-cols-2 max-[530px]:grid-cols-1">
                         <ScaleCard />
                     </div>
-                    <div className={'flex items-center justify-center mt-14'}>
+                    <div className={'flex items-center justify-center mt-14 max-[530px]:w-full'}>
                         <button onClick={() => router.push('/sign-in')}
-                                className={'text-black text-xl bg-white transition transform duration-300 hover:-translate-y-3 shadow-xl shadow-yellow-600 hover:shadow-cyan-300 hover:bg-[#b8bbbf]  py-4 px-10  rounded-full cursor-pointer capitalize font-extralight'}
+                                className={'max-[530px]:w-full max-[530px]:rounded-md text-black text-xl bg-white transition transform duration-300 hover:-translate-y-3 shadow-xl shadow-yellow-600 hover:shadow-cyan-300 hover:bg-[#b8bbbf]  py-4 px-10  rounded-full cursor-pointer capitalize font-extralight'}
                         >
                             {scaleContent.btnTextStart}
                         </button>
