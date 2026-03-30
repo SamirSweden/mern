@@ -3,7 +3,7 @@
 import Link from "next/link";
 import {HomeIcon, GlobeLock, TextAlignEnd, X, Menu} from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
-import {useState} from "react";
+import {useState , useEffect} from "react";
 
 
 
@@ -16,16 +16,29 @@ const Header = () => {
     const [isOpen , setIsOpen] = useState(false)
     const router = useRouter();
     const pathname = usePathname()
+    const [scrolled , setScrolled] = useState(false)
 
+    useEffect(() => {
+        const handleScroll = () => {
+           setScrolled(window.scrollY > 100)
+        }
+
+        window.addEventListener("scroll" , handleScroll)
+        return () => window.removeEventListener("scroll", handleScroll)
+    }, [])
 
     return (
         <>
-            <header className={'header py-5 px-0 sticky left-0 top-0 w-full   shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]'}>
+            <header className={`header py-5 px-0 sticky top-0 w-full transition-all duration-300 ${
+                scrolled
+                    ? "bg-gradient-to-br shadow-[inset_4px_40px_500px_0_rgba(20,20,20,0.2)] from-[#2d3036] via-[#352d36] to-[#151716]  "
+                    : ""
+            }`}>
                 <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
                     <div className="flex items-center justify-between">
                         <div className="header__logo flex items-center gap-12.5">
                             <Link className={' drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>Kraken</Link>
-                            <ul className="header__near flex items-center backdrop-blur-3xl gap-4 max-[600px]:hidden py-3 px-4  rounded-lg shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)] ">
+                            <ul className="header__near flex items-center backdrop-blur-3xl gap-4 max-[600px]:hidden py-3 px-4  rounded-3xl shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)] ">
                                 {links.map((link) => {
                                     const icon = link.icon;
                                     const isActive = pathname === link.href;

@@ -4,6 +4,7 @@ import Link from "next/link";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
 import {ShieldAlert} from "lucide-react";
+import Header from "@/app/components/shared/header/Header";
 
 
 
@@ -40,17 +41,19 @@ export default function SignInPage() {
 
     return (
         <>
-            <section className={'py-5 px-2 h-screen'}>
+            <Header />
+            <section className={'overflow-y-hidden px-2 h-[90vh]'}>
                 <div className="max-w-[1230px] mx-auto md:px-6 px-4 w-full h-full">
                     <div className="flex items-center justify-center h-full">
 
-                        <div className={'sign-in-page bg-[#111] w-[500px] rounded-xl py-20 px-10 relative'}>
+                        <div className={'sign-in-page shadow-[inset_4px_4px_100px_0_hsla(0,0%,100%,.15)] w-125 rounded-xl py-20 px-10 relative'}>
 
                             {step === 'email' ? (
                                 <>
                                     <div className="flex flex-col items-start gap-3">
                                         <span className={'font-black capitalize mb-2 text-xl'}>email</span>
                                         <input
+                                            required={true}
                                             onChange={(e) => setEmail(e.target.value)}
                                             value={email}
                                             className={'py-3 px-6 rounded-lg mb-5 w-full border border-yellow-400 outline-none bg-transparent text-white font-black '}
