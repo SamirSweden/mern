@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import {HomeIcon, GlobeLock, TextAlignEnd, X, Menu} from "lucide-react";
+import {HomeIcon, GlobeLock, TextAlignEnd, X, Menu,ChartNoAxesCombined} from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
 
@@ -10,6 +10,7 @@ import {useState , useEffect} from "react";
 const links = [
     {href: "/", label: "Home", icon: <HomeIcon />},
     {href: "/protocols", label: "Protocols", icon: <GlobeLock /> },
+    {href: "/chart", label: "Chart", icon: <ChartNoAxesCombined /> },
 ];
 
 const Header = () => {

@@ -46,7 +46,7 @@ export default function Chart({symbol} : Props) {
 
     useEffect(() => {
         if(!chartRef.current) return;
-
+        let isMounted = true
 
         const chartInstance = createChart(chartRef.current, {
             width: chartRef.current.clientWidth,
@@ -95,6 +95,7 @@ export default function Chart({symbol} : Props) {
 
         const ws = new WebSocket(`wss://stream.binance.com:9443/ws/${symbol}@kline_1m`)
         ws.onmessage = (event) => {
+            if(!isMounted) return; // protection
             const msg:BinanceWSMessage  = JSON.parse(event.data);
             const k = msg.k;
 
@@ -108,6 +109,8 @@ export default function Chart({symbol} : Props) {
         };
 
         return () => {
+            isMounted=false;
+            ws.close();
             resizeObserver.disconnect();
             chart.current?.remove();
         };
