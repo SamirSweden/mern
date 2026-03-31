@@ -20,7 +20,7 @@ const CoinFooter = () => {
 
     return (
         <>
-            <div className="coin__footer fixed   bottom-[-20px] z-[999] left-0 w-full flex items-center justify-center bg-linear-to-br from-[#111]  to-[#1d0624]  px-0">
+            <div className="coin__footer fixed   bottom-[-20px] z-[999] left-0 w-full flex items-center justify-center bg-black   px-0">
                 <ul className={'flex w-[180px] items-center  justify-center shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] py-4 px-3 rounded-full'}>
                     {links.map((link) => {
                         const IconComponent = link.icon;

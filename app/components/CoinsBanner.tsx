@@ -86,9 +86,10 @@ export default  async function CoinsBanner() {
                             const Icon = getCoinIcon(coin.id)
                             return (
                                 <Link key={coin.id} href={'/'} className={'relative flex items-stretch gap-5 cursor-pointer transition-transform duration-300 hover:-translate-y-4 flex-col shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] py-4 px-5 rounded-md'}>
-                                    <Icon size={30}  />
+                                    <Icon size={40}  />
+                                    <hr className={'text-gray-600 w-12'} />
                                     <div className="name text-xl ">{coin.name}</div>
-                                    <span className="symbol text-sm absolute right-0 top-[-10]   transition-transform rotate-5">{coin.symbol.toUpperCase()}</span>
+                                    <span className="symbol shadow-lg shadow-white/50 bg-transparent text-sm absolute right-0 top-[-10] text-cyan-700  transition-transform rotate-5">{coin.symbol.toUpperCase()}</span>
                                     <div className={'apy'}>
                                         {(Math.random() * 10).toFixed(2)}% APY
                                     </div>
