@@ -22,9 +22,12 @@ export default function ChartPage(){
     return <>
         <div className="bg-black min-h-screen text-white p-4 md:p-6 ">
             <div className="flex flex-col md:flex-row md:justify-between  items-center gap-4 sticky top-0 z-50 bg-black p-4 md:p-6 ">
-                <Link href={'/'}
-                      className={' drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-5xl md:text-3xl  font-extrabold select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'}
-                >Kraken.su</Link>
+                <div className="flex items-center gap-2">
+                    <Link href={'/'}
+                          className={' drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-2xl md:text-3xl  font-extrabold select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'}
+                    >Kraken.su</Link>
+                    <span className={'bg-linear-to-br from-[#2116b8] via-[#f00e3f] to-[#240d29] rounded-full text-sm py-1 px-3'}>AI bots soon</span>
+                </div>
                 <div className="grid grid-cols-3 gap-2 overflow-x-auto no-scrollbar w-full md:w-auto items-center py-2 px-2 rounded-full  bg-gradient-to-br from-[#12161a] to-[#292721] mb-6">
                     {coins.map((c) => (
                         <button
