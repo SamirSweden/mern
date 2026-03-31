@@ -25,7 +25,7 @@ export default function ChartPage(){
                 <Link href={'/'}
                       className={' drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-5xl md:text-3xl  font-extrabold select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'}
                 >Kraken.su</Link>
-                <div className="flex gap-2 overflow-x-auto no-scrollbar w-full md:w-auto items-center py-2 px-2 rounded-full  bg-gradient-to-br from-[#12161a] to-[#292721] mb-6">
+                <div className="grid grid-cols-3 gap-2 overflow-x-auto no-scrollbar w-full md:w-auto items-center py-2 px-2 rounded-full  bg-gradient-to-br from-[#12161a] to-[#292721] mb-6">
                     {coins.map((c) => (
                         <button
                             key={c.symbol}
