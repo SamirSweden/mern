@@ -45,12 +45,23 @@ const getCoinIcon = (coinId: string): LucideIcon => {
     return coinsIcon[coinId] || TrendingUp
 }
 
-async function getCoins(): Promise<Coin[]>{
-    const res = await fetch(`http://localhost:3000/api/coins`, {
-        cache: 'no-store',
-    })
+async function getCoins() {
+    try {
+        const res = await fetch(
+            "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,solana,dogecoin,cardano,ripple,avalanche-2,polkadot,chainlink,uniswap,litecoin,near,filecoin,flow",
+            { next: { revalidate: 60 } }
+        );
 
-    return res.json()
+        if (!res.ok) {
+            console.error("API ERROR:", res.status);
+            return [];
+        }
+
+        return await res.json();
+    } catch (error) {
+        console.error("FETCH ERROR:", error);
+        return [];
+    }
 }
 
 const CoinBanner = {
@@ -70,7 +81,7 @@ export default  async function CoinsBanner() {
                         <p className={'text-lg  max-w-[700px] text-wrap mb-18'}>{CoinBanner.description}</p>
                     </div>
                     <div className="grid grid-cols-4 max-[680px]:grid-cols-3 max-[680px]:gap-3 max-[400px]:grid-cols-2 gap-10">
-                        {coins.map((coin) => {
+                        {coins.map((coin: Coin) => {
                             const Icon = getCoinIcon(coin.id)
                             return (
                                 <Link key={coin.id} href={'/'} className={'relative flex items-stretch gap-5 cursor-pointer transition-transform duration-300 hover:-translate-y-4 flex-col shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] py-4 px-5 rounded-md'}>
