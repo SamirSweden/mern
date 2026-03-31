@@ -3,6 +3,7 @@ import ProtoBanner from "@/app/components/banners/banner/ProtoBanner";
 import Tvl from "@/app/components/tvl/Tvl";
 import OfferProto from "@/app/components/tvl/OfferProto";
 import ScaleBanner from "@/app/components/banners/banner/ScaleBanner";
+import FooterCard from "@/app/components/UI/FooterCard";
 
 
 const Protocols = () => {
@@ -13,6 +14,7 @@ const Protocols = () => {
             <Tvl />
             <OfferProto />
             <ScaleBanner />
+            <FooterCard />
         </>
     )
 }

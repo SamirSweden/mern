@@ -1,10 +1,9 @@
 'use client'
 
-import Link from "next/link";
 import {useState} from "react";
 import {useRouter} from "next/navigation";
 import {ShieldAlert} from "lucide-react";
-import Header from "@/app/components/shared/header/Header";
+import NavLogin from "@/app/components/UI/NavLogin";
 
 
 
@@ -41,12 +40,12 @@ export default function SignInPage() {
 
     return (
         <>
-            <Header />
-            <section className={'overflow-y-hidden px-2 h-[90vh]'}>
+            <NavLogin />
+            <section className={'overflow-y-hidden px-2 h-[75vh]'}>
                 <div className="max-w-[1230px] mx-auto md:px-6 px-4 w-full h-full">
                     <div className="flex items-center justify-center h-full">
 
-                        <div className={'sign-in-page shadow-[inset_4px_4px_100px_0_hsla(0,0%,100%,.15)] w-125 rounded-xl py-20 px-10 relative'}>
+                        <div className={'sign-in-page shadow-[inset_4px_4px_40px_0_hsla(0,0%,100%,.15)] w-125 rounded-xl py-20 px-10 relative'}>
 
                             {step === 'email' ? (
                                 <>
@@ -64,8 +63,8 @@ export default function SignInPage() {
                                             >continue</button>
                                         </div>
                                         <div className={'mt-4 flex items-center justify-center gap-3 absolute bottom-3 left-[27%]'}>
-                                            <span className={'text-center text-lg text-gray-400 text-wrap'}>still can not sign in?</span>
-                                            <span className={'text-center text-lg text-violet-400 text-wrap'}>Email us</span>
+                                            <span className={'text-center text-sm text-gray-400 text-wrap'}>still can not sign in?</span>
+                                            <span className={'text-center text-sm text-violet-400 text-wrap'}>Email us</span>
                                         </div>
                                     </div>
                                 </>
@@ -86,37 +85,12 @@ export default function SignInPage() {
                                         </div>
                                         <div className={'mt-4 flex items-center justify-center gap-3 absolute bottom-3 left-10'}>
                                             <ShieldAlert size={30} />
-                                            <span className={'text-center text-sm text-gray-400 text-wrap py-1 px-2 rounded-lg bg-white/10 border border-yellow-500'}>do not share code with others</span>
+                                            <span className={'text-center text-sm text-gray-400 text-wrap py-1 px-2 rounded-lg shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]'}>do not share code with others</span>
                                         </div>
                                     </div>
                                 </>
                             )}
                         </div>
-
-                        {/*<div>*/}
-                        {/*    {step === 'email' ? (*/}
-                        {/*        <>*/}
-                        {/*            <input*/}
-                        {/*                onChange={(e) => setEmail(e.target.value)}*/}
-                        {/*                value={email}*/}
-                        {/*                placeholder={'email'}*/}
-                        {/*            />*/}
-                        {/*            <button onClick={sendCode}>*/}
-                        {/*                send code*/}
-                        {/*            </button>*/}
-                        {/*        </>*/}
-                        {/*    ) : (*/}
-                        {/*        <>*/}
-                        {/*            <input*/}
-                        {/*                onChange={(e) => setCode(e.target.value)}*/}
-                        {/*                placeholder={'XXX-XXX'}*/}
-                        {/*                value={code}*/}
-                        {/*            />*/}
-                        {/*            <button onClick={verifyCode}>sign up</button>*/}
-                        {/*        </>*/}
-                        {/*    )}*/}
-                        {/*</div>*/}
-
 
                     </div>
                 </div>
