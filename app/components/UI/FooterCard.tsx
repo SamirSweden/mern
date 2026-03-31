@@ -26,7 +26,6 @@ export default function FooterCard(){
          <div className={'py-12 px-0 bg-transparent'}>
              <div className="max-w-307.5 md:px-6 mx-auto px-4 w-full f-ull">
                  <div className="grid grid-cols-2  gap-4 ">
-
                      {cards.map((card) => {
                          const Icon = card.icon;
                          return (
@@ -41,7 +40,9 @@ export default function FooterCard(){
                              </button>
                          )
                      })}
-
+                 </div>
+                 <div className="flex items-center justify-center">
+                     <span className={'text-gray-700 text-sm text-center mt-10'}>Kraken &mdash; Ryan</span>
                  </div>
              </div>
          </div>
