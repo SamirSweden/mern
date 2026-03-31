@@ -17,6 +17,7 @@ import {
     TrendingUp,
     type LucideIcon
 } from "lucide-react";
+import CoinFooter from "@/app/components/UI/CoinFooter";
 
 type Coin = {
     id:string
@@ -78,7 +79,7 @@ export default  async function CoinsBanner() {
                 <div className="max-w-307.5 md:px-6 px-4 mx-auto w-full h-full">
                     <div className="flex items-center justify-between flex-col gap-10">
                         <h2 className={'text-4xl text-transparent bg-clip-text bg-gradient-to-br from-yellow-300 via-pink-600 to-yellow-400'}>{CoinBanner.title}</h2>
-                        <p className={'text-lg  max-w-[700px] text-wrap mb-18'}>{CoinBanner.description}</p>
+                        <p className={'text-lg text-gray-400 max-w-[700px] text-wrap mb-18'}>{CoinBanner.description}</p>
                     </div>
                     <div className="grid grid-cols-4 max-[680px]:grid-cols-3 max-[680px]:gap-3 max-[400px]:grid-cols-2 gap-10">
                         {coins.map((coin: Coin) => {
@@ -97,6 +98,7 @@ export default  async function CoinsBanner() {
                     </div>
                 </div>
             </section>
+            <CoinFooter />
         </>
     )
 }
