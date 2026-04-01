@@ -1,3 +1,5 @@
+
+
 import Link from 'next/link'
 import {
     Bitcoin,
@@ -15,7 +17,8 @@ import {
     Cloud,
     Network,
     TrendingUp,
-    type LucideIcon
+
+    type LucideIcon, AlignHorizontalDistributeCenter
 } from "lucide-react";
 import CoinFooter from "@/app/components/UI/CoinFooter";
 
@@ -96,6 +99,15 @@ export default  async function CoinsBanner() {
                                 </Link>
                             )
                         })}
+                    </div>
+                    <div className={'footer__text py-14 px-0 flex gap-8 items-center justify-center flex-col'}>
+                        <h2 className={'text-xl text-white'}> <span className={'font-black text-3xl'}>$800M+</span> in rewards earned by clients</h2>
+                            <Link
+                                href={'/chart'}
+                                className={'bg-white  hover:bg-white/70 py-4 px-6 cursor-pointer flex items-center gap-2 text-black text-lg capitalize rounded-2xl '}>
+                                explore charts
+                                <AlignHorizontalDistributeCenter size={30} className={'text-black'} />
+                            </Link>
                     </div>
                 </div>
             </section>

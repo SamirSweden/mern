@@ -1,5 +1,7 @@
+'use client'
 
 
+import {useRouter} from "next/navigation";
 
 const bannerContent = {
     title: "Start your crypto journey",
@@ -8,6 +10,8 @@ const bannerContent = {
 }
 
 const PreFooter = () => {
+    const router = useRouter()
+
     return (
         <>
             <section className={'shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)] py-14 prefooter rounded-t-[80px]'}>
@@ -16,7 +20,9 @@ const PreFooter = () => {
                         <h2 className={'text-white text-3xl sm:text-4xl md:text-5xl  text-wrap break-words leading-tight'}>{bannerContent.title}</h2>
                         <p className={'text-white text-lg text-wrap'}>{bannerContent.desc}</p>
                         <div className={'max-[420px]:w-full'}>
-                            <button className={'max-[420px]:w-full bg-white text-black  py-4 px-6 hover:bg-white/70 cursor-pointer rounded-xl shadow-2xl hover:shadow-gray-400 focus:outline-none transition transform duration-300 hover:-translate-y-3 '}>
+                            <button
+                                onClick={() => router.push('/sign-in')}
+                                className={'max-[420px]:w-full bg-white text-black  py-4 px-6 hover:bg-white/70 cursor-pointer rounded-xl shadow-2xl hover:shadow-gray-400 focus:outline-none transition transform duration-300 hover:-translate-y-3 '}>
                                 {bannerContent.startBtn}
                             </button>
                         </div>

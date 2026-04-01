@@ -1,7 +1,12 @@
+'use client'
+
+import {useRouter} from "next/navigation";
 import WhyCard from "@/app/components/UI/WhyCard";
 
 
 const WhyKraken = () => {
+    const router = useRouter()
+
     return (
         <>
             <section className={'py-10 px-0'}>
@@ -11,7 +16,9 @@ const WhyKraken = () => {
                         <WhyCard />
                     </div>
                     <div className={'flex items-center mt-5 max-[500px]:w-full'}>
-                        <button className={'bg-blue-400 text-black  text-center max-[500px]:py-6 max-[500px]:w-full py-4 px-6 rounded-2xl capitalize text-sm cursor-pointer transition transform duration-300 hover:-translate-y-3 shadow-2xl shadow-gray-200 hover:shadow-gray-400'}>get started with kraken</button>
+                        <button
+                            onClick={() => router.push('/sign-in')}
+                            className={'bg-blue-400 text-black  text-center max-[500px]:py-6 max-[500px]:w-full py-4 px-6 rounded-2xl capitalize text-sm cursor-pointer transition transform duration-300 hover:-translate-y-3 shadow-2xl shadow-gray-200 hover:shadow-gray-400'}>get started with kraken</button>
                     </div>
                 </div>
             </section>

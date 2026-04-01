@@ -27,6 +27,7 @@ export default function ChartBanner() {
                                 className={'w-full font-bold shadow-lg shadow-white border border-white  outline-none cursor-pointer shadow-[inset_10px_4px_70px_0_hsla(0,0%,100%,.15)] py-5 px-6 text-white rounded-full capitalize'}>
                                 {ChartContent.btnText}
                             </button>
+
                         </div>
                         <div className={'mt-6'}>
                             <Image
