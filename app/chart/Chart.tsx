@@ -43,7 +43,14 @@ export default function Chart({ symbol }: Props) {
         ws.onmessage = e => {
             if (!alive) return;
             const k = JSON.parse(e.data).k;
-            series.update({ time: k.t / 1000, open: +k.o, high: +k.h, low: +k.l, close: +k.c });
+            series.update(
+                {
+                    time: k.t / 1000,
+                    open: Number(k.o),
+                    high: Number(k.h),
+                    low: Number(k.l),
+                    close: Number(k.c)
+                });
         };
 
         return () => { alive = false; ws.close(); ro.disconnect(); chart.current?.remove(); };
