@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Footer from "@/app/components/shared/footer/Footer";
 
 
 
@@ -11,7 +12,10 @@ export const metadata: Metadata = {
 
 export default  function ChartLayout({children} : {children: React.ReactNode}) {
     return (
-        <>{children}</>
+        <>
+            {children}
+            <Footer />
+        </>
     )
 }
 
