@@ -35,7 +35,10 @@ export default function Chart({ symbol }: Props) {
             .then((data: any[]) => {
                 series.setData(data.map(d => ({
                     time: d[0] / 1000 as UTCTimestamp,
-                    open: +d[1], high: +d[2], low: +d[3], close: +d[4]
+                    open:  Number(d[1]),
+                    high:  Number(d[2]),
+                    low:   Number(d[3]),
+                    close: Number(d[4])
                 })));
             });
 
@@ -45,10 +48,10 @@ export default function Chart({ symbol }: Props) {
             const k = JSON.parse(e.data).k;
             series.update(
                 {
-                    time: k.t / 1000,
-                    open: Number(k.o),
-                    high: Number(k.h),
-                    low: Number(k.l),
+                    time: (k.t / 1000) as UTCTimestamp,
+                    open:  Number(k.o),
+                    high:  Number(k.h),
+                    low:   Number(k.l),
                     close: Number(k.c)
                 });
         };
