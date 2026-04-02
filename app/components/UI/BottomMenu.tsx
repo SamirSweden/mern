@@ -1,7 +1,13 @@
 'use client'
 
+import {usePathname} from "next/navigation";
 import Link from "next/link";
-import {Home,AlignHorizontalDistributeCenter,Coins} from "lucide-react";
+import {
+    Home,
+    AlignHorizontalDistributeCenter,
+    Coins,
+    GlobeLock}
+    from "lucide-react";
 
 const links = [
     {
@@ -15,25 +21,35 @@ const links = [
     {
         href:'/coins',
         icon:Coins
+    },
+    {
+        href:'/protocols',
+        icon:GlobeLock
     }
 ];
 
 
 const BottomMenu = () => {
+    const pathname = usePathname()
+
     return (
         <>
         <div className="max-w-307.5 mx-auto md:px-6 px-4 w-full h-full">
-            <footer className={'global__menu global__footer fixed left-[25%] bottom-0  w-[50%] max-[750]:w-[90%] max-[750px]:left-[5%]   py-10 px-4 max-[750px]:py-3 bg-black shadow-[inset_20px_40px_40px_0_hsla(0,0%,100%,.15)] '}>
+            <footer className={'global__menu global__footer fixed left-[25%] bottom-0  w-[50%] max-[750]:w-[90%] max-[750px]:left-[5%]   py-4 px-4 max-[750px]:py-3 bg-black shadow-[inset_20px_40px_40px_0_hsla(0,0%,100%,.15)] '}>
 
                     <ul className={'flex items-center gap-4 justify-center'}>
                         {links.map((link) => {
                             const IconMenu = link.icon;
+                            const isActive = pathname === link.href;
 
                             return (
                                 <li key={link.href}>
                                     <Link
                                         href={link.href}
-                                        className={'cursor-pointer text-white'}
+                                        className={`cursor-pointer text-white 
+                                        ${
+                                            isActive ? "py-2 px-1 bg-gray-300 rounded-full" : ""
+                                        }`}
                                     >
                                         <IconMenu size={30} />
                                     </Link>
