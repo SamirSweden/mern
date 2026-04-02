@@ -39,6 +39,8 @@ const offerContent = {
 }
 
 const OfferProto = () => {
+
+
     return (
         <>
             <section className={'tvl py-24 px-0'}>

@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import {HomeIcon, GlobeLock, TextAlignEnd, X, Menu,ChartNoAxesCombined} from "lucide-react";
+import {HomeIcon, GlobeLock, TextAlignEnd, X,ChartNoAxesCombined} from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
 
