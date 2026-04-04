@@ -25,7 +25,7 @@ export default  function CryptoCard({coin}: Props){
                 <div className="ml-auto text-sm font-medium">
                     <span className={isPositive ? "text-green-400" : "text-red-400"}>
                       {isPositive ? "+" : ""}
-                        {coin.change.toFixed(2)}%
+                        {coin.change}%
                     </span>
                 </div>
             </div>

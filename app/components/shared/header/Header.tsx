@@ -65,7 +65,7 @@ const Header = () => {
                             {isOpen ?  <X size={30} /> : <TextAlignEnd size={30} />}
                         </button>
 
-                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 bg-black transition-transform duration-300
+                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl shadow-[inset_20px_10px_20px_0_hsla(0,0%,100%,.15)] transition-transform duration-300
                     inset-0`}>
                             <ul className="flex flex-col gap-1.75 shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)]   max-w-73.5 w-full rounded-3xl p-5">
                                 {links.map((l) => (
