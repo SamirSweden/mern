@@ -20,7 +20,7 @@ export default  async function Banner(){
                 <div className="grid grid-cols-2 gap-6  max-[768px]:grid-cols-1 ">
                     <div className={'flex items-center gap-4 flex-col'}>
                         <h2 className={'text-5xl max-[768px]:text-3xl font-black max-w-137.5 leading-16'}>{bannerContent.title}</h2>
-                        <Link href={'/'} className={'mt-10 bg-linear-to-br from-[#b21fcc] via-[#222426] to-[#b21fcc] w-full text-white text-center py-5 px-10'}>{bannerContent.btnText}</Link>
+                        <Link href={'/polygon'} className={'rounded-3xl shadow-2xl hover:shadow-white shadow-cyan-400 mt-10 bg-linear-to-br from-[#b21fcc] via-[#222426] to-[#b21fcc] w-full text-white text-center py-5 px-10'}>{bannerContent.btnText}</Link>
                     </div>
                     <CryptoList items={crypto} />
                 </div>
