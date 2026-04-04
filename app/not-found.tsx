@@ -3,6 +3,7 @@
 import type { Metadata } from "next";
 import { useEffect } from "react";
 import {useRouter} from "next/navigation";
+import {clearInterval} from "node:timers";
 
 
 
@@ -13,11 +14,11 @@ export default function NotFound(){
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            router.push('/');
-        }, 1000)
+            router.push("/")
 
-        return () => clearInterval(timer)
-    }, [router])
+            return () => clearInterval(timer)
+        },1000)
+    },[router])
 
     return (
         <>

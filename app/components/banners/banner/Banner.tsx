@@ -1,52 +1,28 @@
-import Image from "next/image";
+import CryptoList from "@/app/components/CryptoList";
+import {getCryptoMarkets} from "@/app/lib/api/crypto";
 
-
-import bannerImg from "@/app/assets/banner.png"
 
 const bannerContent = {
-    title: "Invest in your future",
-    desc: "Millions of crypto investors trust Kraken, the best crypto platform.",
-    basedText: "*Based on the January 2025 Forbes Advisor review of crypto platforms."
+    title: "Beyond crypto. Trade global assets with USDT."
 }
 
-const Banner = () => {
+
+
+
+export default  async function Banner(){
+    const crypto = await getCryptoMarkets()
+
     return (
         <section className="invest__banner min-h-screen py-16 md:py-24">
-            <div className="max-w-[1230px] px-4 md:px-6 mx-auto w-full h-full">
-
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-10 h-full">
-
-                    <div className="w-full max-w-[500px]">
-                        <Image
-                            src={bannerImg}
-                            alt="kraken img"
-                            className="w-full h-auto object-contain"
-                        />
-                    </div>
-
-                    <div className="max-w-[550px] w-full text-center lg:text-left">
-
-                        <h2 className="font-extrabold text-3xl sm:text-4xl md:text-5xl mb-6 text-white">
-                            {bannerContent.title}
-                        </h2>
-
-                        <p className="font-bold text-base sm:text-lg md:text-xl mb-6">
-                            {bannerContent.desc}
-                        </p>
-
-                        <span className="text-gray-500 text-sm sm:text-base">
-                    {bannerContent.basedText}
-                </span>
-                    </div>
+            <div className="max-w-307.5 mx-auto md:px-6 px-4 w-full h-full">
+                <div className="flex items-center justify-between h-full">
+                    <h2 className={'text-5xl font-black max-w-137.5 leading-16'}>{bannerContent.title}</h2>
+                    <CryptoList items={crypto} />
                 </div>
             </div>
         </section>
     )
 }
-
-
-
-export default Banner
 
 
 

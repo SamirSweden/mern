@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   await fetch(`${request.nextUrl.origin}/api/stats`, { method: "POST" });
   return NextResponse.next();
 }
