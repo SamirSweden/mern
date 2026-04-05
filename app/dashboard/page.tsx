@@ -5,6 +5,7 @@ import BottomMenu from "@/app/components/UI/BottomMenu";
 
 export default  async function Dashboard(){
     const coins = await getCoins();
+    await new Promise((res) => setTimeout(res , 2000))
 
     return <>
         <section className={'py-20 px-0 bg-black'}>

@@ -9,8 +9,6 @@ const bannerContent = {
 }
 
 
-
-
 export default  async function Banner(){
     const crypto = await getCryptoMarkets()
 
@@ -28,7 +26,3 @@ export default  async function Banner(){
         </section>
     )
 }
-
-
-
-

@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function PolygonLayout({children} : {children: React.ReactNode}) {
     return (
         <>
+            <Header />
             {children}
         </>
     )
