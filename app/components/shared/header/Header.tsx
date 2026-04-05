@@ -39,7 +39,9 @@ const Header = () => {
                     <div className="flex items-center justify-between">
                         <div className="header__logo flex items-center gap-12.5">
                             <Link className={' drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>Kraken</Link>
-                            <ul className="header__near flex items-center backdrop-blur-3xl gap-4 max-[600px]:hidden py-3 px-4  rounded-3xl shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)] ">
+                            
+                        </div>
+                        <ul className="header__near flex items-center backdrop-blur-3xl gap-4 max-[600px]:hidden py-3 px-4 bg-black  rounded-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] ">
                                 {links.map((link) => {
                                     const icon = link.icon;
                                     const isActive = pathname === link.href;
@@ -54,11 +56,10 @@ const Header = () => {
                                     )
                                 })}
                             </ul>
-                        </div>
                         <div className={'flex items-center '}>
                             <button onClick={() => router.push('/sign-in')}
-                            className={'max-[600px]:hidden bg-white text-black py-2.5 px-5 capitalize font-mono  rounded-2xl cursor-pointer hover:bg-yellow-300'}
-                            >sign in</button>
+                            className={'max-[600px]:hidden bg-white hover:bg-[#171212] hover:text-white text-black py-4 px-8 rounded-full capitalize cursor-pointer'}
+                            >get started</button>
                         </div>
 
                         <button onClick={() => setIsOpen(!isOpen)} className={'min-[600px]:hidden z-50 text-bold'}>

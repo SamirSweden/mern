@@ -7,7 +7,7 @@ import Link from "next/link";
 export default async function CryptoList({items} : {items: Crypto[]}){
     return (
         <>
-            <div className="py-4 px-10 w-full  rounded-4xl   text-white w-[320px]  bg-black ">
+            <div className="py-4 px-10 w-full  rounded-4xl   text-white w-[320px]  bg-black shadow-[inset_100px_40px_50px_0_hsla(0,0%,100%,.15)]  ">
                 <p className="text-lg mb-4">Popular</p>
                 <ul className="space-y-3.5 mb-4">
                     {items.map((item) => (
@@ -30,7 +30,7 @@ export default async function CryptoList({items} : {items: Crypto[]}){
                 </ul>
                 <div className={'flex items-center gap-3 w-full max-[768px]:flex-col'}>
                     <Link href={'/dashboard'} className={'py-4 w-full text-center hover:bg-gray-400 font-mono capitalize px-5 bg-white text-black rounded-2xl '}>dashboard</Link>
-                    <Link href={'/coins'} className={'py-4 w-full text-center hover:bg-gray-400 font-mono capitalize  px-5 bg-white text-black rounded-2xl '}>coins</Link>
+                    <Link href={'/coins'} className={'py-4 w-full text-center hover:bg-gray-200 font-mono capitalize  px-5 bg-white/50  text-black rounded-2xl '}>coins</Link>
                 </div>
             </div>
         </>
