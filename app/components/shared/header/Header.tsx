@@ -57,16 +57,16 @@ const Header = () => {
                                 })}
                             </ul>
                         <div className={'flex items-center '}>
-                            <button onClick={() => router.push('/sign-in')}
+                            <button onClick={() => router.push('/dashboard')}
                             className={'max-[600px]:hidden bg-white hover:bg-[#171212] hover:text-white text-black py-4 px-8 rounded-full capitalize cursor-pointer'}
-                            >get started</button>
+                            >dashboard</button>
                         </div>
 
                         <button onClick={() => setIsOpen(!isOpen)} className={'min-[600px]:hidden z-50 text-bold'}>
                             {isOpen ?  <X size={30} /> : <TextAlignEnd size={30} />}
                         </button>
 
-                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl shadow-[inset_20px_10px_20px_0_hsla(0,0%,100%,.15)] transition-transform duration-300
+                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl bg-black shadow-[inset_20px_10px_20px_0_hsla(0,0%,100%,.15)] transition-transform duration-300
                     inset-0`}>
                             <ul className="flex flex-col gap-1.75 shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)]   max-w-73.5 w-full rounded-3xl p-5">
                                 {links.map((l) => (
@@ -81,8 +81,8 @@ const Header = () => {
                                 ))}
                             </ul>
                             <div className="header__apps  flex flex-col gap-[10px] !px-5 items-center justify-center fixed bottom-7 left-0 w-full  ">
-                                <button onClick={() => router.push('/sign-in')} className="login__btn capitalize py-4 px-7 rounded-md shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] w-full ">
-                                    login
+                                <button onClick={() => router.push('/dashboard')} className="dashboard__btn capitalize py-4 px-7 rounded-md shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] w-full ">
+                                    dashboard
                                 </button>
                             </div>
                         </div>

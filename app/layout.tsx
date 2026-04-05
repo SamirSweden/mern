@@ -3,6 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import ClientWrapper from "@/app/components/ClientWrapper";
+import SideBar from "./components/shared/sidebar/SideBar";
 
 
 const jetbrains = JetBrains_Mono({
@@ -29,6 +30,7 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${jetbrains.variable}`}
     >
+      <SideBar />
 
       <ClientWrapper>
         {children}
