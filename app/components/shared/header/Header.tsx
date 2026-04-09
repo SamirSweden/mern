@@ -75,7 +75,7 @@ const Header = () => {
                             </ul>
                         <div className={'flex items-center '}>
                             <button onClick={() => router.push('/dashboard')}
-                            className={'max-[600px]:hidden bg-white hover:bg-[#171212] hover:text-white text-black py-4 px-8 rounded-full capitalize cursor-pointer'}
+                            className={'max-[710px]:hidden bg-white hover:bg-[#171212] hover:text-white text-black py-4 px-8 rounded-full capitalize cursor-pointer'}
                             >dashboard</button>
                         </div>
 
