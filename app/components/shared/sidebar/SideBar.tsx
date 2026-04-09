@@ -47,7 +47,7 @@ const SideBar = () => {
               key={slink.href}
               className={`cursor-pointer text-lg ${
                 isActive
-                  ? "bg-linear-to-br from-[#691d4c] to-[#19081f] py-5 px-5 rounded-full "
+                  ? "bg-linear-to-br from-[#111] to-[#2c064d] py-5 px-5 rounded-full "
                   : ""
               }
                     `}

@@ -1,16 +1,33 @@
 'use client'
 
 import Link from "next/link";
-import {HomeIcon, GlobeLock, TextAlignEnd, X,ChartNoAxesCombined} from "lucide-react";
+import {HomeIcon, GlobeLock, TextAlignEnd, X,ChartNoAxesCombined,Code} from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
 
 
 
 const links = [
-    {href: "/", label: "Home", icon: <HomeIcon />},
-    {href: "/protocols", label: "Protocols", icon: <GlobeLock /> },
-    {href: "/chart", label: "Chart", icon: <ChartNoAxesCombined /> },
+    {
+        href: "/", 
+        label: "Home",
+        icon: <HomeIcon />
+    },
+    {
+        href: "/protocols", 
+        label: "Protocols", 
+        icon: <GlobeLock /> 
+    },
+    {
+        href: "/chart", 
+        label: "Chart", 
+        icon: <ChartNoAxesCombined />
+    },
+    {
+        href: "/trade-api",
+        label: "API",
+        icon: <Code />
+    }
 ];
 
 const Header = () => {
