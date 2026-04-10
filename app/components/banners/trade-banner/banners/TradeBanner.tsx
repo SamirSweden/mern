@@ -2,6 +2,8 @@
 
 
 import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
+import TradeBannerSkeleton from "./TradeBannerSkeleton";
 
 const tradeBanner = {
   spanText: "Kraken Institutional",
@@ -11,6 +13,17 @@ const tradeBanner = {
 
 const TradeBanner = () => {
     const router = useRouter()
+    const [loading , setLoading] = useState(true)
+
+    useEffect(() => {
+      const timer = setTimeout(() => {
+        setLoading(false)
+    },3000)
+
+    return () => clearInterval(timer)
+    },[])
+
+    if(loading) return <TradeBannerSkeleton />
 
   return (
     <>

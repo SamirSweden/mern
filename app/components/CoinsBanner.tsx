@@ -76,6 +76,7 @@ const CoinBanner = {
 export default  async function CoinsBanner() {
     const coins = await getCoins()
 
+
     return (
         <>
             <section className={'banner-crypto py-10 mb-12 px-0 bg-black min-h-screen'}>

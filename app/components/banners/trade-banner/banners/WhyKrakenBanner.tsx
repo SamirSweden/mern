@@ -16,3 +16,4 @@ const WhyKrakenBanner = () => {
 };
 
 export default WhyKrakenBanner;
+  
