@@ -1,4 +1,7 @@
+'use client'
 
+import ProtoSkeleton from "@/app/protocols/ProtoSkeleton"
+import { useEffect, useState } from "react"
 
 
 const bannerContent = {
@@ -7,7 +10,22 @@ const bannerContent = {
     desc: "From launch planning to liquidity, custody, staking, and user growth, Kraken 360 supports teams at every stage.",
 }
 
+
+
+
 const ProtoBanner = () => {
+    const [loading , setLoading] = useState(true)
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoading(false)
+        },3000)
+
+        return () => clearInterval(timer)
+    },[])
+
+    if(loading) return <ProtoSkeleton />
+
     return (
         <>
             <section className={'h-screen'}>
