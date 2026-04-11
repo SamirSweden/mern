@@ -1,6 +1,6 @@
 "use client";
 
-import { Bitcoin, ChartCandlestick, GlobeLock, Home, SquareChevronRight } from "lucide-react";
+import {Bitcoin, Bot, ChartCandlestick, GlobeLock, Home, SquareChevronRight} from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 
@@ -25,6 +25,10 @@ const slinks = [
     href: "/chart",
     icon: ChartCandlestick,
   },
+  {
+    href: "/chat",
+    icon :Bot
+  }
 ];
 
 const SideBar = () => {

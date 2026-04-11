@@ -1,0 +1,27 @@
+
+@import "tailwindcss";
+
+
+
+@theme {
+    --color-kraken-purple: #8b11b8;
+    --color-kraken-orange: d6860d,
+}
+
+
+@layer components {
+    .title-gradient{
+        @apply text-4xl font-black text-gray-600 ;
+    }
+
+    .span {
+        @apply text-lg text-white ml-4 animate-pulse
+    }
+
+    .logo{
+        @apply text-7xl text-white max-[491px]:text-5xl max-[354px]:text-3xl
+    }
+}
+
+
+

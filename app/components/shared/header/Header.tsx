@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import {HomeIcon, GlobeLock, TextAlignEnd, X,ChartNoAxesCombined,Code} from "lucide-react";
+import {HomeIcon, GlobeLock, TextAlignEnd, X, ChartNoAxesCombined, Code, Bot, Box} from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
 
@@ -28,6 +28,8 @@ const links = [
         label: "API",
         icon: <Code />
     }
+    ,
+
 ];
 
 const Header = () => {
@@ -83,7 +85,7 @@ const Header = () => {
                             {isOpen ?  <X size={30} /> : <TextAlignEnd size={30} />}
                         </button>
 
-                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl bg-black shadow-[inset_20px_10px_20px_0_hsla(0,0%,100%,.15)] transition-transform duration-300
+                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl bg-black  transition-transform duration-300
                     inset-0`}>
                             <ul className="flex flex-col gap-1.75 shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)]   max-w-73.5 w-full rounded-3xl p-5">
                                 {links.map((l) => (
@@ -98,6 +100,9 @@ const Header = () => {
                                 ))}
                             </ul>
                             <div className="header__apps  flex flex-col gap-[10px] !px-5 items-center justify-center fixed bottom-7 left-0 w-full  ">
+                                <button onClick={() => router.push('/chat')} className="chat__btn flex justify-center items-center text-center text-black gap-4 capitalize py-4 px-7 rounded-md bg-white w-full ">
+                                    Kraken GPT <Bot size={30} />
+                                </button>
                                 <button onClick={() => router.push('/dashboard')} className="dashboard__btn capitalize py-4 px-7 rounded-md shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] w-full ">
                                     dashboard
                                 </button>
