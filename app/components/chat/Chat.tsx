@@ -4,6 +4,7 @@ import './chat.css'
 import { useState, useTransition} from "react";
 import {SendMessage, Message} from "@/app/lib/api/actions";
 import { MoveUp } from "lucide-react";
+import Link from "next/link";
 
 
 export default function Chat(){
@@ -75,6 +76,10 @@ export default function Chat(){
 
                         </div>
 
+                    </div>
+
+                    <div>
+                        <span className={'text-center absolute left-1/2 -translate-x-1/2 bottom-1 text-sm text-gray-500'}><Link href={'/'} className={'underline text-white'}> kraken.su</Link> -can make mistakes &mdash; Ryan</span>
                     </div>
 
 
