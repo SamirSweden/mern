@@ -45,7 +45,7 @@ export default function Chat(){
                                     Kraken gpt <br/>
                                 </span>
                                 &mdash; <span className={'animate-pulse'}>trading</span>
-                                <span className={'span'}>/</span> <span className={'animate-pulse'}>  coding</span>  <span className={'span'}>/</span> <span className={'animate-pulse'}>coding</span> </h1>
+                                <span className={'span'}>/</span> <span className={'animate-pulse'}>  coding</span>  <span className={'span'}>/</span> <span className={'animate-pulse'}>your best assistant</span> </h1>
                         </div>
                         {messages.map((m,i) => (
                             <div key={i} className={''}>
@@ -55,6 +55,7 @@ export default function Chat(){
                     </div>
 
                     <div className="absolute left-0 bottom-8 w-full flex justify-center px-4">
+
                         <div className="relative flex items-center w-full max-w-[50%] max-[768px]:max-w-full bg-black rounded-full p-2 shadow-[inset_4px_4px_10px_5px_hsla(0,0%,100%,.15)] focus-within:ring-2 focus-within:ring-purple-500 transition-all">
 
                             <input
@@ -71,8 +72,11 @@ export default function Chat(){
                             >
                                 <MoveUp size={24} strokeWidth={3} />
                             </button>
+
                         </div>
+
                     </div>
+
 
                 </div>
             </div>
