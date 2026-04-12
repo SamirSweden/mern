@@ -55,7 +55,7 @@ export default function Chat(){
                         ))}
                     </div>
 
-                    <div className="absolute left-0 bottom-8 w-full flex justify-center px-4">
+                    <div className="absolute left-0 bottom-10 w-full flex justify-center px-4">
 
                         <div className="relative flex items-center w-full max-w-[50%] max-[768px]:max-w-full bg-black rounded-full p-2 shadow-[inset_4px_4px_10px_5px_hsla(0,0%,100%,.15)] focus-within:ring-2 focus-within:ring-purple-500 transition-all">
 
@@ -79,7 +79,7 @@ export default function Chat(){
                     </div>
 
                     <div>
-                        <span className={'text-center absolute left-1/2 -translate-x-1/2 bottom-1 text-sm text-gray-500'}><Link href={'/'} className={'underline text-white'}> kraken.su</Link> -can make mistakes &mdash; Ryan</span>
+                        <span className={'text-center absolute w-full left-1/2 -translate-x-1/2 bottom-0 text-sm text-gray-700'}><Link href={'/'} className={'underline text-white'}> kraken.su</Link> -can make mistakes &mdash; Ryan</span>
                     </div>
 
 
