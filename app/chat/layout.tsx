@@ -6,7 +6,7 @@ import SideBar from "@/app/components/shared/sidebar/SideBar";
 
 
 export const metadata: Metadata = {
-    title: "🤖 Kraken gpt",
+    title: "🤖 use the best,use Kraken gpt",
     description:"use our fresh ai bot , use prompts for trading , coding , and all that stuff"
 }
 
