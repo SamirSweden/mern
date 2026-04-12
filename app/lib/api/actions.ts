@@ -1,44 +1,38 @@
 'use server'
 
-
-
-export type  Message = {
+export type Message = {
     role: "user" | "assistant",
     content: string
 }
 
-export  async function SendMessage(messages: Message[]) {
-    const res = await fetch("https://api.openai.com/v1/chat/completions" , {
+export async function SendMessage(messages: Message[]) {
+
+    const res = await fetch("https://api.llmapi.ai/v1/chat/completions", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
-            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`
+            "Authorization": `Bearer ${process.env.LLAMA_API_KEY}`
         },
         body: JSON.stringify({
-            model: "gpt-4o-mini",
+            model: "llama3.1-8b", // 🔥 ВОТ ЭТО ГЛАВНОЕ
             messages: [
                 {
                     role: "system",
                     content: "You are a helpful assistant"
                 },
-                ...messages,
-            ],
+                ...messages
+            ]
         })
     });
 
     const data = await res.json();
+
     console.log("STATUS:", res.status);
     console.log("FULL RESPONSE:", JSON.stringify(data, null, 2));
 
     if (!res.ok) {
-        console.error("OPENAI ERROR:", data);
         throw new Error(JSON.stringify(data));
     }
 
-    return data.choices?.[0]?.message?.content ?? "no response";
+    return data?.choices?.[0]?.message?.content ?? "no response";
 }
-
-
-
-
-
