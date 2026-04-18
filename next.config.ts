@@ -7,6 +7,10 @@ const nextConfig: NextConfig = {
               protocol:"https",
               hostname:"assets-cms.kraken.com",
             },
+            {
+                protocol:"https",
+                hostname:"companieslogo.com",
+            },
         ]
     }
 };

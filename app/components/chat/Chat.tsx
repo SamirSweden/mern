@@ -88,11 +88,11 @@ focus-within:ring-2 focus-within:ring-purple-500 transition-all">
                         </div>
                     </div>
 
-                    <div className={'fixed bottom-0 left-0 w-full flex justify-center z-40\n' +
+                    <div className={'fixed bottom-0 left-0 w-full flex  justify-center z-40\n' +
                         'bg-black/40 backdrop-blur-xl py-2' }>
                         <span className="text-center text-sm text-gray-400">
-  <Link href="/" className="underline text-white">kraken.su</Link>
-                            {" "} - can make mistakes — Ryan
+  <Link href="/" className=" text-white animate-pulse">kraken.su</Link>
+                          &mdash;  Ryan
 </span>
                     </div>
 
