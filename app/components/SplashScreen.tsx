@@ -15,9 +15,9 @@ const SplashScreen = ({finishLoading} : { finishLoading: () => void}) => {
         <>
             <div className="fixed inset-0 z-50 flex items-center flex-col justify-center bg-black text-white">
                 <Image src={Logo} width={200} height={100} alt={'logo'} />
-                <h1 className="text-6xl font-bold animate-pulse mt-5">Kraken.su</h1>
+                <h1 className="text-7xl font-bold animate-pulse mt-5">kraken.su</h1>
                 <div className="flex items-center justify-center mt-10">
-                    <span className={'bg-clip-text text-transparent bg-gradient-to-br from-pink-700 via-yellow-400 to-blue-500 text-xl capitalize'}>Azimov &mdash; Kraken.su</span>
+                    <span className={'bg-clip-text text-transparent text-4xl bg-linear-to-br from-[#ebb609] to-[#e312b9] text-xl capitalize'}>Azimov &mdash; Kraken.su</span>
                 </div>
             </div>
         </>

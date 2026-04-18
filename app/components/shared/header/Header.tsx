@@ -52,7 +52,7 @@ const Header = () => {
         <>
             <header className={`header py-5 px-0 sticky top-0 w-full transition-all duration-300 ${
                 scrolled
-                    ? "bg-linear-to-br shadow-[inset_10px_10px_20px_0_rgba(20,20,20,0.2)] from-[#2d3036] via-black to-[#2b2b2b]  "
+                    ? "bg-linear-to-br shadow-[inset_10px_10px_20px_0_rgba(20,20,20,0.2)] backdrop-blur-3xl"
                     : ""
             }`}>
                 <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
