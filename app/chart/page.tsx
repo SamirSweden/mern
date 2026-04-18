@@ -5,6 +5,9 @@ import { useState } from "react";
 import Chart from "./Chart"
 import Link from "next/link";
 import ChartBanner from "@/app/components/banners/banner/ChartBanner";
+import TradePanel from "@/app/components/exchange/TradePanel";
+import Balance from "@/app/components/exchange/Balance";
+import Positions from "@/app/components/exchange/Positions";
 
 
 const coins = [
@@ -28,6 +31,7 @@ export default function ChartPage(){
                     >Kraken.su</Link>
                     <span className={'bg-linear-to-br from-[#2116b8] via-[#f00e3f] to-[#240d29] rounded-full text-sm py-1 px-3'}>AI bots soon</span>
                 </div>
+                <Balance />
                 <div className="grid grid-cols-3 gap-2 overflow-x-auto no-scrollbar w-full md:w-auto items-center py-2 px-2 rounded-full  bg-gradient-to-br from-[#12161a] to-[#292721] mb-6">
                     {coins.map((c) => (
                         <button
@@ -42,7 +46,9 @@ export default function ChartPage(){
                             {c.label}
                         </button>
                     ))}
+
                 </div>
+
             </div>
             <div className="mt-6 ">
                 <Chart symbol={symbol}  />
@@ -55,3 +61,7 @@ export default function ChartPage(){
         </div>
     </>
 }
+
+
+// <TradePanel />
+// <Positions />

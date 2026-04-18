@@ -11,8 +11,6 @@ const bannerContent = {
 }
 
 
-
-
 const ProtoBanner = () => {
     const [loading , setLoading] = useState(true)
 

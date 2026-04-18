@@ -35,7 +35,7 @@ const ProCard = () => {
 
     return (
         <>
-            <div className={'py-6 px-0 bg-[#111]'}>
+            <div className={'py-6 px-0 bg-black'}>
                 <div className="max-w-[1230px] px-4 md:px-6 mx-auto w-full h-full">
                     <div className="grid grid-cols-3 gap-2 max-[930px]:grid-cols-2 max-[930px]:gap-5 max-[620px]:grid-cols-1">
                         {cards.map((card) => {
@@ -60,7 +60,7 @@ const ProCard = () => {
                     <div className={'flex items-center justify-center mt-14 max-[425px]:w-full'}>
                         <button
                             onClick={() => router.push("/login")}
-                            className={'bg-violet-700 text-white py-3 max-[425px]:w-full px-4 rounded-4xl cursor-pointer hover:bg-violet-500  capitalize shadow-2xl hover:shadow-yellow-400   transition transform duration-300 hover:-translate-y-4 '}
+                            className={'bg-linear-to-br from-[#1252e6]  to-[#ff0841] text-white py-3 max-[425px]:w-full px-4 rounded-4xl cursor-pointer hover:bg-violet-500  capitalize shadow-2xl hover:shadow-yellow-400   transition transform duration-300 hover:-translate-y-4 '}
                         >
                             sign up
                         </button>

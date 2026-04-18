@@ -14,11 +14,11 @@ const PreFooter = () => {
 
     return (
         <>
-            <section className={'shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)] py-14 prefooter rounded-t-[80px]'}>
+            <section className={' py-14 prefooter max-w-307.5 mx-auto rounded-t-[80px] shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)]'}>
                 <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
-                    <div className="flex items-center justify-center flex-col gap-10">
-                        <h2 className={'text-white text-3xl sm:text-4xl md:text-5xl  text-wrap break-words leading-tight'}>{bannerContent.title}</h2>
-                        <p className={'text-white text-lg text-wrap'}>{bannerContent.desc}</p>
+                    <div className="flex items-center justify-center flex-col gap-10 ">
+                        <h2 className={'text-white text-3xl sm:text-4xl md:text-5xl max-[366px]:text-2xl  text-wrap break-words leading-tight'}>{bannerContent.title}</h2>
+                        <p className={'text-white text-lg text-wrap max-[388px]:text-center'}>{bannerContent.desc}</p>
                         <div className={'max-[420px]:w-full'}>
                             <button
                                 onClick={() => router.push('/sign-in')}

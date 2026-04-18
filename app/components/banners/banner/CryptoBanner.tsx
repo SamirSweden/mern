@@ -7,7 +7,7 @@ const cryptoImg = "https://assets-cms.kraken.com/images/51n36hrp/facade/945a2d69
 const CryptoBanner = () => {
     return(
         <>
-            <section className={'py-10 bg-[#111] rounded-t-full max-[900px]:rounded-t-sm max-[5200px]:rounded-t-xl'}>
+            <section className={'py-10 bg-black rounded-t-full max-[900px]:rounded-t-sm max-[5200px]:rounded-t-xl'}>
                 <div className="max-w-[1230px] px-4 md:px-6 mx-auto w-full h-full">
                     <div className="flex items-center flex-col justify-center">
                         <Image src={cryptoLogo} width={100} height={100} alt={"Crypto Logo"} />
