@@ -42,7 +42,7 @@ const TradeBanner = () => {
               </p>
               <div className="flex items-center max-[400px]:w-full">
                 <button 
-                    onClick={() => router.push('/')}
+                    onClick={() => router.push('/api')}
                     className="bg-white text-black max-[400px]:w-full rounded-2xl py-3 px-6 cursor-pointer text-lg capitalize hover:bg-white/60" 
                 >
                     get started 

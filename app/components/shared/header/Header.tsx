@@ -24,11 +24,7 @@ const links = [
         label: "Chart", 
         icon: <ChartNoAxesCombined />
     },
-    {
-        href: "/trade-api",
-        label: "API",
-        icon: <Code />
-    }
+
     ,
 
 ];

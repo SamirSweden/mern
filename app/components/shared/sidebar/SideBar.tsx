@@ -1,6 +1,6 @@
 "use client";
 
-import {Bitcoin, Bot, ChartCandlestick, GlobeLock, Home, SquareChevronRight} from "lucide-react";
+import {Bitcoin, Bot, ChartCandlestick, CodeXml, GlobeLock, Home, SquareChevronRight} from "lucide-react";
 import { usePathname } from "next/navigation";
 import { useRouter } from "next/navigation";
 
@@ -9,10 +9,7 @@ const slinks = [
     href: "/",
     icon: Home,
   },
-  {
-    href: "/protocols",
-    icon: GlobeLock,
-  },
+
   {
     href: "/coins",
     icon: Bitcoin,
@@ -28,7 +25,11 @@ const slinks = [
   {
     href: "/chat",
     icon :Bot
-  }
+  },
+  {
+    href: "/api",
+    icon: CodeXml
+  },
 ];
 
 const SideBar = () => {
@@ -38,7 +39,7 @@ const SideBar = () => {
   return (
     <>
       <div
-        className="fixed left-4 top-1/2 -translate-y-1/2 w-20 h-80 rounded-4xl bg-black  border 
+        className="fixed left-4 top-1/2 -translate-y-1/2 w-20 h-80 rounded-2xl bg-black  border
             border-gray-800  flex items-center flex-col justify-around    max-[768px]:hidden shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] hover:bg-[#111]"
       >
         {slinks.map((slink) => {
@@ -51,7 +52,7 @@ const SideBar = () => {
               key={slink.href}
               className={`cursor-pointer text-lg ${
                 isActive
-                  ? "bg-linear-to-br from-[#111] to-[#2c064d] py-5 px-5 rounded-full "
+                  ? "bg-linear-to-br from-[#3b1e06] via-[#24201c] to-[#1a1c26] text-black py-5 px-5 rounded-full "
                   : ""
               }
                     `}
