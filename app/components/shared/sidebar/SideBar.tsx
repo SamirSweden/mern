@@ -27,7 +27,7 @@ const slinks = [
     icon :Bot
   },
   {
-    href: "/api",
+    href: "/docs",
     icon: CodeXml
   },
 ];
@@ -52,7 +52,7 @@ const SideBar = () => {
               key={slink.href}
               className={`cursor-pointer text-lg ${
                 isActive
-                  ? "bg-linear-to-br from-[#3b1e06] via-[#24201c] to-[#1a1c26] text-black py-5 px-5 rounded-full "
+                  ? "bg-linear-to-br from-[#541818]  to-[#1a0212] text-black py-5 px-5 rounded-full "
                   : ""
               }
                     `}

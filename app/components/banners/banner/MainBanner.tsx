@@ -1,12 +1,18 @@
+'use client'
+
+
+
 import LoginButton from "@/app/components/UI/LoginButton";
+import {useRouter} from "next/navigation";
 
 const mainContent = {
    heading:  "Reach your peak with convenient web3 platform",
-
 }
 
 
 export default  function MainBanner() {
+    const router = useRouter();
+
     return (
         <>
             <section className={'bg-linear-to-br from-[#383523] z-10  via-black to-[#1c062b] min-h-screen px-0 py-25'}>
@@ -23,8 +29,13 @@ export default  function MainBanner() {
                             {mainContent.heading}
                         </h1>
 
-                        <div className={'flex items-center mt-10 max-[425px]:w-full'}>
+                        <div className={'flex items-center mt-10 max-[425px]:flex-col max-[425px]:w-full gap-4'}>
                             <LoginButton />
+                            <button
+                                className={'capitalize cursor-pointer transition-transform duration-300 hover:-translate-y-2 '}
+                                onClick={() => router.push('/docs')}>
+                                docs
+                            </button>
                         </div>
 
                     </div>
