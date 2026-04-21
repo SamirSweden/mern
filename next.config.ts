@@ -11,8 +11,10 @@ const nextConfig: NextConfig = {
                 protocol:"https",
                 hostname:"companieslogo.com",
             },
+
         ]
     }
 };
+
 
 export default nextConfig;

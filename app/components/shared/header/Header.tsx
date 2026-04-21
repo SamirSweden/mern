@@ -44,7 +44,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={`header py-5 px-0 sticky top-0 w-full transition-all duration-300 ${
+            <header className={`header py-5 px-0  sticky top-0 w-full transition-all duration-300 ${
                 scrolled
                     ? "bg-linear-to-br shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] from-[#474404] via-[#111] to-black  "
                     : ""
