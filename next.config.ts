@@ -19,6 +19,10 @@ const nextConfig: NextConfig = {
                 protocol:"https",
                 hostname:"nextjs.org",
             },
+            {
+                protocol: "https",
+                hostname:"devio2023-media.developers.io",
+            }
         ]
     }
 };
