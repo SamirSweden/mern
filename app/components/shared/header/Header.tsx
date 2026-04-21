@@ -5,6 +5,7 @@ import {HomeIcon, GlobeLock, TextAlignEnd, X, ChartNoAxesCombined, Code, Bot, Bo
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
 import Image from "next/image";
+import LoginButton from "@/app/components/UI/LoginButton";
 
 const krakenLogo = "https://companieslogo.com/img/orig/kraken_BIG.D-7509e204.png?t=1720244494"
 
@@ -48,7 +49,7 @@ const Header = () => {
         <>
             <header className={`header py-5 px-0 sticky top-0 w-full transition-all duration-300 ${
                 scrolled
-                    ? "bg-linear-to-br shadow-[inset_10px_10px_20px_0_rgba(20,20,20,0.2)] from-[#2d3036] via-black to-[#2b2b2b]  "
+                    ? "bg-linear-to-br shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] from-black via-[#111] to-[#2b2b2b]  "
                     : ""
             }`}>
                 <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
@@ -85,7 +86,7 @@ const Header = () => {
                             {isOpen ?  <X size={30} /> : <TextAlignEnd size={30} />}
                         </button>
 
-                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl bg-linear-to-br from-[#232324] via-black to-[#a80f8f]   transition-transform duration-300
+                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl bg-linear-to-br from-[#111] via-[#0e2926] to-black   transition-transform duration-300
                     inset-0`}>
                             <ul className="flex flex-col gap-1.75 shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)]   max-w-73.5 w-full rounded-3xl p-5">
                                 {links.map((l) => (
@@ -100,6 +101,7 @@ const Header = () => {
                                 ))}
                             </ul>
                             <div className="header__apps  flex flex-col gap-[10px] !px-5 items-center justify-center fixed bottom-7 left-0 w-full  ">
+                                <LoginButton />
                                 <button onClick={() => router.push('/chat')} className="chat__btn flex justify-center items-center text-center text-black gap-4 capitalize py-4 px-7 rounded-md bg-white w-full ">
                                     Kraken GPT <Bot size={30} />
                                 </button>

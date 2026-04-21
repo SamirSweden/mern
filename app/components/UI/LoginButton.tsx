@@ -22,7 +22,7 @@ export default  function LoginButton(){
     return (
         <>
             <button
-                onClick={() => signIn("github")}
+                onClick={() => signIn("github", {callbackUrl:"/dashboard"})}
                 className={'capitalize max-[425px]:w-full  text-xl font-extrabold bg-white hover:bg-[#1f1c15] capitalize text-black hover:text-white px-[40px] py-4.5 rounded-lg'}>
                  login via GitHub
             </button>
