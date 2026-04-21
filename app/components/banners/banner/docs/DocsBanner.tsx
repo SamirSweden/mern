@@ -1,7 +1,7 @@
 import Image from "next/image";
 import {ChevronRight} from "lucide-react";
 
-
+import code1 from "@/app/assets/code1.png"
 const bannerImg = "https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/learn/dark/dashboard-route.png"
 
 const docsContent = {
@@ -40,11 +40,30 @@ export default  function DocsBanner(){
                             </div>
 
                         </div>
+                        <div className={'mt-[60px] flex items-start flex-col gap-10'}>
+                            <p className={'text-gray-400 text-lg max-[431px]:text-base'}> <span className={'text-gray-400  py-1.5 px-2.5   rounded-xl backdrop-blur-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]'}>app/page.tsx</span>  &mdash; является главной страницой /</p>
+                            <div className="w-full   md:h-auto">
+                                <Image
+                                    priority
+                                    className={'w-[1000px]   h-full  rounded-3xl'}
+                                    src={code1}
+                                    width={800}
+                                    height={800}
+                                    alt={'project structure'}
+                                />
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </section>
         </>
     )
 }
+
+
+
+
+
 
 

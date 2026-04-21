@@ -1,5 +1,6 @@
 import NavbarDocs from "@/app/components/shared/docsnav/NavbarDocs";
-import DocsBanner from "@/app/components/banners/banner/DocsBanner";
+import DocsBanner from "@/app/components/banners/banner/docs/DocsBanner";
+import LayoutExample from "@/app/components/banners/banner/docs/LayoutExample";
 
 
 const DocsPage = () => {
@@ -7,6 +8,7 @@ const DocsPage = () => {
         <main className={'min-h-screen bg-black decoration-none list-none'}>
             <NavbarDocs />
             <DocsBanner />
+            <LayoutExample />
         </main>
     )
 }
