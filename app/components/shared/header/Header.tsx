@@ -25,9 +25,6 @@ const links = [
         label: "Chart", 
         icon: <ChartNoAxesCombined />
     },
-
-    ,
-
 ];
 
 const Header = () => {
@@ -62,6 +59,7 @@ const Header = () => {
                         </div>
                         <ul className="header__near flex items-center backdrop-blur-3xl gap-4 max-[600px]:hidden py-3 px-4 bg-black  rounded-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] ">
                                 {links.map((link) => {
+                                    if(!link?.href) return null;
                                     const icon = link.icon;
                                     const isActive = pathname === link.href;
 
