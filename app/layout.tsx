@@ -4,7 +4,7 @@ import "./globals.css";
 import { Analytics } from "@vercel/analytics/next"
 import ClientWrapper from "@/app/components/ClientWrapper";
 import SideBar from "./components/shared/sidebar/SideBar";
-
+import Providers from "@/app/components/Providers";
 
 const jetbrains = JetBrains_Mono({
   subsets: ["latin"],
@@ -30,11 +30,13 @@ export default function RootLayout({
       suppressHydrationWarning
       className={`${jetbrains.variable} bg-black text-white`}
     >
+    <Providers>
       <SideBar />
         <ClientWrapper>
           {children}
         </ClientWrapper>
       <Analytics />
+    </Providers>
     </body>
   </html>
   );

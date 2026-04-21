@@ -1,3 +1,4 @@
+
 import Header from "@/app/components/shared/header/Header";
 import Banner from "@/app/components/banners/banner/Banner";
 import BannerCard from "@/app/components/UI/BannerCard";
@@ -12,15 +13,15 @@ import MainBanner from "@/app/components/banners/banner/MainBanner";
 export default function Home(){
     return (
         <>
-            <Header />
-            <MainBanner/>
-            <Banner />
-            <BannerCard />
-            <WhyKraken />
-            <CryptoBanner/>
-            <ProCard />
-            <ThreeCards />
-            <PreFooter/>
+                <Header />
+                <MainBanner/>
+                <Banner />
+                <BannerCard />
+                <WhyKraken />
+                <CryptoBanner/>
+                <ProCard />
+                <ThreeCards />
+                <PreFooter/>
         </>
     )
 }

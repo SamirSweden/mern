@@ -1,3 +1,4 @@
+import LoginButton from "@/app/components/UI/LoginButton";
 
 const mainContent = {
    heading:  "Reach your peak with convenient web3 platform",
@@ -23,9 +24,7 @@ export default  function MainBanner() {
                         </h1>
 
                         <div className={'flex items-center mt-10 max-[425px]:w-full'}>
-                            <button className={'capitalize max-[425px]:w-full  text-xl font-extrabold bg-white hover:bg-[#eb8007] text-black hover:text-white px-[100px] py-4.5 rounded-lg'}>
-                                login
-                            </button>
+                            <LoginButton />
                         </div>
 
                     </div>
