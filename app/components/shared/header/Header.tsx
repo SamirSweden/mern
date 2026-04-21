@@ -78,6 +78,7 @@ const Header = () => {
                             <button onClick={() => router.push('/dashboard')}
                             className={'max-[710px]:hidden bg-white hover:bg-[#171212] hover:text-white text-black py-4 px-8 rounded-full capitalize cursor-pointer'}
                             >dashboard</button>
+
                         </div>
 
                         <button onClick={() => setIsOpen(!isOpen)} className={'min-[600px]:hidden z-50 text-bold'}>

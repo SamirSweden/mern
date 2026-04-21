@@ -31,11 +31,9 @@ export default function RootLayout({
       className={`${jetbrains.variable} bg-black text-white`}
     >
       <SideBar />
-
-      <ClientWrapper>
-        {children}
-      </ClientWrapper>
-
+        <ClientWrapper>
+          {children}
+        </ClientWrapper>
       <Analytics />
     </body>
   </html>
