@@ -1,5 +1,6 @@
 import OauthBanner from "@/app/components/banners/banner/docs/OauthBanner";
 import ExampleBanner from "@/app/components/banners/banner/docs/ExampleBanner";
+import ExampleLayout from "@/app/components/banners/banner/docs/ExampleLayout";
 
 
 const OauthPage = () => {
@@ -7,6 +8,7 @@ const OauthPage = () => {
         <>
             <OauthBanner />
             <ExampleBanner />
+            <ExampleLayout />
         </>
     )
 }
