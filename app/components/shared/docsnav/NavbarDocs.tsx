@@ -29,7 +29,7 @@ export default function  NavbarDocs () {
 
     return (
         <>
-            <header className={'bg-transparent py-3 px-5 sticky left-0 top-0 w-full backdrop-blur-sm shadow-lg'}>
+            <header className={'bg-transparent py-3 px-5 sticky left-0 top-0 w-full backdrop-blur-xl shadow-lg'}>
                 <div className="container">
                     <div className="flex items-center justify-between ">
                         <Link href={'/docs'} className={'flex items-center gap-4 cursor-pointer max-[465px]:gap-1'}>
