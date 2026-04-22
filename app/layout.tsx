@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   description: "invest with in Kraken crypto platform , invest with Ryan",
 };
 
+
+
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
-
-
   return (
    <html lang="en" className={jetbrains.variable}>
     <body
