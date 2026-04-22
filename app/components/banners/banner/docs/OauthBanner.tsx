@@ -32,7 +32,7 @@ export default function OauthBanner() {
 
                             <div className="flex items-center justify-center w-full">
                                 <button
-                                    className={'bg-white text-black hover:bg-white/55 w-full py-5 rounded-full capitalize cursor-pointer'}
+                                    className={'bg-white shadow-2xl shadow-white max-[450px]:rounded-md text-black hover:bg-white/55 w-full py-5 rounded-full capitalize cursor-pointer'}
                                     onClick={() => router.push('https://next-auth-example.vercel.app/auth/signin?callbackUrl=https%3A%2F%2Fnext-auth-example.vercel.app%2F')}>
                                     live demo
                                 </button>
@@ -80,7 +80,7 @@ const StartAuthBanner = () =>  {
                             .env.local
                         </span>
                         также нужно добавить ссылку для Authorization callback URL
-                        <span className="shadow-[inset_4px_4px_70px_0_hsla(0,0%,100%,.15)] rounded-xl py-1 px-3">
+                        <span className="shadow-[inset_4px_4px_70px_0_hsla(0,0%,100%,.15)] text-wrap max-[410px]:text-xs break-all inline-block max-w-full text-xs sm:text-sm md:text-base rounded-xl py-1 px-3">
                             http://localhost:3000/api/auth/callback/github
                         </span>
                     </h2>
