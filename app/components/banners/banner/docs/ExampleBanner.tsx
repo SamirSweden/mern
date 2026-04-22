@@ -14,13 +14,13 @@ const ExampleBanner = () => {
                         <h2 className={'text-white text-3xl'}>Пример кода &mdash;</h2>
                         <div className={'flex items-center flex-col '}>
 
-                            <div className={'bg-[#111] py-4 px-6  w-full flex items-center justify-between macbook'}>
+                            <div className={'bg-[#111] py-4 px-6 max-[425px]:px-2 w-full flex items-center justify-between macbook'}>
                                 <div className="flex items-center gap-2">
                                     <span className="w-3 h-3 max-[370px]:w-2 max-w[370px]:h-2 rounded-full bg-red-500 animate-pulse"></span>
                                     <span className="w-3 h-3 max-[370px]:w-2 max-w[370px]:h-2 rounded-full bg-yellow-400 animate-pulse"></span>
                                     <span className="w-3 h-3 max-[370px]:w-2 max-w[370px]:h-2 rounded-full bg-green-500 animate-pulse"></span>
                                 </div>
-                                <h4 className={'text-gray-400 text-2xl capitalize animate-pulse max-[388px]:text-lg'}>server</h4>
+                                <h4 className={'text-gray-400 text-2xl capitalize animate-pulse max-[388px]:text-sm'}>server</h4>
                                 <h4 className={'text-gray-400 text-lg lowercase max-[388px]:text-sm'}>/api/auth/[...nextauth].ts</h4>
                             </div>
 
