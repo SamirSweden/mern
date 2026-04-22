@@ -62,6 +62,10 @@ const StartAuthBanner = () =>  {
                         <span className="shadow-[inset_4px_4px_70px_0_hsla(0,0%,100%,.15)] rounded-xl py-1 px-3">
                             GITHUB_SECRET
                         </span>
+                        в файл как
+                        <span className="shadow-[inset_4px_4px_70px_0_hsla(0,0%,100%,.15)] rounded-xl py-1 px-3">
+                            .env.local
+                        </span>
                     </h2>
                 </div>
 
@@ -69,6 +73,12 @@ const StartAuthBanner = () =>  {
         </div>
     </>
 }
+
+
+
+
+
+
 
 
 // https://github.com/settings/developers
