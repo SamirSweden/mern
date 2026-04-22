@@ -18,8 +18,8 @@ const links = [
         label: "oauth"
     },
     {
-        path:'/examples',
-        label: "examples"
+        path:'/',
+        label: "kraken"
     },
 ];
 
@@ -30,7 +30,7 @@ export default function  NavbarDocs () {
     return (
         <>
             <header className={'bg-transparent py-3 px-5 sticky left-0 top-0 w-full backdrop-blur-lg shadow-lg'}>
-                <div className="container">
+                <div className="max-w-[1023px] mx-auto w-full h-full">
                     <div className="flex items-center justify-between ">
                         <Link href={'/docs'} className={'flex items-center gap-4 cursor-pointer max-[465px]:gap-1'}>
                             <Image src={logoDeveloper} width={50} height={50} alt={'kraken developers'} className={'max-[465px]:w-[30px] '} />
@@ -93,17 +93,7 @@ export default function  NavbarDocs () {
                 </nav>
             </div>
 
-            <style jsx>
-                {`
-                    .container {
-                        max-width:1230px;
-                        margin: 0 auto;
-                        padding:0 10px;
-                        width:100%;
-                        height:100%;
-                    }
-                `}
-            </style>
+
         </>
     )
 }
