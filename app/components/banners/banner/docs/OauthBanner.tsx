@@ -1,11 +1,16 @@
+'use client'
+
 import {ChevronRight} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import {useRouter} from "next/navigation";
 
 
 const authPhoto = "https://devio2023-media.developers.io/wp-content/uploads/2023/01/Auth.png"
 
 export default function OauthBanner() {
+    const router = useRouter();
+
     return (
         <>
             <section className={' py-10 px-0 bg-black'}>
@@ -24,6 +29,14 @@ export default function OauthBanner() {
                             <Image src={authPhoto} width={400} height={400} alt={'auth.js'} />
 
                             <h4 className={'text-gray-300 text-4xl font-black max-[370px]:text-xl text-center '}>Authentication for Next.js</h4>
+
+                            <div className="flex items-center justify-center w-full">
+                                <button
+                                    className={'bg-white text-black hover:bg-white/55 w-full py-5 rounded-full capitalize cursor-pointer'}
+                                    onClick={() => router.push('https://next-auth-example.vercel.app/auth/signin?callbackUrl=https%3A%2F%2Fnext-auth-example.vercel.app%2F')}>
+                                    live demo
+                                </button>
+                            </div>
 
                         </div>
                     </div>
@@ -45,7 +58,7 @@ const StartAuthBanner = () =>  {
                     <Link
                         href="https://github.com/settings/developers"
                         target="_blank"
-                        className="text-cyan-500 underline ml-2 break-all"
+                        className="text-gray-500  text-sm underline ml-2 break-all"
                     >
                         <br/>
                         github.com/settings/developers
@@ -65,6 +78,10 @@ const StartAuthBanner = () =>  {
                         в файл как
                         <span className="shadow-[inset_4px_4px_70px_0_hsla(0,0%,100%,.15)] rounded-xl py-1 px-3">
                             .env.local
+                        </span>
+                        также нужно добавить ссылку для Authorization callback URL
+                        <span className="shadow-[inset_4px_4px_70px_0_hsla(0,0%,100%,.15)] rounded-xl py-1 px-3">
+                            http://localhost:3000/api/auth/callback/github
                         </span>
                     </h2>
                 </div>
