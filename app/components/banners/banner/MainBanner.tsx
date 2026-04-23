@@ -6,7 +6,7 @@ import LoginButton from "@/app/components/UI/LoginButton";
 import {useRouter} from "next/navigation";
 
 const mainContent = {
-   heading:  "Reach your peak with convenient web3 platform",
+   heading:  "Reach your peak with convenient Web3 platform",
 }
 
 

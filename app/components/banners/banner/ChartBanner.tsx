@@ -4,7 +4,7 @@ import Image from "next/image";
 import {useRouter} from "next/navigation";
 
 const ChartContent = {
-    title: "Kraken Pro: Advanced Crypto Trading",
+    title: "Kraken.Pro: Advanced Crypto Trading",
     text: "The Kraken Pro mobile app delivers all the trading, funding, earn and security features you love about the Kraken exchange in a mobile-first design. Get access to the tools and alerts you need to trade on the go.",
     btnText: "get the app"
 }
