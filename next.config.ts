@@ -1,6 +1,22 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+    async rewrites(){
+        return[
+            {
+              source:'/start',
+              destination: 'https://crypto-app-xi-roan-97.vercel.app/',
+            },
+            {
+                source:'/start/:path*',
+                destination:'https://crypto-app-xi-roan-97.vercel.app/:path*',
+            },
+            {
+                source:'/_next/static/:path*',
+                destination:'https://crypto-app-xi-roan-97.vercel.app/_next/static/:path*',
+            }
+        ]
+    },
     images: {
         remotePatterns: [
             {
@@ -24,7 +40,8 @@ const nextConfig: NextConfig = {
                 hostname:"devio2023-media.developers.io",
             }
         ]
-    }
+    },
+
 };
 
 

@@ -44,13 +44,13 @@ const Header = () => {
 
     return (
         <>
-            <header className={`header py-5 px-0  sticky top-0 w-full transition-all duration-300 ${
+            <header className={`header py-5 px-0 bg-transparent sticky top-0 w-full transition-all duration-300 ${
                 scrolled
-                    ? "bg-linear-to-br shadow-[0_8px_32px_0_rgba(0,0,0,0.8)] from-[#474404] via-[#111] to-black  "
+                    ? "shadow-2xl shadow-gray-600"
                     : ""
             }`}>
                 <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
-                    <div className="flex items-center justify-between">
+                    <div className={`flex items-center justify-between ${scrolled ? "rounded-3xl py-3  px-5  bg-black shadow-[inset_4px_4px_20px_0_hsla(0,0%,100%,.15)] " : ""}`}>
                         <div className="header__logo flex items-center gap-12.5">
                             <Link className={' drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>
                                 <Image src={krakenLogo} width={150} height={150} alt={'Kraken'} />

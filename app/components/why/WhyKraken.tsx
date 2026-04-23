@@ -17,7 +17,7 @@ const WhyKraken = () => {
                     </div>
                     <div className={'flex items-center mt-5 max-[500px]:w-full'}>
                         <button
-                            onClick={() => router.push('/sign-in')}
+                            onClick={() => router.push('/start')}
                             className={'bg-blue-400 text-black  text-center max-[500px]:py-6 max-[500px]:w-full py-4 px-6 rounded-2xl capitalize text-sm cursor-pointer transition transform duration-300 hover:-translate-y-3 shadow-2xl shadow-gray-200 hover:shadow-gray-400'}>get started with kraken</button>
                     </div>
                 </div>
