@@ -8,27 +8,24 @@ const nextConfig: NextConfig = {
                 destination: "https://crypto-app-xi-roan-97.vercel.app/_next/static/:path*",
             },
             {
+                source: "/_next/static/:path*/:file",
+                destination: "https://crypto-app-xi-roan-97.vercel.app/_next/static/:path*/:file",
+            },
+            {
                 source: "/_next/image/:path*",
                 destination: "https://crypto-app-xi-roan-97.vercel.app/_next/image/:path*",
             },
             {
-                source: "/:path*.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)",
-                destination: "https://crypto-app-xi-roan-97.vercel.app/:path*.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff|woff2|ttf|eot)",
-                has: [
-                    {
-                        type: "header",
-                        key: "referer",
-                        value: ".*/start.*",
-                    },
-                ],
-            },
-            {
-                source: "/start/:path*",
-                destination: "https://crypto-app-xi-roan-97.vercel.app/:path*",
+                source: "/:file+(css|js|json|map|png|jpg|jpeg|svg|ico|webp|woff|woff2|ttf)",
+                destination: "https://crypto-app-xi-roan-97.vercel.app/:file",
             },
             {
                 source: "/start",
                 destination: "https://crypto-app-xi-roan-97.vercel.app",
+            },
+            {
+                source: "/start/:path*",
+                destination: "https://crypto-app-xi-roan-97.vercel.app/:path*",
             },
         ];
     },
