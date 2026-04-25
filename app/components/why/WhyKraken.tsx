@@ -9,7 +9,7 @@ const WhyKraken = () => {
 
     return (
         <>
-            <section className={'py-10 px-0'}>
+            <section className={'py-10 px-0 bg-black'}>
                 <div className="max-w-[1230px] px-4 md:px-6 mx-auto w-full h-full">
                     <h1 className={'text-center font-extrabold mb-6 md:mb-8 lg:mb-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl '}>Why Kraken?</h1>
                     <div className="grid grid-cols-3 gap-4 max-[835px]:grid-cols-2  max-[570px]:grid-cols-1">

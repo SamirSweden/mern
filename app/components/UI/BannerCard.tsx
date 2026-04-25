@@ -23,7 +23,7 @@ const data = [
 const BannerCard = () => {
     return(
         <>
-            <div className="bg-transparent py-16 md:py-24 lg:py-[50px]">
+            <div className="bg-black py-16 md:py-24 lg:py-[50px]">
                 <div className="max-w-[1230px] px-4 md:px-6 mx-auto w-full">
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6

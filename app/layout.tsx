@@ -28,7 +28,7 @@ export default function RootLayout({
    <html lang="en" className={jetbrains.variable}>
     <body
       suppressHydrationWarning
-      className={`${jetbrains.variable} bg-black text-white`}
+      className={`${jetbrains.variable}  text-white`}
     >
     <Providers>
       <SideBar />

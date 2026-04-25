@@ -14,21 +14,23 @@ const PreFooter = () => {
 
     return (
         <>
-            <section className={' py-14 prefooter max-w-307.5 mx-auto rounded-t-[80px] shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)]'}>
-                <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
-                    <div className="flex items-center justify-center flex-col gap-10 ">
-                        <h2 className={'text-white text-3xl sm:text-4xl md:text-5xl max-[366px]:text-2xl  text-wrap break-words leading-tight'}>{bannerContent.title}</h2>
-                        <p className={'text-white text-lg text-wrap max-[388px]:text-center'}>{bannerContent.desc}</p>
-                        <div className={'max-[420px]:w-full'}>
-                            <button
-                                onClick={() => router.push('/start')}
-                                className={'max-[420px]:w-full bg-white text-black  py-4 px-6 hover:bg-white/70 cursor-pointer rounded-xl shadow-2xl hover:shadow-gray-400 focus:outline-none transition transform duration-300 hover:-translate-y-3 '}>
-                                {bannerContent.startBtn}
-                            </button>
+            <main className={'bg-black'}>
+                <section className={'bg-black py-14  max-w-307.5 mx-auto rounded-t-[80px] shadow-[inset_4px_4px_60px_0_hsla(0,0%,100%,.15)]'}>
+                    <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
+                        <div className="flex items-center justify-center flex-col gap-10 ">
+                            <h2 className={'text-white text-3xl sm:text-4xl md:text-5xl max-[366px]:text-2xl  text-wrap break-words leading-tight'}>{bannerContent.title}</h2>
+                            <p className={'text-white text-lg text-wrap max-[388px]:text-center'}>{bannerContent.desc}</p>
+                            <div className={'max-[420px]:w-full'}>
+                                <button
+                                    onClick={() => router.push('/start')}
+                                    className={'max-[420px]:w-full bg-white text-black  py-4 px-6 hover:bg-white/70 cursor-pointer rounded-xl shadow-2xl hover:shadow-gray-400 focus:outline-none transition transform duration-300 hover:-translate-y-3 '}>
+                                    {bannerContent.startBtn}
+                                </button>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
+            </main>
         </>
     )
 }
