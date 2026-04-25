@@ -2,17 +2,22 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
     async rewrites() {
-    return [
-      {
-        source: "/start",
-        destination: "https://crypto-app-xi-roan-97.vercel.app",
-      },
-      {
-        source: "/start/:path*",
-        destination: "https://crypto-app-xi-roan-97.vercel.app/:path*",
-      },
-    ];
-  },
+        return [
+            {
+                source: "/_next/static/:path*",
+                destination: "https://crypto-app-xi-roan-97.vercel.app/_next/static/:path*",
+            },
+
+            {
+                source: "/start",
+                destination: "https://crypto-app-xi-roan-97.vercel.app",
+            },
+            {
+                source: "/start/:path*",
+                destination: "https://crypto-app-xi-roan-97.vercel.app/:path*",
+            },
+        ];
+    },
 
     
     images: {
