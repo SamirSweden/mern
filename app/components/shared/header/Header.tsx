@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import {HomeIcon, GlobeLock, TextAlignEnd, X, ChartNoAxesCombined, Code, Bot, Box} from "lucide-react";
+import {HomeIcon, GlobeLock, X, ChartNoAxesCombined, Code, Bot, Box, Equal} from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
 import Image from "next/image";
@@ -46,9 +46,11 @@ const Header = () => {
         <>
             <header className={`header bg-transparent  py-5 px-0  sticky top-0 w-full transition-all duration-300`}>
                 <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full ">
-                    <div className={`flex items-center justify-between ${scrolled ? "rounded-3xl py-3  px-5  bg-linear-to-br from-[#fad7f0] to-[#aba4a9] shadow-[inset_4px_4px_20px_0_hsla(0,0%,100%,.15)] " : ""}`}>
+                    <div className={"bg-transparent backdrop-blur-3xl absolute inset-0 -z-10 rounded-b-3xl"}></div>
+                    {/*for blur*/}
+                    <div className={`flex items-center justify-between`}>
                         <div className="header__logo flex items-center gap-12.5">
-                            <Link className={' drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>
+                            <Link className={'animate-pulse drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>
                                 <Image src={krakenLogo} width={150} height={150} alt={'Kraken'} />
                             </Link>
                             
@@ -71,13 +73,17 @@ const Header = () => {
                             </ul>
                         <div className={'flex items-center '}>
                             <button onClick={() => router.push('/dashboard')}
-                            className={`max-[710px]:hidden bg-black hover:bg-gray-900 text-white py-4 px-8 rounded-full capitalize cursor-pointer`}
+                            className={`max-[710px]:hidden    
+                            py-4 px-8 rounded-full capitalize cursor-pointer
+                            ${scrolled ? "bg-white text-black" : "bg-black hover:bg-gray-900"}
+                            `}
                             >dashboard</button>
 
                         </div>
 
                         <button onClick={() => setIsOpen(!isOpen)} className={'min-[600px]:hidden z-50 text-bold'}>
-                            {isOpen ?  <X size={30} /> : <TextAlignEnd size={30} />}
+                            {isOpen ?  <X size={30} /> : <Equal className={`${scrolled 
+                            ? "text-gray-500 " : "text-black"}`} size={30} />}
                         </button>
 
                         <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl bg-linear-to-br from-[#111] via-[#0e2926] to-black   transition-transform duration-300
