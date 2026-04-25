@@ -52,10 +52,13 @@ const nextConfig: NextConfig = {
             {
                 protocol: "https",
                 hostname:"devio2023-media.developers.io",
+            },
+            {
+                protocol:"https",
+                hostname:"upload.wikimedia.org"
             }
         ]
     },
-
 };
 
 

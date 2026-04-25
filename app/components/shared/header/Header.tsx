@@ -7,7 +7,7 @@ import {useState , useEffect} from "react";
 import Image from "next/image";
 import LoginButton from "@/app/components/UI/LoginButton";
 
-const krakenLogo = "https://companieslogo.com/img/orig/kraken_BIG.D-7509e204.png?t=1720244494"
+const krakenLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/K-logo-wikipedia.svg/1280px-K-logo-wikipedia.svg.png"
 
 const links = [
     {
@@ -44,13 +44,9 @@ const Header = () => {
 
     return (
         <>
-            <header className={`header bg-black py-5 px-0  sticky top-0 w-full transition-all duration-300 ${
-                scrolled
-                    ? "shadow-2xl shadow-gray-600"
-                    : ""
-            }`}>
-                <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full">
-                    <div className={`flex items-center justify-between ${scrolled ? "rounded-3xl py-3  px-5  bg-black shadow-[inset_4px_4px_20px_0_hsla(0,0%,100%,.15)] " : ""}`}>
+            <header className={`header bg-transparent  py-5 px-0  sticky top-0 w-full transition-all duration-300`}>
+                <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full ">
+                    <div className={`flex items-center justify-between ${scrolled ? "rounded-3xl py-3  px-5  bg-linear-to-br from-[#fad7f0] to-[#aba4a9] shadow-[inset_4px_4px_20px_0_hsla(0,0%,100%,.15)] " : ""}`}>
                         <div className="header__logo flex items-center gap-12.5">
                             <Link className={' drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>
                                 <Image src={krakenLogo} width={150} height={150} alt={'Kraken'} />
@@ -75,7 +71,7 @@ const Header = () => {
                             </ul>
                         <div className={'flex items-center '}>
                             <button onClick={() => router.push('/dashboard')}
-                            className={'max-[710px]:hidden bg-white hover:bg-[#171212] hover:text-white text-black py-4 px-8 rounded-full capitalize cursor-pointer'}
+                            className={`max-[710px]:hidden bg-black hover:bg-gray-900 text-white py-4 px-8 rounded-full capitalize cursor-pointer`}
                             >dashboard</button>
 
                         </div>
