@@ -1,15 +1,20 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-    async redirects(){
-        return [
-            {
-                source: '/start',
-                destination: 'https://crypto-app-xi-roan-97.vercel.app/',
-                permanent: false,
-            }
-        ]
-    },
+    async rewrites() {
+    return [
+      {
+        source: "/start",
+        destination: "https://crypto-app-xi-roan-97.vercel.app",
+      },
+      {
+        source: "/start/:path*",
+        destination: "https://crypto-app-xi-roan-97.vercel.app/:path*",
+      },
+    ];
+  },
+
+    
     images: {
         remotePatterns: [
             {

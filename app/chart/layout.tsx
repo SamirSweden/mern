@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import Footer from "@/app/components/shared/footer/Footer";
-import Balance from "../components/exchange/Balance";
-import TradePanel from "../components/exchange/TradePanel";
-import Positions from "../components/exchange/Positions";
+
 
 
 

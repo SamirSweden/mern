@@ -12,7 +12,7 @@ import MainBanner from "@/app/components/banners/banner/MainBanner";
 
 export default function Home(){
     return (
-        <>
+            <>
                 <Header />
                 <MainBanner/>
                 <Banner />
@@ -22,7 +22,7 @@ export default function Home(){
                 <ProCard />
                 <ThreeCards />
                 <PreFooter/>
-        </>
+            </>
     )
 }
 
