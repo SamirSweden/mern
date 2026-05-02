@@ -35,9 +35,9 @@ const BottomMenu = () => {
     return (
         <>
         <div className="max-w-307.5 mx-auto md:px-6 px-4 w-full h-full">
-            <footer className={'global__menu global__footer fixed left-[25%] bottom-0  w-[50%] max-[750]:w-[90%] max-[750px]:left-[5%]   py-4 px-4 max-[750px]:py-3 bg-black shadow-[inset_20px_40px_40px_0_hsla(0,0%,100%,.15)] '}>
+            <footer className={'global__menu global__footer fixed left-[25%] bottom-0  w-[50%] max-[750]:w-[90%] max-[750px]:left-[5%]   py-4 px-4 max-[750px]:py-3 bg-transparent backdrop-blur-lg '}>
 
-                    <ul className={'flex items-center gap-4 justify-center'}>
+                    <ul className={'flex items-center gap-4 justify-center '}>
                         {links.map((link) => {
                             const IconMenu = link.icon;
                             const isActive = pathname === link.href;
