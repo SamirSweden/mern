@@ -39,7 +39,7 @@ export default function Chat(){
 
     return <>
 
-        <section className={'pb-32 bg-linear-to from-[#111] via-[#191d24] to-[#1f1c1e] px-0 pt-20'}>
+        <section className={'pb-32 bg-black min-h-screen px-0 pt-20'}>
             <div className="max-w-4xl mx-auto px-4 md:px-6 w-full h-full">
                 <div className="">
                     <div className={'  min-h-75  p-3 mb-4'}>

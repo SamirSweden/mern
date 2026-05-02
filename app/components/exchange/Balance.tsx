@@ -12,8 +12,8 @@ export default function Balance() {
       .then(data => setBalance(data.balance));
   }, []);
 
-  return <div>
 
+  return   <div>
     <div className={'text-white flex items-center '}>
       <DollarSign />
       <span className={'text-gray-300 bg-linear-to-br from-[#333332] to-[#111]  rounded-2xl py-1 px-2 '}>{balance.toFixed(2)}</span>

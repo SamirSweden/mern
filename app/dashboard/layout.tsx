@@ -1,5 +1,4 @@
 import type { Metadata } from "next"
-import BottomMenu from "@/app/components/UI/BottomMenu";
 
 
 export const metadata: Metadata = {
