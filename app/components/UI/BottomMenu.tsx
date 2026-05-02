@@ -51,7 +51,7 @@ const BottomMenu = () => {
                                             isActive ? "py-2 px-1 bg-gray-300 rounded-full" : ""
                                         }`}
                                     >
-                                        <IconMenu size={30} />
+                                        <IconMenu size={32} />
                                     </Link>
                                 </li>
                             )
