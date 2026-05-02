@@ -7,6 +7,7 @@ import type { Message } from "@/app/lib/api/actions";
 import { MoveUp } from "lucide-react";
 import Link from "next/link";
 import Markdown from "./Markdown"
+import NavbarChat from "@/app/components/UI/NavbarChat";
 
 export default function Chat(){
     const [input , setInput] = useState("");
@@ -42,6 +43,7 @@ export default function Chat(){
         <section className={'pb-32 bg-black min-h-screen px-0 pt-20'}>
             <div className="max-w-4xl mx-auto px-4 md:px-6 w-full h-full">
                 <div className="">
+                    <NavbarChat />
                     <div className={'  min-h-75  p-3 mb-4'}>
                         <div className={'content__chat flex items-start  flex-col'}>
                             <h1 className={'title-gradient'}>
@@ -103,3 +105,4 @@ focus-within:ring-2 focus-within:ring-purple-500 transition-all">
 
     </>
 }
+
