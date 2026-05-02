@@ -6,21 +6,21 @@ import Image from "next/image"
 export default async function CryptoList({items} : {items: Crypto[]}){
     return (
         <>
-            <div className="py-4 px-10 w-full  rounded-4xl   text-white w-[320px]  bg-black shadow-[inset_100px_40px_50px_0_hsla(0,0%,100%,.15)]  ">
-                <p className="text-lg text-center mb-4">&mdash;Popular&mdash;</p>
+            <div className="py-4 px-10 w-full  rounded-4xl   text-white   bg-black shadow-[inset_100px_40px_50px_0_hsla(0,0%,100%,.15)]  ">
+                <p className="text-lg text-center mb-4">&mdash;Popular Coins&mdash;</p>
                 <ul className="space-y-3.5 mb-4">
                     {items.map((item) => (
                         <li key={item.id} className="flex items-center justify-between">
                             
-                            <div className="flex items-center gap-3">
+                            <div className="flex items-center gap-3 py-3 px-3 bg-[#111] rounded-4xl w-full max-w-[150px]">
                                 <Image src={item.image} alt={item.name} width={400} height={400} className="w-6 h-6" />
-                                <span>{item.symbol}</span>
+                                <span className="truncate">{item.symbol}</span>
                             </div>
 
-                            <div className="text-right">
+                            <div className="text-right  py-3 px-3 bg-[#111]  rounded-4xl w-full max-w-[100px]">
                                 <p>${item.price.toLocaleString()}</p>
-                                <span className={
-                                    item.change > 0 ? "text-green-500" : "text-red-500"
+                                <span  className={
+                                    item.change > 0 ? "text-green-500 " : "text-red-500 "
                                 }>
                                     {item.change?.toFixed(2)}%
                                 </span>

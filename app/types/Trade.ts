@@ -2,7 +2,6 @@
 
 
 
-console.log("pizdec"); 
 
 
 
