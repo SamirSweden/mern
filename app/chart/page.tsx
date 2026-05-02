@@ -1,13 +1,10 @@
 'use client'
-// /chart
 
 import { useState } from "react";
 import Chart from "./Chart"
 import Link from "next/link";
 import ChartBanner from "@/app/components/banners/banner/ChartBanner";
-import TradePanel from "@/app/components/exchange/TradePanel";
 import Balance from "@/app/components/exchange/Balance";
-import Positions from "@/app/components/exchange/Positions";
 
 
 const coins = [
@@ -62,6 +59,3 @@ export default function ChartPage(){
     </>
 }
 
-
-// <TradePanel />
-// <Positions />

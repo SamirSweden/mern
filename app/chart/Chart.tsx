@@ -2,7 +2,6 @@
 
 import { useEffect, useRef, useState } from "react";
 import { createChart, IChartApi, CandlestickSeries, UTCTimestamp } from "lightweight-charts";
-import button from "@/app/components/UI/Button";
 
 type Props = { symbol: string };
 

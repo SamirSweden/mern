@@ -6,7 +6,7 @@ import {useRouter} from "next/navigation";
 const ChartContent = {
     title: "Kraken.Pro: Advanced Crypto Trading",
     text: "The Kraken Pro mobile app delivers all the trading, funding, earn and security features you love about the Kraken exchange in a mobile-first design. Get access to the tools and alerts you need to trade on the go.",
-    btnText: "get the app"
+    btnText: "get kraken app"
 }
 
 const chartImg = "https://assets-cms.kraken.com/images/51n36hrp/facade/6f9ecc0394de6efab3a31487718ba99bc58a744c-2948x1770.png?w=1536&fit=min"
