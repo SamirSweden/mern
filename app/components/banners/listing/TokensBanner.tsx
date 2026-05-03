@@ -1,4 +1,5 @@
 import TokenCard from "@/app/components/banners/cards/TokenCard";
+import NetworkCard from "@/app/components/banners/cards/NetworkCard";
 
 const content = {
     title: "Tokens",
@@ -17,12 +18,19 @@ const TokensBanner = () => {
                     <div className={'mt-10 grid grid-cols-2 gap-4 max-[620px]:grid-cols-1 w-full'}>
                         <TokenCard />
                     </div>
+
+                    <div className={'flex  flex-col gap-7 justify-start mt-10'}>
+                        <h2 className={'text-white text-3xl font-black'}>Network Expansions</h2>
+                        <p className={'mb-10'}>Expanding support for assets across more networks</p>
+                    </div>
+                    <div className={'mt-4 grid grid-cols-2 gap-4 max-[620px]:grid-cols-1 w-full'}>
+                        <NetworkCard />
+                    </div>
                 </div>
             </section>
         </>
     )
 }
-
 
 export default TokensBanner
 
