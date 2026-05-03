@@ -36,7 +36,7 @@ const Header = () => {
     const router = useRouter();
     const pathname = usePathname()
     const [scrolled , setScrolled] = useState(false)
-    const [openDropdown , setOpenDropdown] = useState(null)
+    const [openDropdown , setOpenDropdown] = useState<string | null>(null)
 
     useEffect(() => {
         const handleScroll = () => {
