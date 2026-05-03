@@ -6,8 +6,9 @@ import {
     Home,
     AlignHorizontalDistributeCenter,
     Coins,
-    GlobeLock}
-    from "lucide-react";
+    GlobeLock
+}
+from "lucide-react";
 
 const links = [
     {

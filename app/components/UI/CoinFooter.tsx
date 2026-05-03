@@ -12,6 +12,10 @@ const links = [
         icon:GlobeLock,
         href:"/protocols",
     },
+    {
+        icon:GlobeLock,
+        href:"/aaa",
+    },
 ];
 
 
@@ -20,8 +24,8 @@ const CoinFooter = () => {
 
     return (
         <>
-            <div className="coin__footer fixed   bottom-[-20px] z-[999] left-0 w-full flex items-center justify-center bg-black   px-0">
-                <ul className={'flex w-[180px] items-center  justify-center shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] py-4 px-3 rounded-full'}>
+            <div className="coin__footer fixed   bottom-[-20px] z-[999] left-0 w-full flex items-center justify-center  bg-transparent  px-0">
+                <ul className={'flex w-[180px] max-[425px]:w-[90%]  backdrop-blur-3xl items-center  justify-center shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] py-4 px-3 rounded-full'}>
                     {links.map((link) => {
                         const IconComponent = link.icon;
 
