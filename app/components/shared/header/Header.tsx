@@ -28,9 +28,7 @@ const links = [
 ];
 
 const protocolDropdown  = [
-    { href: "/protocols/defi", label: "DeFi" },
-    { href: "/protocols/nft", label: "NFT" },
-    { href: "/protocols/dao", label: "DAO" },
+    { href: "/listings", label: "listings" },
 ];
 
 const Header = () => {
@@ -60,7 +58,6 @@ const Header = () => {
                             <Link className={'animate-pulse drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>
                                 <Image src={krakenLogo} width={150} height={150} alt={'Kraken'} />
                             </Link>
-                            
                         </div>
                         <ul className="header__near flex items-center backdrop-blur-3xl gap-4 max-[600px]:hidden py-3 px-4 bg-black  rounded-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] ">
                                 {links.map((link) => {
@@ -80,7 +77,7 @@ const Header = () => {
                                             </Link>
 
                                             {isProtocols && openDropdown === "protocols" && (
-                                                <ul className="absolute top-full left-0  w-30 bg-white/10 shadow-lg border border-white/20 backdrop-blur-4xl flex flex-col gap-2 mt-2 p-3 rounded-xl">
+                                                <ul className="absolute top-full left-0  w-30  bg-white/10 shadow-lg border border-white/20 backdrop-blur-4xl flex flex-col gap-2 mt-2 p-3 rounded-xl">
                                                    {protocolDropdown.map((item) => (
                                                         <li key={item.href}>
                                                             <Link className="hover:text-yellow-500 whitespace-nowrap" href={item.href}>
