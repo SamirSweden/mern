@@ -1,7 +1,6 @@
 'use client'
 
 
-
 import LoginButton from "@/app/components/UI/LoginButton";
 import {useRouter} from "next/navigation";
 
@@ -18,7 +17,12 @@ export default  function MainBanner() {
             <section className={'bg-linear-to-br from-[#383523] z-10  via-black to-[#1c062b] min-h-screen px-0 py-25'}>
                 <div className="max-w-7xl  px-4 md:px-6 mx-auto w-full h-full">
                     <div className="flex flex-col items-center justify-center h-full">
-
+                        <button onClick={() => router.push("/listings")}
+                            className="bg-[#272424] relative  cursor-pointer py-1 px-7 rounded-2xl"
+                         >
+                            listing
+                            <span className="absolute top-[-20px]  right-0 bg-[#37370f] py-1 px-3 rounded-full text-sm transition-transform rotate-10">new</span>
+                        </button>
                         <h1 className="
                           text-[100px] max-[768px]:text-6xl text-center font-black font-mono
                           bg-gradient-to-br from-yellow-400 via-pink-600 to-blue-500
