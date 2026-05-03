@@ -1,7 +1,7 @@
 'use client'
 
 import Link from "next/link";
-import {HomeIcon, GlobeLock, X, ChartNoAxesCombined, Code, Bot, Box, Equal} from "lucide-react";
+import {HomeIcon, GlobeLock, X, ChartNoAxesCombined, Bot,  Equal} from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
 import Image from "next/image";
@@ -27,11 +27,18 @@ const links = [
     },
 ];
 
+const protocolDropdown  = [
+    { href: "/protocols/defi", label: "DeFi" },
+    { href: "/protocols/nft", label: "NFT" },
+    { href: "/protocols/dao", label: "DAO" },
+];
+
 const Header = () => {
     const [isOpen , setIsOpen] = useState(false)
     const router = useRouter();
     const pathname = usePathname()
     const [scrolled , setScrolled] = useState(false)
+    const [openDropdown , setOpenDropdown] = useState(null)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -58,15 +65,31 @@ const Header = () => {
                         <ul className="header__near flex items-center backdrop-blur-3xl gap-4 max-[600px]:hidden py-3 px-4 bg-black  rounded-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] ">
                                 {links.map((link) => {
                                     if(!link?.href) return null;
-                                    const icon = link.icon;
                                     const isActive = pathname === link.href;
+                                    const isProtocols = link.href === "/protocols"
 
                                     return (
-                                        <li key={link.href}>
+                                        <li key={link.href}
+                                            className="relative"
+                                            onMouseEnter={() => isProtocols && setOpenDropdown("protocols")}
+                                            onMouseLeave={() => isProtocols && setOpenDropdown(null)}
+                                        >
                                             <Link href={link.href} className={`flex items-center gap-2 hover:text-yellow-500 ${isActive ? "py-1 px-3  shadow-[inset_4px_4px_100px_0_hsla(0,0%,100%,.15)] rounded-full" : ""}`}>
                                                 {link.icon}
                                                 {link.label}
                                             </Link>
+
+                                            {isProtocols && openDropdown === "protocols" && (
+                                                <ul className="absolute top-full left-0  w-30 bg-white/10 shadow-lg border border-white/20 backdrop-blur-4xl flex flex-col gap-2 mt-2 p-3 rounded-xl">
+                                                   {protocolDropdown.map((item) => (
+                                                        <li key={item.href}>
+                                                            <Link className="hover:text-yellow-500 whitespace-nowrap" href={item.href}>
+                                                                {item.label}
+                                                            </Link>
+                                                        </li>
+                                                   )) }
+                                                </ul>
+                                            )}
                                         </li>
                                     )
                                 })}
