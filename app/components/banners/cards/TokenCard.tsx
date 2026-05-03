@@ -76,7 +76,7 @@ const TokenCard = () => {
             <div key={d.id} className={'flex items-center gap-7 '}>
                 <Image src={d.icon} alt={d.icon} width={40} height={40}  />
                 <h4 className={'text-white text-xl font-bold '}>{d.text}</h4>
-                <span className={'uppercase text-gray-400 font-extrabold ml-[-20px]'}>{d.code}</span>
+                <span className={'uppercase text-gray-600 font-extrabold ml-[-20px]'}>{d.code}</span>
             </div>
         ))}
     </>

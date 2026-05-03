@@ -12,7 +12,7 @@ const TokensBanner = () => {
             <section className={'tokens__banner py-20'}>
                 <div className="container max-w-4xl mx-auto md:px-6 px-4 w-full h-full">
                     <div className="flex  flex-col gap-7 justify-start">
-                        <h2 className={'text-white text-left text-3xl font-black'}>{content.title}</h2>
+                        <h2 className={'text-white text-left text-3xl font-black'}>&mdash;{content.title}</h2>
                         <p className={'text-gray-400 text-wrap'}>{content.text}</p>
                     </div>
                     <div className={'mt-10 grid grid-cols-2 gap-4 max-[620px]:grid-cols-1 w-full'}>
@@ -20,8 +20,8 @@ const TokensBanner = () => {
                     </div>
 
                     <div className={'flex  flex-col gap-7 justify-start mt-10'}>
-                        <h2 className={'text-white text-3xl font-black'}>Network Expansions</h2>
-                        <p className={'mb-10'}>Expanding support for assets across more networks</p>
+                        <h2 className={'text-white text-3xl max-[366px]:text-2xl font-black'}>&mdash;Network Expansions</h2>
+                        <p className={'mb-10 text-gray-500'}>Expanding support for assets across more networks</p>
                     </div>
                     <div className={'mt-4 grid grid-cols-2 gap-4 max-[620px]:grid-cols-1 w-full'}>
                         <NetworkCard />
