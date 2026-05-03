@@ -62,9 +62,17 @@ const nextConfig: NextConfig = {
                 protocol: "https",
                 hostname: "coin-images.coingecko.com"
             },
-             {
+            {
                 protocol: "https",
                 hostname:"assets.kraken.com"
+            },
+            {
+                protocol: "https",
+                hostname:"image.coinpedia.org",
+            },
+            {
+                protocol:"https",
+                hostname:"encrypted-tbn0.gstatic.com"
             }
         ]
     },

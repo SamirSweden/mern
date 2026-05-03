@@ -49,7 +49,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={`header bg-transparent  py-5 px-0  sticky top-0 w-full transition-all duration-300`}>
+            <header className={`header bg-transparent z-50 py-5 px-0  sticky top-0 w-full transition-all duration-300`}>
                 <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full ">
                     <div className={"bg-transparent backdrop-blur-3xl absolute inset-0 -z-10 rounded-b-3xl"}></div>
                     {/*for blur*/}
