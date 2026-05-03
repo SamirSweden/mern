@@ -1,8 +1,19 @@
+import Image from "next/image";
+
+const iconImg = "https://assets.kraken.com/marketing/web/icons-uni-webp/s_af.webp?i=kds"
+
 const bannerText = {
   title:
     "Kraken currently lists 600+ tokens. We carefully vet and choose from the best established and emerging tokens across the crypto ecosystem.",
   btnText: "Want to get listed?",
 };
+
+const TokenGenText = {
+    title: "Token generation events",
+    text: "Day one access to newly created and transferrable tokens.",
+    desc: "AmericanFortress",
+    code: "AF"
+}
 
 export default function BannerText() {
   return (
@@ -21,7 +32,19 @@ export default function BannerText() {
                 {bannerText.btnText}
               </button>
             </div>
-          </div>
+            
+            <div className="py-10 px-0  flex items-center gap-8 flex-col">
+                <h2 className="text-white text-4xl font-black">{TokenGenText.title}</h2>
+                <p className="text-white text-lg ">{TokenGenText.text}</p>
+                <div className="flex items-center gap-5">
+                    <Image src={iconImg} width={30} height={30} alt="usa" />
+                    <h4 className="text-white text-lg ">{TokenGenText.desc}</h4>
+                    <span className="uppercase text-gray-500 font-bold">{TokenGenText.code}</span>
+                </div>
+            </div>
+
+
+          </div> 
         </div>
       </div>
     </>

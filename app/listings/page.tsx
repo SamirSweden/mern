@@ -7,6 +7,7 @@ const ListingPage = () => {
     return <>
         <ListingBanner />
         <BannerText />
+        
     </>
 }
 

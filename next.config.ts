@@ -27,6 +27,7 @@ const nextConfig: NextConfig = {
                 source: "/start/:path*",
                 destination: "https://crypto-app-xi-roan-97.vercel.app/:path*",
             },
+           
         ];
     },
 
@@ -60,6 +61,10 @@ const nextConfig: NextConfig = {
             {
                 protocol: "https",
                 hostname: "coin-images.coingecko.com"
+            },
+             {
+                protocol: "https",
+                hostname:"assets.kraken.com"
             }
         ]
     },
