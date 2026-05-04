@@ -28,12 +28,10 @@ const InvestBanner = () => {
                                     onClick={() => router.push("/dashboard")} >
                                 {content.btnText}
                             </button>
-
                             <div className={'absolute bottom-0 left-0 w-full'}>
                                 <Image src={krakenBanner} width={250} height={200} alt={"kraken"} />
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>

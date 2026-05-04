@@ -20,8 +20,9 @@ const ListingBanner = () => {
                     <p className="text-gray-500 text-[20px] max-[335px]:text-lg">{content.desc}</p>
                     <button className="bg-white max-[425px]:w-full text-black py-3 px-5 text-lg font-bold rounded-2xl cursor-pointer hover:bg-white/60 ">{content.btnText}</button>
 
-                    <div>
-                        <Image src={bannerImg} width={500} height={500} alt=""  />
+                    <div className="relative flex justify-center">
+                        <div className="absolute top-0 w-[700px] h-[400px] bg-linear-to-b from-white/40 to-transparent blur-3xl"></div>
+                        <Image src={bannerImg} width={500} height={500} alt="" className="relative z-10"  />
                     </div>
                 </div>
             </div>
