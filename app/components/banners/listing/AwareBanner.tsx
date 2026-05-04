@@ -1,6 +1,5 @@
 'use client'
 
-import {useRouter} from "next/navigation";
 
 const content = {
     title: "Want to stay aware of new listings?",
@@ -13,7 +12,6 @@ const content = {
 
 const  AwareBanner  = () => {
 
-    const router = useRouter()
     return(
         <>
             <section className="mt-20 h-[50vh] py-17 px-0 ">
