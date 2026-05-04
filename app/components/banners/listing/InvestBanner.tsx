@@ -24,7 +24,7 @@ const InvestBanner = () => {
                         <p className={'text-gray-200 font-medium'}>{content.desc}</p>
                         <div className="flex items-center max-[525px]:w-full">
                             <button
-                                    className={'bg-white text-violet-700 rounded-2xl py-3 px-6 mb-25  max-[525px]:w-full'}
+                                    className={'bg-white hover:bg-white/45 text-violet-700 rounded-2xl py-3 px-6 mb-25  max-[525px]:w-full'}
                                     onClick={() => router.push("/dashboard")} >
                                 {content.btnText}
                             </button>
