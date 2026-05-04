@@ -4,6 +4,7 @@ import TokensBanner from "@/app/components/banners/listing/TokensBanner";
 import Footer from "@/app/components/shared/footer/Footer";
 import InvestBanner from "@/app/components/banners/listing/InvestBanner";
 import AdvancedBanner from "@/app/components/banners/listing/AdvancedBanner";
+import AwareBanner from "../components/banners/listing/AwareBanner";
 
 
 
@@ -16,6 +17,7 @@ const ListingPage = () => {
             <InvestBanner />
             <AdvancedBanner />
         </div>
+        <AwareBanner />
         <div className="max-w-6xl mx-auto md:px-6 px-4 w-full h-full">
             <Footer />
         </div>
