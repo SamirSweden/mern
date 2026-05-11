@@ -1,3 +1,5 @@
+'use client'
+
 import Image from "next/image";
 
 const iconImg =
@@ -27,6 +29,7 @@ export default function BannerText() {
             </h3>
             <div className="flex items-center max-[425px]:w-full">
               <button
+              onClick={() => window.open("https://krakenlistings.atlassian.net/servicedesk/customer/portal/104/user/login?destination=portal%2F104%2Fgroup%2F104%2Fcreate%2F154", "_blank")}
                 className="bg-white text-black py-3 px-5 max-[425px]:w-full
                  text-lg font-bold rounded-2xl cursor-pointer hover:bg-white/60 "
               >

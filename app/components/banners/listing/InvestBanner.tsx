@@ -16,7 +16,7 @@ const InvestBanner = () => {
 
     return (
         <>
-            <section className={'bg-violet-700 rounded-2xl  max-[690px]:rounded-[30px] py-10 relative'}>
+            <section className={'bg-violet-700  rounded-2xl  max-[690px]:rounded-[30px] py-10 relative'}>
                 <div className="max-w-7xl mx-auto md:px-6 px-4 w-full h-full">
                     <div className="flex items-center gap-3 flex-col">
                         <Image src={krakenSvg} width={50} height={50} alt={"kraken"} />

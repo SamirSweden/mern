@@ -1,3 +1,6 @@
+'use client'
+
+
 import Image from "next/image";
 
 
@@ -9,7 +12,12 @@ const content = {
     btnText: "View roadmap"
 }
 
-
+const handleScroll = () => {
+    const element = document.querySelector(".tokens__banner")
+    if(element){
+        element.scrollIntoView({behavior: "smooth"})
+    }
+}
 
 const ListingBanner = () => {
     return <>
@@ -18,7 +26,9 @@ const ListingBanner = () => {
                 <div className="flex flex-col items-center gap-5 justify-center h-full ">
                     <h2 className="text-white text-[clamp(2.5rem,8vw,100px)] text-wrap font-black leading-none">{content.title}</h2>
                     <p className="text-gray-500 text-[20px] max-[335px]:text-lg">{content.desc}</p>
-                    <button className="bg-white max-[425px]:w-full text-black py-3 px-5 text-lg font-bold rounded-2xl cursor-pointer hover:bg-white/60 ">{content.btnText}</button>
+                    <button 
+                    onClick={handleScroll}
+                    className="bg-white max-[425px]:w-full text-black py-3 px-5 text-lg font-bold rounded-2xl cursor-pointer hover:bg-white/60 ">{content.btnText}</button>
 
                     <div className="relative flex justify-center">
                         <div className="absolute top-0 w-[700px] h-[400px] bg-linear-to-b from-white/40 to-transparent blur-3xl"></div>
