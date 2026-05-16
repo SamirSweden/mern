@@ -1,6 +1,7 @@
 import CoinsBanner from "@/app/components/CoinsBanner";
 import { Suspense } from "react";
 import Loading from "./loading";
+import CryptoCards from "@/app/components/shared/trade/CryptoCards";
 
 
 async function getCoins() {
@@ -19,6 +20,7 @@ const Coins = async () => {
                 <Suspense fallback={<Loading/>}>
                     <CoinsBanner coins={coins} />
                 </Suspense>
+                <CryptoCards />
             </div>
         </>
     )
