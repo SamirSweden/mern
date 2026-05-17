@@ -9,17 +9,14 @@ type Coin = {
     price_change_percentage_24h: number
 }
 
-async function getCoins():Promise<Coin[]> {
-    const resp = await fetch(`${process.env.BTC_API}`,
-        {
-            next: {
-                revalidate: 60
-            }
-        }
-    )
-    if(!resp.ok) throw new Error("Coin not found")
+async function getCoins(): Promise<Coin[]> {
+    const res = await fetch("https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=bitcoin,ethereum,tether", {
+        next: {revalidate: 60}
+    })
+    if (!res.ok) throw new Error("Coin not found");
 
-    return resp.json()
+    const data = res.json();
+    return data;
 }
 
 const usdtImg = "https://upload.wikimedia.org/wikipedia/commons/e/e9/Tether_USDT.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original"
