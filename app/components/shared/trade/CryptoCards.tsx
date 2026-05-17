@@ -42,7 +42,7 @@ export default async function CryptoCards() {
                     <div className="grid grid-cols-2 gap-10 max-[768px]:grid-cols-1">
                         <Link href={'/chart'}
                             className={`
-                                bg-black rounded-2xl
+                                bg-transparent bg-linear-to-br from-[#16131c] via-[#111] to-[#29061b] rounded-2xl
                                  shadow-[inset_0_0_100px_rgba(255,255,255,0.08)]
                                  py-10 px-7
                                  border border-black 
@@ -58,7 +58,7 @@ export default async function CryptoCards() {
                                 Up to
                             </h3>
 
-                            <div className="text-[60px] font-black text-green-400">
+                            <div className="text-[60px] max-[360px]:text-[50px] font-black text-green-400">
                                 800.00%
                             </div>
 
@@ -69,41 +69,41 @@ export default async function CryptoCards() {
 
                         <div className={'flex gap-10 flex-col'}>
                             <Link href={'/chart'} className={`
-                                p-10 px-6 rounded-2xl bg-black 
-                                shadow-[inset_0_0_100px_rgba(255,255,255,0.08)]
+                                p-10 px-6 rounded-2xl bg-[#111] 
+                                shadow-[inset_0_0_30px_rgba(255,255,255,0.08)]
                                 border border-black min-h-[200px]
                                  hover:border-[#171717]
+                                    hover:bg-black
                             `}>
 
-                                <div className={'flex  items-start gap-6'}>
+                                <div className={'flex  items-start gap-6 max-[429px]:flex-col'}>
                                     <Image src={btcImg} width={70} height={70} alt={'btc'}  />
                                     <div className="flex  items-start flex-col gap-3">
-                                        <h3 className={'font-black text-4xl text-gray-500'}>BTC Savings APR</h3>
-                                        <p className={'text-2xl text-green-400'}>{btc?.price_change_percentage_24h.toFixed(2)}%</p>
+                                        <h3 className={'font-black text-4xl text-gray-500 max-[429px]:text-xl'}>BTC Savings APR</h3>
+                                        <p className={'text-2xl text-green-400 '}>{btc?.price_change_percentage_24h.toFixed(2)}%</p>
                                     </div>
                                 </div>
                             </Link>
 
                             <div className={'flex gap-10 flex-col'}>
                                 <Link href={'/chart'} className={`
-                                p-10 px-6 rounded-2xl bg-black min-h-[200px]
-                                shadow-[inset_0_0_100px_rgba(255,255,255,0.08)]
+                                p-10 px-6 rounded-2xl bg-[#111] min-h-[200px]
+                                shadow-[inset_0_0_30px_rgba(255,255,255,0.08)]
                                 border border-black 
                                  hover:border-[#171717]
                                  hover:bg-black
                             `}>
 
-                                    <div className={'flex  items-start gap-6'}>
+                                    <div className={'flex  items-start gap-6 max-[429px]:flex-col '}>
                                         <Image src={ethImg} width={70} height={70} alt={'btc'}  />
                                         <div className="flex  items-start flex-col gap-3">
-                                            <h3 className={'font-black text-4xl text-gray-500'}>ETH Savings APR</h3>
+                                            <h3 className={'font-black text-4xl text-gray-500 max-[429px]:text-xl'}>ETH Savings APR</h3>
                                             <p className={'text-2xl text-green-400'}> {eth?.price_change_percentage_24h.toFixed(2)}%</p>
                                         </div>
                                     </div>
                                 </Link>
                             </div>
                         </div>
-
 
                     </div>
                 </div>

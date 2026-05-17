@@ -14,22 +14,7 @@ const slinks = [
     href: "/coins",
     icon: Bitcoin,
   },
-  {
-    href:"/dashboard",
-    icon:SquareChevronRight
-  },
-  {
-    href: "/chart",
-    icon: ChartCandlestick,
-  },
-  {
-    href: "/chat",
-    icon :Bot
-  },
-  {
-    href: "/docs",
-    icon: CodeXml
-  },
+
 ];
 
 const SideBar = () => {
@@ -39,8 +24,8 @@ const SideBar = () => {
   return (
     <>
       <div
-        className="fixed left-4 top-1/2 -translate-y-1/2 w-20 h-80 rounded-2xl bg-black  border
-            border-gray-800  flex items-center flex-col justify-around    max-[768px]:hidden shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] hover:bg-[#111]"
+        className="fixed left-4 top-1/2 -translate-y-1/2 w-20 h-60 rounded-2xl bg-black  border
+            border-gray-800  flex items-center flex-col justify-evenly    max-[768px]:hidden shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] hover:bg-[#111]"
       >
         {slinks.map((slink) => {
           const Icon = slink.icon;
@@ -52,7 +37,7 @@ const SideBar = () => {
               key={slink.href}
               className={`cursor-pointer text-lg ${
                 isActive
-                  ? "bg-linear-to-br from-[#541818]  to-[#1a0212] text-black py-5 px-5 rounded-full "
+                  ? "bg-white/10 text-white  py-5 px-5 rounded-full "
                   : ""
               }
                     `}

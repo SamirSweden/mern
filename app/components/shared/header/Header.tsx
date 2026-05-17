@@ -7,6 +7,7 @@ import {useState , useEffect} from "react";
 import Image from "next/image";
 import LoginButton from "@/app/components/UI/LoginButton";
 
+
 const krakenLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/K-logo-wikipedia.svg/1280px-K-logo-wikipedia.svg.png"
 
 const links = [
@@ -29,6 +30,9 @@ const links = [
 
 const protocolDropdown  = [
     { href: "/listings", label: "listings" },
+    { href: "/docs", label: "docs" },
+    { href: "/chat", label: "KrakenAI" },
+    { href: "/dashboard", label: "dashboard" },
 ];
 
 const Header = () => {
@@ -77,14 +81,25 @@ const Header = () => {
                                             </Link>
 
                                             {isProtocols && openDropdown === "protocols" && (
-                                                <ul className="absolute top-full left-0  w-30  bg-white/10 shadow-lg border border-white/20 backdrop-blur-4xl flex flex-col gap-2 mt-2 p-3 rounded-xl">
-                                                   {protocolDropdown.map((item) => (
-                                                        <li key={item.href}>
-                                                            <Link className="hover:text-yellow-500 whitespace-nowrap" href={item.href}>
-                                                                {item.label}
+                                                <ul className={`
+                                                    absolute top-full left-0 z-50 w-58 
+                                                    
+                                                    bg-linear-to-br from-[#360735] to-[#120e12] backdrop-blur-xl border border-white/10
+                                                    shadow-[0_15px_100px_-15px_rgba(0,0,0,0.6)] flex flex-col gap-1 mt-1 
+                                                    rounded-3xl overflow-hidden
+                                                `}>
+                                                    {protocolDropdown.map((pr) => (
+                                                        <li key={pr.href}>
+                                                            <Link
+                                                                href={pr.href}
+                                                                className={`
+                                                                py-4.5 px-7 text-white capitalize cursor-pointer flex items-items-start flex-col 
+                                                                transition-all duration-300 whitespace-nowrap hover:bg-[#471c47] hover:rounded-2xl m-2
+                                                            `}>
+                                                                {pr.label}
                                                             </Link>
                                                         </li>
-                                                   )) }
+                                                    ))}
                                                 </ul>
                                             )}
                                         </li>
@@ -95,18 +110,18 @@ const Header = () => {
                             <button onClick={() => router.push('/dashboard')}
                             className={`max-[710px]:hidden    
                             py-4 px-8 rounded-full capitalize cursor-pointer
-                            ${scrolled ? "bg-white text-black" : "bg-black hover:bg-gray-900"}
+                            ${scrolled ? "bg-white text-black" : "bg-black shadow-[inset_40px_40px_70px_0_hsla(0,0%,100%,.15)]  hover:bg-gray-900"}
                             `}
                             >dashboard</button>
 
                         </div>
 
-                        <button onClick={() => setIsOpen(!isOpen)} className={'min-[600px]:hidden z-50 text-bold'}>
+                        <button onClick={() => setIsOpen(!isOpen)} className={'min-[600px]:hidden z-50 text-bold '}>
                             {isOpen ?  <X size={30} /> : <Equal className={`${scrolled 
-                            ? "text-gray-500 " : "text-black"}`} size={30} />}
+                            ? "text-gray-500 " : "text-white"}`} size={30} />}
                         </button>
 
-                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl bg-linear-to-br from-[#111] via-[#0e2926] to-black   transition-transform duration-300
+                        <div className={`${isOpen ? "translate-x-0" : "translate-x-full"} flex items-center justify-center flex-col fixed left-0 z-40 backdrop-blur-3xl bg-linear-to-br from-[#111]  to-black   transition-transform duration-300
                     inset-0`}>
                             <ul className="flex flex-col gap-1.75 shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)]   max-w-73.5 w-full rounded-3xl p-5">
                                 {links.map((l) => (
@@ -125,7 +140,7 @@ const Header = () => {
                                 <button onClick={() => router.push('/chat')} className="chat__btn flex justify-center items-center text-center text-black gap-4 capitalize py-4 px-7 rounded-md bg-white w-full ">
                                     Kraken GPT <Bot size={30} />
                                 </button>
-                                <button onClick={() => router.push('/dashboard')} className="dashboard__btn capitalize py-4 px-7 rounded-md shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] w-full ">
+                                <button  onClick={() => router.push('/dashboard')} className="dashboard__btn capitalize py-4 px-7 rounded-md shadow-[inset_4px_4px_50px_0_hsla(0,0%,100%,.15)] w-full ">
                                     dashboard
                                 </button>
                             </div>
@@ -137,6 +152,7 @@ const Header = () => {
         </>
     )
 }
+
 
 
 export default Header

@@ -40,3 +40,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+
+
+
+@layer components {
+  .heading {
+    @apply max-[429px]:text-[20px];
+  }
+}
+
+
+
+
+
+
+
