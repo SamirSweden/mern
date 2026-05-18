@@ -6,18 +6,23 @@ import {useRouter} from "next/navigation";
 
 export default  function LoginButton(){
     const {data: session} = useSession()
-    const router = useRouter()
 
 
     if(session){
         return <>
-            <p>вы вошли как {session.user?.email}</p>
-            <button
-                className={''}
-                onClick={() => signOut()}
-            >
-                logout
-            </button>
+            <div className="flex items-center flex-col max-[375px]:w-full">
+                <p className={'text-gray-600 '}>{session.user?.email}</p>
+                <div className="flex items-center ">
+                    <button
+                        className={`mt-4 max-[375px]:w-full
+                        bg-[#111] rounded-2xl py-3 px-4 w-full
+                    `}
+                        onClick={() => signOut()}
+                    >
+                        logout
+                    </button>
+                </div>
+            </div>
         </>
     }
 
@@ -25,7 +30,7 @@ export default  function LoginButton(){
         <>
                 <button
                     onClick={() => signIn("github", {callbackUrl:"/dashboard"})}
-                    className={'capitalize max-[425px]:w-full  text-xl font-extrabold bg-white hover:bg-[#1f1c15] capitalize text-black hover:text-white px-[40px] py-4.5 rounded-lg'}>
+                    className={'max-[425px]:w-full  text-xl font-extrabold bg-white hover:bg-[#1f1c15] capitalize text-black hover:text-white px-10 py-4.5 rounded-lg'}>
                     login via GitHub
                 </button>
 

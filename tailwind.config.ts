@@ -7,6 +7,9 @@ const config: Config = {
     ],
     theme: {
         extend: {
+            fontFamily: {
+              mono: ["var(--font-mono)", "monospace"]
+            },
             keyframes: {
                 shine: {
                     '0%': { backgroundPosition: '0% 50%' },
