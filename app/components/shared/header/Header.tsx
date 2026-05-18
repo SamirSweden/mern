@@ -102,10 +102,10 @@ const Header = () => {
                                             {isProtocols && openDropdown === "protocols" && (
                                                 <ul className={`
                                                     absolute top-full left-0 z-50 w-58 
-                                                    
-                                                    bg-linear-to-br from-[#360735] to-[#120e12] backdrop-blur-xl border border-white/10
-                                                    shadow-[0_15px_100px_-15px_rgba(0,0,0,0.6)] flex flex-col gap-1 mt-1 
+                                                    shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] backdrop-blur-xl border border-white/10
+                                                     flex flex-col gap-1 mt-1 
                                                     rounded-3xl overflow-hidden
+                                                    bg-neutral-900/40
                                                 `}>
                                                     {protocolDropdown.map((pr) => (
                                                         <li key={pr.href}>
@@ -113,7 +113,7 @@ const Header = () => {
                                                                 href={pr.href}
                                                                 className={`
                                                                 py-4.5 px-7 text-white capitalize cursor-pointer flex items-items-start flex-col 
-                                                                transition-all duration-300 whitespace-nowrap hover:bg-[#471c47] hover:rounded-2xl m-2
+                                                                transition-all duration-300 whitespace-nowrap hover:bg-black hover:rounded-2xl m-2
                                                             `}>
                                                                 {pr.label}
                                                             </Link>
