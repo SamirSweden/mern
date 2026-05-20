@@ -6,6 +6,7 @@ import {
     Code,
     GlobeLock,
     X,
+    Bitcoin,
     ChartNoAxesCombined,
     Bot,
     Equal,
@@ -43,6 +44,7 @@ const protocolDropdown  = [
     { href: "/chat", label: "KrakenAI" },
     { href: "/dashboard", label: "dashboard" },
     { href: "/docs", label: "docs" },
+    {href: "/btc", label:"trade now"}
 ];
 
 const mobileLinks = [
@@ -52,6 +54,7 @@ const mobileLinks = [
     {href:"/chat", name:"chat", icon: <Bot />},
     {href:"/listings", name: "listings" , icon: <ListOrdered />},
     {href: "/docs", name: "docs" , icon: <Code />},
+    {href: "/btc", name: "trade now" , icon: <Bitcoin />},
 ];
 
 const Header = () => {
