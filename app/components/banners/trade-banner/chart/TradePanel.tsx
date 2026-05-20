@@ -2,6 +2,7 @@
 
 import {toast} from "sonner";
 import React, {useEffect , useCallback,useState} from "react";
+import {Bitcoin} from "lucide-react";
 
 
 type Props = {
@@ -89,10 +90,9 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
     return (
         <>
             <div className={'bg-black h-[500px] relative border border-white/20  rounded-2xl p-5 flex items-start justify-center flex-col w-full'}>
-                <h2 className={`text-white text-3xl font-mono `}>Kraken.fx </h2>
                 <div className="space-y-4 mb-4">
                     <h5 className={`
-                        text-white text-xs font-mono 
+                        text-white text-2xl font-mono 
                     `}>
                         Balance: ${balance.toFixed(2)}
                     </h5>
@@ -101,37 +101,38 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                     `}>
                         BTC: ${btc.toFixed(6)}
                     </p>
-                    <p className={`
-                        text-white text-lg font-mono 
+                    <div className={`
+                        text-white text-lg font-mono flex items-center
                     `}>
-                        BTC Price: ${price.toLocaleString()}
-                    </p>
+                        <Bitcoin /> ${price.toLocaleString()}
+                    </div>
                 </div>
-                <input
-                    type="number"
-                    className={`
-                    bg-black rounded-md
+
+                    <input
+                        type="number"
+                        className={`
+                    bg-[#111] rounded-md
                      py-4 px-4.5 outline-none w-full
                      border-none 
                      mb-3
                      absolute left-0 bottom-14
-                     shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] hover:bg-[#111]`}
-                    value={amount}
-                    placeholder={"usd amount"}
-                    onChange={(e) => setAmount(e.target.value)}
-                />
+                     shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] hover:bg-[#500d61]`}
+                        value={amount}
+                        placeholder={"usd amount"}
+                        onChange={(e) => setAmount(e.target.value)}
+                    />
 
                 <div className="flex  items-center  gap-2 w-full  bg-transparent   ">
                     <button onClick={buyBtc}
                         className={`
-                        absolute bottom-[-20] right-2 w-[47%]
+                        absolute bottom-[-23] right-2 w-[47%]
                         rounded-4xl  py-4 px-3 bg-green-500 hover:bg-green-700 cursor-pointer flex-1 text-white text-lg font-mono capitalize `}
                     >
                         long
                     </button>
                     <button onClick={sellBtc}
                             className={`
-                            absolute bottom-[-20] left-2 w-[47%]
+                            absolute bottom-[-23] left-2 w-[47%]
                             rounded-4xl py-4 px-3 flex-1  bg-red-700 hover:bg-red-400 cursor-pointer  text-white text-lg font-mono capitalize `}
                     >
                         short

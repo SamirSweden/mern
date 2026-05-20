@@ -15,7 +15,7 @@ export default function Btc() {
 
     return (
         <>
-            <main className="min-h-screen bg-black text-white ">
+            <main className="min-h-screen bg-black shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] text-white ">
                 <div className="grid grid-cols-12  max-[768px]:grid-cols-1">
                     <div className="col-span-9">
                         <ChartTrade />
@@ -38,7 +38,9 @@ export default function Btc() {
                     </div>
 
                 </div>
-                <div>
+                <div className={`
+                    bg-black shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] 
+                `}>
                     <PnlCard
                         btc={btc}
                         currentPrice={price}
