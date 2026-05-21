@@ -20,6 +20,11 @@ type Props = {
 }
 
 
+const tradeBtns = {
+    long: "long",
+    short: "short",
+}
+
 export default function TradePanel({balance, setBalance , btc , setBtc , price , setPrice , avgPrice , setAvgPrice}: Props){
 
     const [amount , setAmount] = useState<string>("")
@@ -90,7 +95,7 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
 
     return (
         <>
-            <div className={'bg-black h-[500px] relative border border-white/20  rounded-2xl p-5 flex items-start justify-center flex-col w-full'}>
+            <div className={'bg-black h-125 relative border border-white/20  rounded-2xl p-5 flex items-start justify-center flex-col w-full'}>
                 <div className="space-y-4 mb-4">
                     <h5 className={`
                         text-white text-2xl font-mono 
@@ -154,7 +159,46 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                 </div>
 
 
+                <div className={`
+                    relative
+                    flex w-full p-1 
+                    overflow-hidden bg-[#111] rounded-2xl
+                `}>
+                    <div className={`
+                        transition-all duration-300 easy-in-out  
+                        absolute w-1/2 top-1 bottom-1 rounded-2xl
+                        ${side === "long" ? "translate-x-full bg-green-500" : "translate-x-0 bg-red-400"}
+                    `}  />
 
+                    <button
+                        onClick={() => setSide("short")}
+                        className={`
+                        ${side === "short" ? "text-white " : "text-zinc-500" }
+                            active:scale-[0.98]
+                            rounded-xl
+                            py-4   
+                            relative z-10  font-mono font-bold transition-colors duration-300 flex-1 
+                            text-white text-lg uppercase tracking-wide 
+                        `}
+                    >
+                        {tradeBtns.short}
+                    </button>
+
+                    <button
+                        onClick={() => setSide("long")}
+                        className={`
+                        ${side === "short" ? "text-white " : "text-zinc-500" }
+                            active:scale-[0.98]
+                            rounded-xl
+                            py-4   
+                            relative z-10  font-mono font-bold transition-colors duration-300 flex-1 
+                            text-white text-lg uppercase tracking-wide 
+                        `}
+                    >
+                        {tradeBtns.long}
+                    </button>
+
+                </div>
 
 
             </div>
