@@ -23,6 +23,7 @@ type Props = {
 export default function TradePanel({balance, setBalance , btc , setBtc , price , setPrice , avgPrice , setAvgPrice}: Props){
 
     const [amount , setAmount] = useState<string>("")
+    const [side , setSide] = useState("long")
 
     const fetchPrices = useCallback(async () => {
         const res = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT")
@@ -109,8 +110,18 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                 </div>
 
 
-                <div className="">
-                    <div className="">
+                <div className="absolute left-0 bottom-14 w-full">
+                    <div className={`
+                        flex 
+                        items-center  
+                        px-4 py-4
+                        rounded-2xl
+                        border border-white/20
+                        shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]
+                        focus-within:border-[#2A5ADA]
+                        focus-within:shadow-[0_0_0_4px_rgba(42,90,218,0.15)]
+                        transition-all duration-200
+                    `}>
                         <input
                             value={amount}
                             placeholder="0.00"
@@ -120,28 +131,32 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                                 const value = e.target.value.replace(/[^0-9.]/g,"")
                                 setAmount(value)
                             }}
+                            className={`
+                                bg-transparent
+                                outline-none
+                                border-none 
+                                w-full 
+                                
+                                text-white 
+                                text-3xl
+                                font-semibold 
+                                tracking-tight
+                                
+                                placeholder:text-zinc-500
+                                   
+                                [appearance:textfield]
+                                [&::-webkit-outer-spin-button]:appearance-none
+                                [&::-webkit-inner-spin-button]:appearance-none
+                            `}
                         />
+                        <span className="text-zinc-400 ml-2 font-bold">usd</span>
                     </div>
                 </div>
 
 
 
-                <div className="flex  items-center  gap-2 w-full  bg-transparent   ">
-                    <button onClick={buyBtc}
-                        className={`
-                        absolute bottom-[-23] right-2 w-[47%]
-                        rounded-4xl  py-4 px-3 bg-green-500 hover:bg-green-700 cursor-pointer flex-1 text-white text-lg font-mono capitalize `}
-                    >
-                        long
-                    </button>
-                    <button onClick={sellBtc}
-                            className={`
-                            absolute bottom-[-23] left-2 w-[47%]
-                            rounded-4xl py-4 px-3 flex-1  bg-red-700 hover:bg-red-400 cursor-pointer  text-white text-lg font-mono capitalize `}
-                    >
-                        short
-                    </button>
-                </div>
+
+
             </div>
         </>
     )
