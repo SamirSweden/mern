@@ -108,19 +108,23 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                     </div>
                 </div>
 
-                    <input
-                        type="number"
-                        className={`
-                    bg-[#111] rounded-md
-                     py-4 px-4.5 outline-none w-full
-                     border-none 
-                     mb-3
-                     absolute left-0 bottom-14
-                     shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] hover:bg-[#500d61]`}
-                        value={amount}
-                        placeholder={"usd amount"}
-                        onChange={(e) => setAmount(e.target.value)}
-                    />
+
+                <div className="">
+                    <div className="">
+                        <input
+                            value={amount}
+                            placeholder="0.00"
+                            type="text"
+                            inputMode={'decimal'}
+                            onChange={(e) => {
+                                const value = e.target.value.replace(/[^0-9.]/g,"")
+                                setAmount(value)
+                            }}
+                        />
+                    </div>
+                </div>
+
+
 
                 <div className="flex  items-center  gap-2 w-full  bg-transparent   ">
                     <button onClick={buyBtc}

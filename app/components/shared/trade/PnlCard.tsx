@@ -1,4 +1,4 @@
-
+import {BriefcaseBusiness} from "lucide-react";
 
 
 type Props = {
@@ -22,10 +22,6 @@ export default function PnlCard({btc , currentPrice , avgPrice}: Props) {
          <div className={`
             flex items-start justify-around
             max-[768px]:flex-col 
-            hover:bg-[#111]
-            bg-black shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]
-            border 
-            border-gray-700
             p-5 mx-10
             rounded-2xl
             text-white 
@@ -33,7 +29,7 @@ export default function PnlCard({btc , currentPrice , avgPrice}: Props) {
             space-y-3
          `}>
              <h3 className={'font-mono text-lg text-white '}>
-                 Портфель
+                 Btc
              </h3>
              <div className={'flex items-start flex-col gap-2'}>
                  <h4>current value: </h4>
