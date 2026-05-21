@@ -167,13 +167,13 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                     <div className={`
                         transition-all duration-300 easy-in-out  
                         absolute w-1/2 top-1 bottom-1 rounded-2xl
-                        ${side === "long" ? "translate-x-full bg-green-500" : "translate-x-0 bg-red-400"}
+                        ${side === "long" ? "translate-x-full bg-green-500 text-white " : "translate-x-0 bg-red-400"}
                     `}  />
 
                     <button
                         onClick={() => setSide("short")}
                         className={`
-                        ${side === "short" ? "text-white " : "text-zinc-500" }
+                        ${side === "short" ? "text-white " : "text-zinc-400" }
                             active:scale-[0.98]
                             rounded-xl
                             py-4   
@@ -187,7 +187,7 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                     <button
                         onClick={() => setSide("long")}
                         className={`
-                        ${side === "short" ? "text-white " : "text-zinc-500" }
+                        ${side === "short" ? "text-zinc-500 " : "text-white" }
                             active:scale-[0.98]
                             rounded-xl
                             py-4   
@@ -200,6 +200,29 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
 
                 </div>
 
+
+                <button
+                    className={`
+                    absolute left-0 bottom-[-25]
+                         w-full rounded-2xl
+                          px-4 py-5 text-white 
+                          text-lg capitalize
+                          bg-black shadow-[inset_40px_40px_70px_0_hsla(0,0%,100%,.15)]
+                          hover:bg-[#111]
+                          border border-white/15
+                          z-50
+                          transition-all 
+                          duration-300 
+                          active:scale-[0.98]
+                          font-bold font-mono
+                          tracking-widest
+                          cursor-pointer
+                          
+                    `}
+                    onClick={side === "long" ? buyBtc : sellBtc}
+                >
+                    {side === "long" ? "Confirm long" : "Confirm short"}
+                </button>
 
             </div>
         </>
