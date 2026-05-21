@@ -25,7 +25,17 @@ const tradeBtns = {
     short: "short",
 }
 
-export default function TradePanel({balance, setBalance , btc , setBtc , price , setPrice , avgPrice , setAvgPrice}: Props){
+export default function TradePanel(
+    {
+        balance,
+        setBalance ,
+        btc ,
+        setBtc ,
+        price ,
+        setPrice ,
+        avgPrice ,
+        setAvgPrice}: Props)
+{
 
     const [amount , setAmount] = useState<string>("")
     const [side , setSide] = useState("long")
@@ -47,6 +57,7 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
     },[fetchPrices])
 
     function buyBtc(){
+        if(!validateAmount()) return;
         const usd = Number(amount)
 
         if(usd > balance){
@@ -63,8 +74,9 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
         const newBalance = balance - usd;
 
 
-        setBalance(newBalance)
-        setBtc(newAvgPrice);
+        setBalance(newBalance);
+        setBtc(totalBtc);
+        setAvgPrice(newAvgPrice);
 
         localStorage.setItem("balance", String(newBalance))
         localStorage.setItem("btc", String(totalBtc))
@@ -73,6 +85,7 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
     }
 
     function sellBtc(){
+        if(!validateAmount()) return;
         const usd = Number(amount)
         const btcToSell = usd / price;
 
@@ -93,9 +106,30 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
         toast.success(`Sold  BTC for $${usd}`)
     }
 
+    function validateAmount(){
+        const usd = Number(amount)
+
+        if(!amount.trim()) {
+            toast.error("enter amount")
+            return false;
+        }
+
+        if(isNaN(usd)){
+            toast.error("invalid amount")
+            return false;
+        }
+
+        if(usd <= 0){
+            toast.error("amount must be greater than 0");
+            return false;
+        }
+
+        return true;
+    }
+
     return (
         <>
-            <div className={'bg-black h-125 relative border border-white/20  rounded-2xl p-5 flex items-start justify-center flex-col w-full'}>
+            <div className={'bg-black h-125 relative  rounded-2xl p-5 flex items-start justify-center flex-col w-full'}>
                 <div className="space-y-4 mb-4">
                     <h5 className={`
                         text-white text-2xl font-mono 
@@ -137,6 +171,8 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                                 setAmount(value)
                             }}
                             className={`
+                                disabled:opacity-50 
+                                
                                 bg-transparent
                                 outline-none
                                 border-none 
@@ -202,6 +238,7 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
 
 
                 <button
+                    disabled={!amount || Number(amount) <= 0}
                     className={`
                     absolute left-0 bottom-[-25]
                          w-full rounded-2xl
@@ -210,13 +247,17 @@ export default function TradePanel({balance, setBalance , btc , setBtc , price ,
                           bg-black shadow-[inset_40px_40px_70px_0_hsla(0,0%,100%,.15)]
                           hover:bg-[#111]
                           border border-white/15
-                          z-50
+                          z-[100px]
                           transition-all 
                           duration-300 
                           active:scale-[0.98]
                           font-bold font-mono
                           tracking-widest
                           cursor-pointer
+                          
+                          disabled:opacity-50 
+                          disabled:cursor-not-allowed
+                          disabled:bg-black
                           
                     `}
                     onClick={side === "long" ? buyBtc : sellBtc}
