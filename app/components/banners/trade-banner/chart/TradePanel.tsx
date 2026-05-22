@@ -2,7 +2,7 @@
 
 import {toast} from "sonner";
 import React, {useEffect , useCallback,useState} from "react";
-import {Bitcoin} from "lucide-react";
+import {Bitcoin,BriefcaseBusiness} from "lucide-react";
 
 
 type Props = {
@@ -131,21 +131,21 @@ export default function TradePanel(
         <>
             <div className={'bg-black h-125 relative  rounded-2xl p-5 flex items-start justify-center flex-col w-full'}>
                 <div className="space-y-4 mb-4">
-                    <h5 className={`
+                 <div className={`
+                    absolute top-2 left-2 w-full flex items-center justify-between
+                 `}>
+                     <div className={` flex items-center gap-2
                         text-white text-2xl font-mono 
                     `}>
-                        Balance: ${balance.toFixed(2)}
-                    </h5>
-                    <p className={`
-                        text-white text-xs font-mono
-                    `}>
-                        BTC: ${btc.toFixed(6)}
-                    </p>
-                    <div className={`
+                         <BriefcaseBusiness size={30} /> ${balance.toFixed(2)}
+                     </div>
+
+                     <div className={`
                         text-white text-lg font-mono flex items-center
                     `}>
-                        <Bitcoin /> ${price.toLocaleString()}
-                    </div>
+                         <Bitcoin /> ${price.toLocaleString()}
+                     </div>
+                 </div>
                 </div>
 
 

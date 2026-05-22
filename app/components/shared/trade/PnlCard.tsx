@@ -1,5 +1,5 @@
-import {BriefcaseBusiness} from "lucide-react";
-
+import {useState} from "react";
+import { ChevronUp, ChevronDown } from "lucide-react";
 
 type Props = {
     btc: number;
@@ -10,6 +10,7 @@ type Props = {
 
 
 export default function PnlCard({btc , currentPrice , avgPrice}: Props) {
+    const [open , setOpen] = useState(false)
     const currentValue = btc * currentPrice;
 
     const investedValue = btc * avgPrice;
@@ -91,6 +92,87 @@ export default function PnlCard({btc , currentPrice , avgPrice}: Props) {
         </span>
             </div>
         </div>
+
+        {/* MOBILE BOTTOM SHEET */}
+        {open && (
+            <>
+                <div
+                    onClick={() => setOpen(false)}
+                    className="
+            fixed inset-0
+            bg-black/60
+            backdrop-blur-md
+            z-40
+            "
+                />
+
+                <div
+                    className="
+            fixed bottom-0 left-0 right-0
+            z-50
+            rounded-t-[32px]
+            border-t border-white/10
+            bg-zinc-900/80
+            backdrop-blur-2xl
+            p-6
+            text-white
+            "
+                >
+                    <div className="mb-6 flex justify-center">
+                        <div className="h-1.5 w-14 rounded-full bg-white/20" />
+                    </div>
+
+                    <div className="flex items-center justify-between">
+                        <h2 className="text-xl font-bold">
+                            Portfolio Details
+                        </h2>
+
+                        <button onClick={() => setOpen(false)}>
+                            <ChevronDown />
+                        </button>
+                    </div>
+
+                    <div className="mt-8 space-y-6">
+                        <div className="flex justify-between">
+                    <span className="text-zinc-400">
+                        Current Value
+                    </span>
+
+                            <span className="font-bold">
+                        ${currentValue.toFixed(2)}
+                    </span>
+                        </div>
+
+                        <div className="flex justify-between">
+                    <span className="text-zinc-400">
+                        Invested
+                    </span>
+
+                            <span className="font-bold">
+                        ${investedValue.toFixed(2)}
+                    </span>
+                        </div>
+
+                        <div className="flex justify-between">
+                    <span className="text-zinc-400">
+                        PNL
+                    </span>
+
+                            <span
+                                className={`font-bold ${
+                                    pnl >= 0
+                                        ? "text-green-400"
+                                        : "text-red-400"
+                                }`}
+                            >
+                        {pnl >= 0 ? "+" : "-"}$
+                                {Math.abs(pnl).toFixed(2)}
+                    </span>
+                        </div>
+                    </div>
+                </div>
+            </>
+        )}
     </>
 }
 
