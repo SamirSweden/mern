@@ -16,6 +16,8 @@
     "next": "^16.2.1",
     "next-auth": "^4.24.14",
     "nextjs-turnstile": "^1.0.5",
+    "pusher": "^5.3.3",
+    "pusher-js": "^8.5.0",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "react-markdown": "^10.1.0",
