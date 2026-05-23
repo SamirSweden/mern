@@ -15,10 +15,11 @@ const pusher = new Pusher({
 export async function POST(req: Request) {
     const body = await req.json();
 
-    const {message} = body;
+    const {text , sender} = body;
 
     await pusher.trigger("chat-channel", "new-message", {
-        message
+        text,
+        sender
     })
 
     return Response.json({ success: true })

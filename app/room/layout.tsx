@@ -13,11 +13,13 @@ export const metadata: Metadata = {
 export default function RoomLayout({children}: {children: React.ReactNode}) {
     return (
         <>
+            <main className={`overflow-hidden`}>
             <Toaster
                 position={"top-right"}
                 richColors={true}
             />
             {children}
+            </main>
         </>
     )
 }
