@@ -8,6 +8,7 @@ import {ArrowRight} from "lucide-react";
 type Message = {
     text: string;
     msg: string;
+    sender:string;
 }
 
 export default function ChatRu(){
