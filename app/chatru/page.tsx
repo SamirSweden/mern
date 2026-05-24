@@ -156,15 +156,16 @@ export default function ChatRu(){
                         <div ref={bottomRef} />
                     </div>
 
-                    <div className={'flex gap-2  bg-black py-4   sticky bottom-0'}>
+                    <div className={'flex gap-2  bg-black py-4   sticky bottom-0 max-[480px]:shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] ' +
+                        'max-[480px]:rounded-xl'}>
                         <input
-                            placeholder={'send message'}
+                            placeholder={'kraken chat , send message'}
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             className={`
                             w-full
-                                text-white bg-black py-4 px-6 rounded-2xl outline-none focus:border-violet-600
-                                border border-gray-500 
+                                text-white bg-black py-4 px-6 rounded-2xl outline-none border border-gray-700 focus:border-violet-600
+                                    
                             `}
                             onKeyDown={(e) => {
                                 if(e.key === "Enter") {
@@ -176,7 +177,7 @@ export default function ChatRu(){
                         <button
                             onClick={sendMessage}
                             className={`hover:bg-white/10 transition
-                                bg-black rounded-full px-2 py-2 text-white 
+                                bg-black rounded-full px-3 py-2 text-white 
                                 outline-none border-none cursor-pointer
                             `}
                         >
