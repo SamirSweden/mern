@@ -2,7 +2,7 @@
 
 import {useEffect , useState , useRef} from "react";
 import Pusher from "pusher-js";
-import {ArrowRight} from "lucide-react";
+import {ArrowRight, X ,Equal  } from "lucide-react";
 
 import Link from "next/link"
 import Image from "next/image";
@@ -173,19 +173,69 @@ export default function ChatRu(){
 
 
 function ChatHeader(){
+    const [open , setOpen] = useState(false);
+
     return<>
         <div className={'bg-black px-0 py-4'}>
             <div className="max-w-4xl mx-auto ">
                 <div className={`flex items-center justify-between py-4 px-3 bg-zinc-950 rounded-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]`}>
-                    <Link href={'/'} className={"flex items-center gap-1"}>
+                    <Link href={'/'} className={"flex items-center gap-1 max-[425px]:w-25"}>
                         <Image src={krakenLogo} alt={'kraken'} width={150} height={150}  />
-                        <span className={'font-bold font-mono text-2xl'}>gram</span>
+                        <span className={'font-bold font-mono text-2xl max-[425px]:text-lg'}>gram</span>
                     </Link>
-                    <ul className={'flex items-center gap-3'}>
+                    <ul className={'flex items-center gap-3 max-[768px]:hidden'}>
                         <Link href={'/'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>home</Link>
                         <Link href={'/planc'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>pricing</Link>
                     </ul>
+                    <button
+                        className={`md:hidden cursor-pointer outline-none 
+                        text-white p-2 rounded-xl bg-white/5 border border-white/5 backdrop-blur-lg  z-50`}
+                        onClick={() => setOpen(!open)}
+                    >
+                        {open ? <X  size={30} /> : <Equal size={30} />}
+                    </button>
                 </div>
+
+                <div className={`
+                    md:hidden overflow-hidden transition-all duration-500 ease-in-out
+                    ${open ? "max-h-64  opacity-100 mt-3" : "opacity-0 max-h-0"}
+                `}>
+                    <div className={`
+                        flex flex-col gap-4 p-5 rounded-xl bg-white/5 backdrop-blur-2xl 
+                        shadow-[0_8px_32px_rgba(255,255,255,0.08)] border border-white/10 
+                    `}>
+                        <Link
+                            href="/"
+                            className="
+                                text-white
+                                font-mono
+                                font-black
+                                text-lg
+                                hover:text-gray-300
+                                transition
+                            "
+                            onClick={() => setOpen(false)}
+                        >
+                            home
+                        </Link>
+
+                        <Link
+                            href="/planc"
+                            className="
+                                text-white
+                                font-mono
+                                font-black
+                                text-lg
+                                hover:text-gray-300
+                                transition
+                            "
+                            onClick={() => setOpen(false)}
+                        >
+                            pricing
+                        </Link>
+                    </div>
+                </div>
+
             </div>
         </div>
     </>
