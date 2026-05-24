@@ -33,6 +33,8 @@ export async function POST(req: Request){
             read
         })
 
+
+
     await pusher.trigger("chat-channel", "new-message", {
         id , text , sender , read
     });

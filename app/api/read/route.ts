@@ -20,7 +20,7 @@ export async  function POST(req: Request){
     await supabase.from("messages").update({read: true}).eq("id",body.id)
 
     await pusher.trigger(
-        "new-channel",
+        "chat-channel",
         "message-read",
         {
             id: body.id

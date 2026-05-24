@@ -10,6 +10,8 @@ export async function GET(){
         });
 
     if(error) {
+        console.log(data)
+        console.log(error)
         return Response.json({
             error: error.message,
         })
