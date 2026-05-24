@@ -163,8 +163,8 @@ export default function ChatRu(){
                             onChange={(e) => setMessage(e.target.value)}
                             className={`
                             w-full
-                                text-white bg-black px-4 rounded-xl outline-none focus:border-cyan-600
-                                border border-gray-500
+                                text-white bg-black py-4 px-6 rounded-2xl outline-none focus:border-violet-600
+                                border border-gray-500 
                             `}
                             onKeyDown={(e) => {
                                 if(e.key === "Enter") {
