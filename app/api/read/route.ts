@@ -1,6 +1,7 @@
 
 
 import Pusher from "pusher"
+import {supabase} from "@/app/lib/supabase";
 
 const pusher = new Pusher({
     appId: process.env.PUSHER_APP_ID!,
@@ -14,6 +15,9 @@ const pusher = new Pusher({
 
 export async  function POST(req: Request){
     const body = await req.json();
+
+
+    await supabase.from("messages").update({read: true}).eq("id",body.id)
 
     await pusher.trigger(
         "new-channel",

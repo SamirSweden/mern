@@ -43,7 +43,16 @@ export default function ChatRu(){
         const channel = pusher.subscribe("chat-channel");
 
         channel.bind("new-message" ,async  (data: Message) => {
-            setMessages((prev) => [...prev , data]);
+            setMessages((prev) => {
+                const exists = prev.some(
+                    (msg) => msg.id === data.id
+                );
+                if(exists) return prev;
+
+                return [...prev,data];
+            });
+
+
 
             if(data.sender !== myId){
                 await fetch("/api/read", {
@@ -58,7 +67,10 @@ export default function ChatRu(){
         channel.bind("message-read", (data:{id:string}) => {
            setMessages((prev) =>
                 prev.map((msg) =>
-                    msg.id === data.id ? {...msg , read: true} : msg)
+                    msg.id === data.id
+                        ? {...msg , read: true}
+                        : msg
+                )
            )
         });
 
@@ -125,7 +137,7 @@ export default function ChatRu(){
 
 
                                             {isMe && (
-                                                <div className={'text-base text-right mt-1 opacity-70 '}>
+                                                <div className={'text-sm text-right mt-1 opacity-70 '}>
                                                     {
                                                         msg.read
                                                             ? "Прочитано только что"
@@ -144,14 +156,14 @@ export default function ChatRu(){
                         <div ref={bottomRef} />
                     </div>
 
-                    <div className={'flex gap-2  bg-black py-4'}>
+                    <div className={'flex gap-2  bg-black py-4   sticky bottom-0'}>
                         <input
                             placeholder={'send message'}
                             value={message}
                             onChange={(e) => setMessage(e.target.value)}
                             className={`
                             w-full
-                                text-white bg-black px-4.5 rounded-xl outline-none focus:border-cyan-600
+                                text-white bg-black px-4 rounded-xl outline-none focus:border-cyan-600
                                 border border-gray-500
                             `}
                             onKeyDown={(e) => {
@@ -163,7 +175,7 @@ export default function ChatRu(){
 
                         <button
                             onClick={sendMessage}
-                            className={`
+                            className={`hover:bg-white/10 transition
                                 bg-black rounded-full px-2 py-2 text-white 
                                 outline-none border-none cursor-pointer
                             `}
