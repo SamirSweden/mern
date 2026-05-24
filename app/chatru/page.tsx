@@ -4,11 +4,16 @@ import {useEffect , useState , useRef} from "react";
 import Pusher from "pusher-js";
 import {ArrowRight} from "lucide-react";
 
+import Link from "next/link"
+import Image from "next/image";
+
+const krakenLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/K-logo-wikipedia.svg/1280px-K-logo-wikipedia.svg.png"
 
 type Message = {
     text: string;
     msg: string;
     sender:string;
+    read: boolean;
 }
 
 export default function ChatRu(){
@@ -49,8 +54,10 @@ export default function ChatRu(){
         await fetch("/api/chat", {
             method: 'POST',
             body: JSON.stringify({
+                id: crypto.randomUUID(),
                 text: message,
                 sender: myId,
+                read:false,
             }),
         });
 
@@ -59,8 +66,9 @@ export default function ChatRu(){
 
     return (
         <>
-            <section className={'min-h-screen bg-black px-0'}>
-                <div className={'max-w-6xl mx-auto h-screen w-full  px-4 flex flex-col'}>
+            <section className={'h-screen bg-black px-0 flex flex-col'}>
+                <ChatHeader  />
+                <div className={'max-w-4xl mx-auto  w-full  px-4 flex flex-1 flex-col'}>
 
                     <div className={'flex-1  overflow-y-auto py-4 '}>
                         {messages.map((msg , i) => {
@@ -99,7 +107,6 @@ export default function ChatRu(){
                             w-full
                                 text-white bg-black px-4.5 rounded-xl outline-none focus:border-cyan-600
                                 border border-gray-500
-                                
                             `}
                         />
 
@@ -122,4 +129,21 @@ export default function ChatRu(){
 
 
 
-
+function ChatHeader(){
+    return<>
+        <div className={'bg-black px-0 py-4'}>
+            <div className="max-w-4xl mx-auto ">
+                <div className={`flex items-center justify-between py-4 px-3 bg-zinc-950 rounded-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]`}>
+                    <Link href={'/'} className={"flex items-center gap-1"}>
+                        <Image src={krakenLogo} alt={'kraken'} width={150} height={150}  />
+                        <span className={'font-bold font-mono text-2xl'}>gram</span>
+                    </Link>
+                    <ul className={'flex items-center gap-3'}>
+                        <Link href={'/'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>home</Link>
+                        <Link href={'/listings'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>listings</Link>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </>
+}
