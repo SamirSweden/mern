@@ -10,8 +10,8 @@ import Image from "next/image";
 const krakenLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/K-logo-wikipedia.svg/1280px-K-logo-wikipedia.svg.png"
 
 type Message = {
+    id: string;
     text: string;
-    msg: string;
     sender:string;
     read: boolean;
 }
@@ -34,15 +34,35 @@ export default function ChatRu(){
 
         const channel = pusher.subscribe("chat-channel");
 
-        channel.bind("new-message" , (data: Message) => {
-            setMessages((prev) => [...prev , data])
+        channel.bind("new-message" ,async  (data: Message) => {
+            setMessages((prev) => [...prev , data]);
+
+            if(data.sender !== myId){
+                await fetch("/api/read", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        id: data.id
+                    })
+                })
+            }
         });
+
+        channel.bind("message-read", (data:{id:string}) => {
+           setMessages((prev) =>
+                prev.map((msg) =>
+                    msg.id === data.id ? {...msg , read: true} : msg)
+           )
+        });
+
 
         return () => {
             channel.unbind_all();
             channel.unsubscribe();
         }
-    },[])
+
+
+    },[myId])
+
 
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -77,25 +97,43 @@ export default function ChatRu(){
                             return(
                                 <div key={i}
                                     className={`
-                                        mb-2 flex 
+                                        mb-2 flex   
                                         ${isMe ? "justify-end" : "justify-start"}
                                     `}
                                 >
                                     <div className={`
-                                        wrap-break-word
-                                        rounded-2xl 
+                                        break-words 
+                                        rounded-2xl
+                                        px-5 py-3 
                                         max-w-[70%]
-                                        py-3 px-5
-                                        text-white
+                                        text-white  
                                         ${isMe 
                                         ? "bg-[#111] shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]   rounded-br-sm" 
-                                        : "rounded-bl-sm"}
+                                        : "rounded-bl-sm bg-violet-700"}
                                     `}>
-                                        {msg.text}
+                                        <div>
+                                            {msg.text}
+                                        </div>
+
+
+                                            {isMe && (
+                                                <div className={'text-base text-right mt-1 opacity-70 '}>
+                                                    {
+                                                        msg.read
+                                                            ? "Прочитано только что"
+                                                            : "Отправлено только что"
+                                                    }
+                                                </div>
+                                            )}
+
                                     </div>
+
+
+
                                 </div>
                             )
                         })}
+                        <div ref={bottomRef} />
                     </div>
 
                     <div className={'flex gap-2  bg-black py-4'}>
@@ -108,6 +146,11 @@ export default function ChatRu(){
                                 text-white bg-black px-4.5 rounded-xl outline-none focus:border-cyan-600
                                 border border-gray-500
                             `}
+                            onKeyDown={(e) => {
+                                if(e.key === "Enter") {
+                                    sendMessage();
+                                }
+                            }}
                         />
 
                         <button
@@ -140,7 +183,7 @@ function ChatHeader(){
                     </Link>
                     <ul className={'flex items-center gap-3'}>
                         <Link href={'/'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>home</Link>
-                        <Link href={'/listings'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>listings</Link>
+                        <Link href={'/planc'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>pricing</Link>
                     </ul>
                 </div>
             </div>

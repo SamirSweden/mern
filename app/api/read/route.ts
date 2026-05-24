@@ -1,6 +1,6 @@
 
 
-import Pusher from 'pusher';
+import Pusher from "pusher"
 
 const pusher = new Pusher({
     appId: process.env.PUSHER_APP_ID!,
@@ -12,22 +12,21 @@ const pusher = new Pusher({
 
 
 
-export async function POST(req: Request){
+export async  function POST(req: Request){
     const body = await req.json();
 
-    const {
-        id,
-        text,
-        sender,
-        read,
-    } = body;
-
-    await pusher.trigger("chat-channel", "new-message", {
-        id , text , sender , read
-    });
+    await pusher.trigger(
+        "new-channel",
+        "message-read",
+        {
+            id: body.id
+        }
+    )
 
     return Response.json({
         success: true
     })
 }
+
+
 
