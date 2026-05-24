@@ -1,6 +1,7 @@
 
 
 import Pusher from 'pusher';
+import {supabase} from "@/app/lib/supabase";
 
 const pusher = new Pusher({
     appId: process.env.PUSHER_APP_ID!,
@@ -21,6 +22,16 @@ export async function POST(req: Request){
         sender,
         read,
     } = body;
+
+
+    await supabase
+        .from("messages")
+        .insert({
+            id,
+            text,
+            sender,
+            read
+        })
 
     await pusher.trigger("chat-channel", "new-message", {
         id , text , sender , read

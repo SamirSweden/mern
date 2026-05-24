@@ -25,6 +25,14 @@ export default function ChatRu(){
     const [myId] = useState(() => crypto.randomUUID());
 
     useEffect(() => {
+
+        const loadMessages = async () => {
+            const res = await fetch("/api/messages");
+            const data = await res.json();
+            setMessages(data)
+        };
+        loadMessages();
+
         const pusher = new Pusher(
             process.env.NEXT_PUBLIC_PUSHER_KEY!,
             {
