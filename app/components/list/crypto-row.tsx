@@ -13,7 +13,7 @@ export default function CryptoRow({
     coin.change24h >= 0
 
   return (
-    <tr className="border-b border-zinc-800 hover:bg-zinc-900 transition">
+    <tr className="border-b hover:bg-black shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] border-zinc-800  transition">
       <td className="p-5">
         {index + 1}
       </td>

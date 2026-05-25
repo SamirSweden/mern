@@ -19,7 +19,7 @@ export default async function Home() {
     <main className="min-h-screen bg-black text-white p-10">
       <div className="max-w-7xl mx-auto">
         <h1 className="text-5xl font-bold mb-10">
-          Crypto Dashboard
+          Kraken.su &mdash; coinlist
         </h1>
 
         <CryptoTable

@@ -34,7 +34,7 @@ export default function CryptoTable({
   return (
     <div className="rounded-2xl overflow-hidden border border-zinc-800">
       <table className="w-full">
-        <thead className="bg-zinc-950 border-b border-zinc-800">
+        <thead className="bg-zinc-950  border-b border-zinc-800">
           <tr className="text-zinc-500 text-sm">
             <th className="p-5 text-left">
               #

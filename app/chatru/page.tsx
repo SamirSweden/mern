@@ -206,7 +206,7 @@ function ChatHeader(){
                     </Link>
                     <ul className={'flex items-center gap-3 max-[768px]:hidden'}>
                         <Link href={'/'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>home</Link>
-                        <Link href={'/planc'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>pricing</Link>
+                        <Link href={'/plans'} className={'text-gray-400 capitalize hover:text-white font-mono font-black'}>pricing</Link>
                     </ul>
                     <button
                         className={`md:hidden cursor-pointer outline-none 
