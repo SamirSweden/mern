@@ -107,10 +107,10 @@ const Header = () => {
                                             {isProtocols && openDropdown === "protocols" && (
                                                 <ul className={`
                                                     absolute top-full left-0 z-50 w-58 
-                                                    shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] backdrop-blur-xl border border-white/10
+                                                    shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] backdrop-blur-sm border border-white/10
                                                      flex flex-col gap-1 mt-1 
                                                     rounded-3xl overflow-hidden
-                                                    bg-neutral-900/40
+                                                    bg-neutral-900/90 backdrop-saturate-150
                                                 `}>
                                                     {protocolDropdown.map((pr) => (
                                                         <li key={pr.href}>
