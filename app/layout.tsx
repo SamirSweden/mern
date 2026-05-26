@@ -31,7 +31,7 @@ export default function RootLayout({
       className={`${jetbrains.variable}  text-white`}
     >
     <Providers>
-      <SideBar />
+      {/*<SideBar />*/}
         <ClientWrapper>
           {children}
         </ClientWrapper>
