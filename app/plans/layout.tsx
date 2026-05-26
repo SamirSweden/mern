@@ -6,7 +6,7 @@ import Header from "@/app/components/shared/header/Header";
 
 
 export const metadata: Metadata = {
-    title: "Stormer plans - kraken",
+    title: "Stormer plans - Choose the Best indicator and get rich yourself",
     description: "invest with ryan ",
 }
 
