@@ -43,8 +43,8 @@ const PlanCard = () => {
                 <div key={dataCard.id} className={`
                     transition-transform duration-300 hover:-translate-y-2 
                     hover:shadow-2xl hover:shadow-white/10
-                    bg-linear-to-br from-[#111] to-black rounded-xl p-10 border border-white/20 
-                    flex  flex-col
+                    bg-linear-to-br from-[#111] to-black rounded-xl p-4 border border-white/20 
+                    flex  flex-col w-full 
                 `}>
 
                     <div className={`flex items-stretch gap-4 flex-col`}>
@@ -52,10 +52,10 @@ const PlanCard = () => {
     bg-white/[0.03] backdrop-blur-3xl
     border border-white/[0.08] border-t-white/[0.15] border-l-white/[0.15]
     shadow-[inset_1px_1px_1px_0_rgba(255,255,255,0.1),_0_8px_32px_0_rgba(0,0,0,0.37)]
-    hover:bg-white/[0.06] hover:border-white/[0.2] hover:-translate-y-1 ">
+    hover:bg-white/[0.06] hover:border-white/[0.2] hover:-translate-y-2 ">
                             <h2 className={'mb-3 text-white uppercase font-bold font-mono text-lg'}>{dataCard.label}</h2>
                             <div className={`flex items-center`}>
-                                <h2 className={'text-white text-3xl font-extrabold'}>{dataCard.price}</h2>
+                                <h2 className={'max-[430px]:text-xl text-white  text-3xl font-extrabold'}>{dataCard.price}</h2>
                                 <DollarSign size={35}/>
                                 <span className={'text-gray-400 text-sm ml-5 absolute bottom-2 right-4'}>/{dataCard.days}</span>
                             </div>
@@ -66,8 +66,12 @@ const PlanCard = () => {
                             <button className={`w-full
                                 bg-white 
                                 py-4 px-5
+                                rounded-lg
                                 text-center text-black text-sm font-semibold 
                                 capitalize 
+                                outline-none border-none cursor-pointer 
+                                hover:bg-white/30
+                                shadow-2xl hover:shadow-gray-400
                                 
                             `}>{dataCard.btnText}</button>
                         </div>

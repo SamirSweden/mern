@@ -12,7 +12,7 @@ import {
     Equal,
     ChartCandlestick,
     ListOrdered,
-    Gauge
+    Gem
 } from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
@@ -44,7 +44,8 @@ const protocolDropdown  = [
     { href: "/chat", label: "KrakenAI" },
     { href: "/dashboard", label: "dashboard" },
     { href: "/docs", label: "docs" },
-    {href: "/btc", label:"trade now"}
+    {href: "/btc", label:"trade now"},
+    {href: "/plans", label:"buy indicator"}
 ];
 
 const mobileLinks = [
@@ -55,6 +56,7 @@ const mobileLinks = [
     {href:"/listings", name: "listings" , icon: <ListOrdered />},
     {href: "/docs", name: "docs" , icon: <Code />},
     {href: "/btc", name: "trade now" , icon: <Bitcoin />},
+    {href: "/plans", name: "buy indicator" , icon: <Gem />}
 ];
 
 const Header = () => {
