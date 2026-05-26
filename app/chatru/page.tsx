@@ -106,7 +106,7 @@ export default function ChatRu(){
 
     return (
         <>
-            <section className={'h-screen bg-black px-0 flex flex-col'}>
+            <section className={'min-h-screen bg-black px-0 flex flex-col'}>
                 <ChatHeader  />
                 <div className={'max-w-4xl mx-auto  w-full  px-4 flex flex-1 flex-col'}>
 
