@@ -12,6 +12,8 @@ import {
     Equal,
     ChartCandlestick,
     ListOrdered,
+    ArrowDown,
+    Gamepad2,
     Gem
 } from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
@@ -30,12 +32,22 @@ const links = [
     {
         href: "/protocols", 
         label: "Protocols", 
-        icon: <GlobeLock /> 
+        icon: <ArrowDown />
     },
     {
         href: "/chart", 
         label: "Chart", 
         icon: <ChartNoAxesCombined />
+    },
+    {
+        href: "/btc",
+        label: "Invest now",
+        icon:<ChartCandlestick />
+    },
+    {
+        href: "/hamster",
+        label: "Crypto games",
+        icon:<Gamepad2 />
     },
 ];
 
@@ -44,7 +56,6 @@ const protocolDropdown  = [
     { href: "/chat", label: "KrakenAI" },
     { href: "/dashboard", label: "dashboard" },
     { href: "/docs", label: "docs" },
-    {href: "/btc", label:"trade now"},
     {href: "/plans", label:"buy indicator"}
 ];
 
@@ -77,17 +88,16 @@ const Header = () => {
 
     return (
         <>
-            <header className={`header bg-black z-50 py-5 px-0  sticky top-0 w-full transition-all duration-300`}>
-                <div className="max-w-307.5 px-4 md:px-6 mx-auto w-full h-full ">
+            <header className={`header bg-black z-50  px-0  sticky top-0 w-full transition-all duration-300 max-[980px]:py-4 ${scrolled ? "shadow-2xl bg-transparent": ""}`}>
+                <div className="max-w-9xl px-4 md:px-6 mx-auto w-full h-full ">
                     <div className={"bg-transparent backdrop-blur-3xl absolute inset-0 -z-10 rounded-b-3xl"}></div>
-                    {/*for blur*/}
                     <div className={`flex items-center justify-between`}>
                         <div className="header__logo flex items-center gap-12.5">
                             <Link className={'animate-pulse drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>
                                 <Image src={krakenLogo} width={150} height={150} alt={'Kraken'} />
                             </Link>
-                        </div>
-                        <ul className="header__near flex items-center backdrop-blur-3xl gap-4 max-[600px]:hidden py-3 px-4 bg-black  rounded-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] ">
+
+                            <ul className="header__near flex items-center bg-transparent gap-4 max-[980px]:hidden py-3 px-4  ">
                                 {links.map((link) => {
                                     if(!link?.href) return null;
                                     const isActive = pathname === link.href;
@@ -130,11 +140,13 @@ const Header = () => {
                                     )
                                 })}
                             </ul>
+                        </div>
+
                         <div className={'flex items-center '}>
                             <button onClick={() => router.push('/dashboard')}
                             className={`max-[710px]:hidden    
-                            py-4 px-8 rounded-full capitalize cursor-pointer
-                            ${scrolled ? "bg-white text-black" : "bg-black shadow-[inset_40px_40px_70px_0_hsla(0,0%,100%,.15)]  hover:bg-gray-900"}
+                            py-1.5 px-5 rounded-full capitalize cursor-pointer
+                            ${scrolled ? "bg-white text-black" : "bg-yellow-400 text-black text-bold hover:bg-yellow-600  "}
                             `}
                             >dashboard</button>
 
