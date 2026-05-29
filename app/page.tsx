@@ -8,12 +8,14 @@ import ProCard from "@/app/components/banners/cards/ProCard";
 import ThreeCards from "@/app/components/banners/cards/ThreeCards";
 import PreFooter from "@/app/components/UI/PreFooter";
 import MainBanner from "@/app/components/banners/banner/MainBanner";
+import WeexBanner from "@/app/components/banners/banner/WeexBanner";
 
 
 export default function Home(){
     return (
             <>
                 <Header />
+                <WeexBanner />
                 <MainBanner/>
                 <Banner />
                 <BannerCard />

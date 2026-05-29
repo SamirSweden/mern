@@ -82,6 +82,10 @@ const nextConfig: NextConfig = {
                 protocol: "https"
                 ,
                 hostname: "cdn.iconscout.com"
+            },
+            {
+                protocol: "https",
+                hostname: "d2tfhb4luz96yb.cloudfront.net"
             }
         ]
     },
