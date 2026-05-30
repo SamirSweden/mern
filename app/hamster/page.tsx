@@ -36,7 +36,6 @@ const Hamster = () => {
         const amount = coins;
         setCoins(0)
 
-        setCoins(prev => prev - 20)
         toast.success(`Withdraw ${amount}$`, {
             description:"transaction successfully",
         })
@@ -45,6 +44,7 @@ const Hamster = () => {
     return (
         <>
             <section className={`
+            relative
                 flex items-center justify-center 
                 text-white min-h-screen
                 bg-black flex-col select-none
@@ -55,7 +55,8 @@ const Hamster = () => {
                     'font-bold font-mono capitalize' +
                     ''}
                 >
-                    {coins}$
+                    {coins}
+                    <span className={'font-extrabold text-yellow-500'}>$</span>
                     <span className={'ml-3 text-gray-400'}>{content.coins}</span>
                 </h2>
 
@@ -79,11 +80,15 @@ const Hamster = () => {
                     />
                 </motion.button>
                 {coins >= 10 &&(
-                    <div className={'flex items-center max-[480px]:w-full'}>
+                    <div className={'flex items-center max-[480px]:w-full max-[480px]:mt-4'}>
                         <motion.button
                             onClick={handleWithdraw}
                             whileTap={{scale: 2.3}}
                             className={`
+                            fixed  bottom-4 
+                            
+                            left-1/2 -translate-x-1/2
+                            
                             max-[480px]:w-full
                             bg-yellow-500 hover:bg-yellow-300
                             text-black text-center text-lg 
@@ -91,7 +96,7 @@ const Hamster = () => {
                             py-3 px-5 
                             rounded-xl 
                             cursor-pointer outline-none border-none 
-                            flex items-center gap-4 
+                            flex items-center  justify-center gap-4
                         `}
                         >
                             {content.withDraw}
