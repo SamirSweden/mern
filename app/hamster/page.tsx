@@ -6,6 +6,7 @@ import {useState} from "react";
 import {convertServerPatchToFullTree} from "next/dist/client/components/segment-cache/navigation";
 import {bisectCenter} from "d3-array";
 import {BanknoteArrowDown} from "lucide-react";
+import {toast} from "sonner";
 
 // import hamsterImg from "@/app/assets/hamster.png"
 
@@ -17,11 +18,28 @@ const content = {
     withDraw: "withDraw money",
 }
 
+
+
 const Hamster = () => {
     const [coins , setCoins] = useState(0)
 
     const hanldeGame = () => {
         setCoins(prev => prev + 1)
+    }
+
+    const handleWithdraw = () => {
+        if(coins <= 0) {
+            toast.error("No money to withdraw");
+            return;
+        }
+
+        const amount = coins;
+        setCoins(0)
+
+        setCoins(prev => prev - 20)
+        toast.success(`Withdraw ${amount}$`, {
+            description:"transaction successfully",
+        })
     }
 
     return (
@@ -63,6 +81,7 @@ const Hamster = () => {
                 {coins >= 10 &&(
                     <div className={'flex items-center max-[480px]:w-full'}>
                         <motion.button
+                            onClick={handleWithdraw}
                             whileTap={{scale: 2.3}}
                             className={`
                             max-[480px]:w-full

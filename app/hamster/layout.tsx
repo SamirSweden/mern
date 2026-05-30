@@ -1,6 +1,7 @@
 
 import {Metadata} from "next"
 import Header from "@/app/components/shared/header/Header";
+import {Toaster} from "sonner";
 
 
 export const metadata:Metadata = {
@@ -14,6 +15,12 @@ export default function HamsterLayout({children}: {children: React.ReactNode}) {
         <>
             <Header  />
             {children}
+
+            <Toaster
+                richColors
+                position={'bottom-left'}
+            />
+
         </>
     )
 }
