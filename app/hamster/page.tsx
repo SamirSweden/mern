@@ -3,12 +3,18 @@
 import Image from "next/image"
 import {motion} from "framer-motion";
 import {useState} from "react";
+import {convertServerPatchToFullTree} from "next/dist/client/components/segment-cache/navigation";
+import {bisectCenter} from "d3-array";
+import {BanknoteArrowDown} from "lucide-react";
 
-import hamsterImg from "@/app/assets/hamster.png"
+// import hamsterImg from "@/app/assets/hamster.png"
+
+const cryptoImg = "https://staticprintenglish.theprint.in/wp-content/uploads/2025/07/Screenshot2025-07-04195740-1024x576.png"
 
 const content = {
     coins: "Coins",
-    tap: "tap"
+    tap: "tap",
+    withDraw: "withDraw money",
 }
 
 const Hamster = () => {
@@ -45,14 +51,37 @@ const Hamster = () => {
                     `}
                 >
                     <Image
-                        src={hamsterImg}
-                        width={500}
-                        height={500}
+                        src={cryptoImg}
+                        width={700}
+                        height={1400}
                         alt={'Crypto Hamster'}
-                        className={'mix-blend-multiply bg-transparent'}
+                        className={'object-cover rounded-full'}
                         priority
+
                     />
                 </motion.button>
+                {coins >= 10 &&(
+                    <div className={'flex items-center max-[480px]:w-full'}>
+                        <motion.button
+                            whileTap={{scale: 2.3}}
+                            className={`
+                            max-[480px]:w-full
+                            bg-yellow-500 hover:bg-yellow-300
+                            text-black text-center text-lg 
+                            font-bold font-mono capitalize
+                            py-3 px-5 
+                            rounded-xl 
+                            cursor-pointer outline-none border-none 
+                            flex items-center gap-4 
+                        `}
+                        >
+                            {content.withDraw}
+                            <span>
+                                <BanknoteArrowDown />
+                            </span>
+                        </motion.button>
+                    </div>
+                )}
             </section>
         </>
     )
