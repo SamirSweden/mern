@@ -3,12 +3,9 @@
 import Image from "next/image"
 import {motion} from "framer-motion";
 import {useState} from "react";
-import {convertServerPatchToFullTree} from "next/dist/client/components/segment-cache/navigation";
-import {bisectCenter} from "d3-array";
 import {BanknoteArrowDown} from "lucide-react";
 import {toast} from "sonner";
 
-// import hamsterImg from "@/app/assets/hamster.png"
 
 const cryptoImg = "https://staticprintenglish.theprint.in/wp-content/uploads/2025/07/Screenshot2025-07-04195740-1024x576.png"
 
