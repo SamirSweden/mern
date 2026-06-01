@@ -90,6 +90,10 @@ const nextConfig: NextConfig = {
             {
                 protocol: "https",
                 hostname: "staticprintenglish.theprint.in"
+            },
+            {
+                protocol: "https",
+                hostname: "d2tfhb4luz96yb.cloudfront.net"
             }
         ]
     },
