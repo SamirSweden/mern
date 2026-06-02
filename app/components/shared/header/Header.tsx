@@ -121,6 +121,7 @@ const Header = () => {
                                                      flex flex-col gap-1 mt-1 
                                                     rounded-3xl overflow-hidden
                                                      backdrop-saturate-150 bg-transparent
+                                                     will-change-transform
                                                 `}>
                                                     {protocolDropdown.map((pr) => (
                                                         <li key={pr.href}>
@@ -128,7 +129,7 @@ const Header = () => {
                                                                 href={pr.href}
                                                                 className={` rounded-2xl 
                                                                 py-4.5 px-7 text-white capitalize cursor-pointer flex items-start flex-col 
-                                                                transition-all duration-300 whitespace-nowrap hover:bg-white/10 hover:backdrop-blur-3xl hover:rounded-2xl m-2
+                                                                transition-all duration-300 whitespace-nowrap hover:bg-white/10 hover:backdrop-blur-3xl  m-2
                                                             `}>
                                                                 {pr.label}
                                                             </Link>

@@ -14,7 +14,7 @@ export async function SendMessage(messages: Message[]) {
             "Authorization": `Bearer ${process.env.LLAMA_API_KEY}`
         },
         body: JSON.stringify({
-            model: "llama3.1-8b", // 🔥 ВОТ ЭТО ГЛАВНОЕ
+            model: "meta-llama/llama-3.3-70b-instruct",
             messages: [
                 {
                     role: "system",
