@@ -14,10 +14,10 @@ export default  function MainBanner() {
 
     return (
         <>
-            <section className={'bg-black min-h-screen px-0 py-25'}>
+            <section className={'bg-black min-h-screen px-0 py-25 max-[1024px]:mt-20 max-[425px]:mt-12'}>
                 <div className="max-w-7xl  px-4 md:px-6 mx-auto w-full h-full">
                     <div className="flex flex-col items-center justify-center h-full">
-                        <h1 className="
+                        <h1 className=" max-[425px]:mt-6
                           text-center font-black font-mono
                           bg-linear-to-br from-violet-500 via-pink-600 to-yellow-500
                           bg-size-[300%_100%]

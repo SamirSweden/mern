@@ -27,6 +27,10 @@ const OkxBanner = () => {
               <p className={`text-gray-400 text-wrap text-lg w-full `}>
                 {content.desc}
               </p>
+
+              <div className="flex items-center">
+                
+              </div>
             </div>
             <video
               className="w-150 h-150"
