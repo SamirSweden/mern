@@ -88,7 +88,7 @@ const Header = () => {
 
     return (
         <>
-            <header className={`header bg-black z-50  px-0  sticky top-0 w-full transition-all duration-300 max-[980px]:py-4 ${scrolled ? "shadow-2xl bg-transparent": ""}`}>
+            <header className={`header bg-black z-50  px-0  fixed  top-0 w-full transition-all duration-300 max-[980px]:py-4 ${scrolled ? "shadow-2xl bg-transparent": ""}`}>
                 <div className="max-w-9xl px-4 md:px-6 mx-auto w-full h-full ">
                     <div className={"bg-transparent backdrop-blur-3xl absolute inset-0 -z-10 rounded-b-3xl"}></div>
                     <div className={`flex items-center justify-between`}>
