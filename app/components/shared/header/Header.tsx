@@ -93,7 +93,7 @@ const Header = () => {
                     <div className={"bg-transparent backdrop-blur-3xl absolute inset-0 -z-10 rounded-b-3xl"}></div>
                     <div className={`flex items-center justify-between`}>
                         <div className="header__logo flex items-center gap-12.5">
-                            <Link className={'animate-pulse drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-gradient-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>
+                            <Link className={'animate-pulse drop-shadow-[0_0_10px_rgba(255,150,100,0.5)] z-50 text-center outline-none border-none text-3xl capitalize font-mono select-none text-transparent bg-linear-to-br bg-clip-text from-orange-400  to-pink-500'} href={'/'}>
                                 <Image src={krakenLogo} width={150} height={150} alt={'Kraken'} />
                             </Link>
 
@@ -178,7 +178,7 @@ const Header = () => {
                                     )
                                 })}
                             </ul>
-                            <div className="header__apps  flex flex-col gap-[10px] !px-5 items-center justify-center fixed bottom-7 left-0 w-full  ">
+                            <div className="header__apps  flex flex-col gap-2.5 px-5 items-center justify-center fixed bottom-7 left-0 w-full  ">
                                 <button onClick={() => router.push('/chat')} className="chat__btn flex justify-center items-center text-center text-black gap-4 capitalize py-4 px-7 rounded-md bg-white w-full ">
                                     Kraken GPT <Bot size={30} />
                                 </button>

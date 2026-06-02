@@ -12,7 +12,7 @@ export default function Btc() {
     const [price , setPrice] = useState(65000)
     const [avgPrice , setAvgPrice] = useState(0)
 
-
+    
     return (
         <>
             <main className="min-h-screen bg-black  text-white ">

@@ -89,6 +89,7 @@ const PlanCard = () => {
                         </div>
 
                     </div>
+                    
                 </div>
             ))}
         </>

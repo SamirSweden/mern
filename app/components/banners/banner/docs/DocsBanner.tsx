@@ -1,5 +1,9 @@
+'use client'
+
 import Image from "next/image";
 import {ChevronRight} from "lucide-react";
+import {useRouter} from "next/navigation";
+
 
 import code1 from "@/app/assets/code1.png"
 const bannerImg = "https://h8dxkfmaphn8o0p3.public.blob.vercel-storage.com/learn/dark/dashboard-route.png"
@@ -8,10 +12,13 @@ const docsContent = {
     startText: "npx create-next-app@latest",
     heading: "The React Framework for the Web",
     text: "установите команду выше - тем самым у вас будет новый проект ",
-    routingText: "Routing"
+    routingText: "Routing",
+    docsBtnText: "Read the docs"
 }
 
 export default  function DocsBanner(){
+    const router = useRouter()
+
     return (
         <>
             <section className={' py-10 px-0 bg-black'}>
@@ -23,6 +30,16 @@ export default  function DocsBanner(){
                             <span><ChevronRight /></span>{docsContent.startText}
                         </span>
                         <h1 className={'py-6 text-4xl md:text-6xl lg:text-7xl  font-bold'}>{docsContent.heading}</h1>
+                        <div className="flex items-center justify-center mb-6">
+                            <button className={`
+                                    bg-yellow-300 py-3 px-6 rounded-3xl text-black
+                                     transition-transform duration-300 hover:-translate-y-2
+                                     capitalize cursor-pointer hover:bg-yellow-500
+                                     shadow-2xl hover:shadow-yellow-400
+                                `} onClick={() => {router.push('https://nextjs.org/docs/app/getting-started/project-structure')}}>
+                                {docsContent.docsBtnText}
+                            </button>
+                        </div>
                         <p>{docsContent.text}</p>
 
                         <div className={'mt-[60px] flex items-start flex-col gap-10'}>

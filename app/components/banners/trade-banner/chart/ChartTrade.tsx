@@ -37,7 +37,7 @@ export default function ChartTrade() {
                     color: '#2b2b43',
                 },
                 horzLines: {
-                    color: '#363c4e',
+                    color: '#525252',
                 },
             },
         })
