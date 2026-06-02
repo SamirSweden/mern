@@ -117,18 +117,18 @@ const Header = () => {
                                             {isProtocols && openDropdown === "protocols" && (
                                                 <ul className={`
                                                     absolute top-full left-0 z-50 w-58 
-                                                    shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] backdrop-blur-sm border border-white/10
+                                                    shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] backdrop-blur-lg border border-white/10
                                                      flex flex-col gap-1 mt-1 
                                                     rounded-3xl overflow-hidden
-                                                    bg-neutral-900/90 backdrop-saturate-150
+                                                     backdrop-saturate-150 bg-transparent
                                                 `}>
                                                     {protocolDropdown.map((pr) => (
                                                         <li key={pr.href}>
                                                             <Link
                                                                 href={pr.href}
-                                                                className={`
-                                                                py-4.5 px-7 text-white capitalize cursor-pointer flex items-items-start flex-col 
-                                                                transition-all duration-300 whitespace-nowrap hover:bg-black hover:rounded-2xl m-2
+                                                                className={` rounded-2xl 
+                                                                py-4.5 px-7 text-white capitalize cursor-pointer flex items-start flex-col 
+                                                                transition-all duration-300 whitespace-nowrap hover:bg-white/10 hover:backdrop-blur-3xl hover:rounded-2xl m-2
                                                             `}>
                                                                 {pr.label}
                                                             </Link>
