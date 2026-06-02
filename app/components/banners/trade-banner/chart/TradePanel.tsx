@@ -40,6 +40,7 @@ export default function TradePanel(
     const [amount , setAmount] = useState<string>("")
     const [side , setSide] = useState("long")
 
+
     const fetchPrices = useCallback(async () => {
         const res = await fetch("https://api.binance.com/api/v3/ticker/price?symbol=BTCUSDT")
         const data = await res.json()
@@ -150,6 +151,7 @@ export default function TradePanel(
 
 
                 <div className="absolute left-0 bottom-14 w-full">
+
                     <div className={`
                         flex 
                         items-center  
@@ -161,6 +163,10 @@ export default function TradePanel(
                         focus-within:shadow-[0_0_0_4px_rgba(42,90,218,0.15)]
                         transition-all duration-200
                     `}>
+
+
+
+
                         <input
                             value={amount}
                             placeholder="0.00"

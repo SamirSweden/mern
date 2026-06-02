@@ -1,59 +1,125 @@
 'use client'
 
-import { useEffect } from 'react'
+import {
+    createChart,
+    CandlestickSeries,
+} from 'lightweight-charts'
 
-declare global {
-    interface Window {
-        TradingView: {
-            widget:new (options: {
-                symbol: string
-                interval: string
-                theme: string
-                style: string
-                locale: string
-                width: string
-                height: number
-                container_id: string
-            }) => void;
-        }
-    }
-}
+import React, {
+    useEffect,
+    useRef,
+    useState,
+} from 'react'
 
 export default function ChartTrade() {
+    const chartRef = useRef<HTMLDivElement>(null)
+
+    const [tf, setTf] = useState('15m')
+
+    const TIMEFRAMES = ['1m', '5m', '15m', '1h', '4h'];
+
     useEffect(() => {
-        const existingScript =
-            document.getElementById('tv-script')
+        if (!chartRef.current) return
 
-        if (existingScript) return
+        const chart = createChart(chartRef.current, {
+            width: chartRef.current.clientWidth,
+            height: 700,
 
-        const script =
-            document.createElement('script')
+            layout: {
+                background: {
+                    color: '#0d0606',
+                },
+                textColor: '#d1d4dc',
+            },
 
-        script.id = 'tv-script'
+            grid: {
+                vertLines: {
+                    color: '#2b2b43',
+                },
+                horzLines: {
+                    color: '#363c4e',
+                },
+            },
+        })
 
-        script.src =
-            'https://s3.tradingview.com/tv.js'
+        const series =
+            chart.addSeries(CandlestickSeries)
 
-        script.onload = () => {
-            new window.TradingView.widget({
-                symbol: 'BINANCE:BTCUSDT',
-                interval: '15',
-                theme: 'dark',
-                style: '1',
-                locale: 'en',
-                width: '100%',
-                height: 700,
-                container_id: 'tradingview_chart',
+        async function loadCandles() {
+            const response = await fetch(
+                `https://api.binance.com/api/v3/klines?symbol=BTCUSDT&interval=${tf}&limit=500`
+            )
+
+            const data = await response.json()
+
+            const candles = data.map(
+                (item: any) => ({
+                    time: item[0] / 1000,
+                    open: Number(item[1]),
+                    high: Number(item[2]),
+                    low: Number(item[3]),
+                    close: Number(item[4]),
+                })
+            )
+
+            series.setData(candles)
+
+            chart.timeScale().fitContent()
+        }
+
+        loadCandles()
+
+        const resize = () => {
+            chart.applyOptions({
+                width:
+                    chartRef.current?.clientWidth ??
+                    1200,
             })
         }
 
-        document.body.appendChild(script)
-    }, [])
+        window.addEventListener(
+            'resize',
+            resize
+        )
+
+        return () => {
+            window.removeEventListener(
+                'resize',
+                resize
+            )
+
+            chart.remove()
+        }
+    }, [tf])
 
     return (
-        <div
-            id="tradingview_chart"
-            className="overflow-hidden rounded-xl"
-        />
+        <div className="w-full">
+            <div className="mb-3 flex gap-2 max-[425px]:justify-center">
+
+                {TIMEFRAMES.map((item) => {
+                    const isActive = tf === item;
+
+                    return (
+                        <button
+                            onClick={() => setTf(item)}
+                            key={item}
+                            className={`${isActive 
+                                ? "bg-linear-to-br from-white/75 to-white/50 backdrop-blur-lg text-black px-2 py-1 rounded-full text-sm font-bold cursor-pointer" 
+                                : "bg-black px-2 py-1 rounded-full text-white hover:bg-white hover:text-black cursor-pointer"
+                            }`}
+                        >
+                            {item}
+                        </button>
+                    )
+                })}
+
+            </div>
+
+
+            <div
+                ref={chartRef}
+                className="h-175 w-full rounded-xl overflow-hidden"
+            />
+        </div>
     )
 }

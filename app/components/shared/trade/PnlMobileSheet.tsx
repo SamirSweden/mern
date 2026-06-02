@@ -5,7 +5,7 @@ import {ChevronDown} from "lucide-react";
 
 type Props = {
     open: boolean;
-    setOpen: (value: boolean) => void;
+    setOpen: React.Dispatch<React.SetStateAction<boolean>>;
 
     currentValue:number;
     investedValue: number;
@@ -19,7 +19,9 @@ export default function PnlMobileSheet({open,setOpen, currentValue, investedValu
 
     return (
         <>
-            <div className={`fixed inset-0 md:hidden  bg-black/60 backdrop-blur-3xl z-40`} />
+            <div
+                onClick={() => setOpen(false)}
+                className={`fixed inset-0 md:hidden  bg-black/60 backdrop-blur-3xl z-40`} />
 
             <div className={`
                 md:hidden  
