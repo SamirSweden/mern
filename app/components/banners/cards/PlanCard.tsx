@@ -10,7 +10,8 @@ const data = [
         futures: "predicts entry point",
         limit: "4 signals per day",
         price: "100",
-        days: "6 days"
+        days: "6 days",
+        text: "for new traders"
     },
     {
         id: 2,
@@ -20,7 +21,8 @@ const data = [
         futures: "predicts entry point , kill zones",
         limit: "7 signals per day",
         price: "2000",
-        days: "10 days"
+        days: "10 days",
+        text: "acceleration of the deposit"
     },
     {
         id: 3,
@@ -30,7 +32,8 @@ const data = [
         futures: "predicts entry point , AMD",
         limit: "30 signals per day",
         price: "5000",
-        days: "15 days"
+        days: "15 days",
+        text: "opens trades himself"
     },
 ];
 
@@ -79,6 +82,10 @@ const PlanCard = () => {
                         <p className={`text-gray-400 font-black text-sm text-wrap`}>{dataCard.futures}</p>
                         <div className={'text-gray-400 text-sm font-mono'}>
                             {dataCard.limit}
+                        </div>
+                        <hr className={'text-gray-700'} />
+                        <div>
+                            <span>{dataCard.text}</span>
                         </div>
 
                     </div>
