@@ -3,31 +3,46 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
     async rewrites() {
         return [
+            // {
+            //     source: "/_next/static/:path*",
+            //     destination: "https://crypto-app-xi-roan-97.vercel.app/_next/static/:path*",
+            // },
+            // {
+            //     source: "/_next/static/:path*/:file",
+            //     destination: "https://crypto-app-xi-roan-97.vercel.app/_next/static/:path*/:file",
+            // },
+            // {
+            //     source: "/_next/image/:path*",
+            //     destination: "https://crypto-app-xi-roan-97.vercel.app/_next/image/:path*",
+            // },
+            // {
+            //     source: "/:file+(css|js|json|map|png|jpg|jpeg|svg|ico|webp|woff|woff2|ttf)",
+            //     destination: "https://crypto-app-xi-roan-97.vercel.app/:file",
+            // },
+            // {
+            //     source: "/start",
+            //     destination: "https://crypto-app-xi-roan-97.vercel.app",
+            // },
+            // {
+            //     source: "/start/:path*",
+            //     destination: "https://crypto-app-xi-roan-97.vercel.app/:path*",
+            // },
+
             {
-                source: "/_next/static/:path*",
-                destination: "https://crypto-app-xi-roan-97.vercel.app/_next/static/:path*",
-            },
-            {
-                source: "/_next/static/:path*/:file",
-                destination: "https://crypto-app-xi-roan-97.vercel.app/_next/static/:path*/:file",
-            },
-            {
-                source: "/_next/image/:path*",
-                destination: "https://crypto-app-xi-roan-97.vercel.app/_next/image/:path*",
-            },
-            {
-                source: "/:file+(css|js|json|map|png|jpg|jpeg|svg|ico|webp|woff|woff2|ttf)",
-                destination: "https://crypto-app-xi-roan-97.vercel.app/:file",
-            },
-            {
-                source: "/start",
-                destination: "https://crypto-app-xi-roan-97.vercel.app",
-            },
-            {
-                source: "/start/:path*",
-                destination: "https://crypto-app-xi-roan-97.vercel.app/:path*",
+                source: "/checklist",
+                destination: "https://kraken-su.vercel.app/checklist"
             },
            
+
+             {
+                source: "/checklist/:path*",
+                destination: "https://kraken-su.vercel.app/checklist/:path*"
+            },
+
+            {
+                source: "/checklist/_next/:path*",
+                destination: "https://kraken-su.vercel.app/_next/:path*"
+            },
         ];
     },
 
