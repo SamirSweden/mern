@@ -56,7 +56,8 @@ const protocolDropdown  = [
     { href: "/chat", label: "KrakenAI" },
     { href: "/dashboard", label: "dashboard" },
     { href: "/docs", label: "docs" },
-    {href: "/plans", label:"buy indicator"}
+    {href: "/plans", label:"buy indicator"},
+    {href: "/checklist", label: "checklist"}
 ];
 
 const mobileLinks = [
@@ -67,7 +68,8 @@ const mobileLinks = [
     {href:"/listings", name: "listings" , icon: <ListOrdered />},
     {href: "/docs", name: "docs" , icon: <Code />},
     {href: "/btc", name: "trade now" , icon: <Bitcoin />},
-    {href: "/plans", name: "buy indicator" , icon: <Gem />}
+    {href: "/plans", name: "buy indicator" , icon: <Gem />},
+    {href: "/checklist", name: "checklist" , icon: <ListOrdered />}
 ];
 
 const Header = () => {
