@@ -1,7 +1,6 @@
 
 import CryptoList from "@/app/components/CryptoList";
 import {getCryptoMarkets} from "@/app/lib/api/crypto";
-import Link from "next/link";
 
 
 const bannerContent = {
