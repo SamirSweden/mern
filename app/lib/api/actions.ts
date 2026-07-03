@@ -1,9 +1,13 @@
 'use server'
 
+
+
 export type Message = {
     role: "user" | "assistant",
     content: string
 }
+
+
 
 export async function SendMessage(messages: Message[]) {
 

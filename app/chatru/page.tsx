@@ -1,36 +1,46 @@
 'use client'
 
-import {useEffect , useState , useRef} from "react";
+import { useEffect, useState, useRef } from "react";
 import Pusher from "pusher-js";
-import {ArrowRight, X ,Equal  } from "lucide-react";
-
-import Link from "next/link"
+import { ArrowRight, X, Equal } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 
-const krakenLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/K-logo-wikipedia.svg/1280px-K-logo-wikipedia.svg.png"
+const krakenLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/K-logo-wikipedia.svg/1280px-K-logo-wikipedia.svg.png";
 
 type Message = {
     id: string;
     text: string;
-    sender:string;
+    sender: string;
     read: boolean;
 }
 
-export default function ChatRu(){
-    const [messages , setMessages] = useState<Message[]>([]);
-    const [message , setMessage] = useState("");
+export default function ChatRu() {
+    const [messages, setMessages] = useState<Message[]>([]);
+    const [message, setMessage] = useState("");
+    const [typingUser, setTypingUser] = useState("");
     const bottomRef = useRef<HTMLDivElement | null>(null);
-
-
-    const [myId] = useState(() => crypto.randomUUID());
+    const username = "RyanHaylin";
 
     useEffect(() => {
-
         const loadMessages = async () => {
-            const res = await fetch("/api/messages");
-            const data = await res.json();
-            setMessages(data)
+            try {
+                const res = await fetch("/api/messages");
+                const data = await res.json();
+
+                // Убеждаемся, что data - это массив
+                if (Array.isArray(data)) {
+                    setMessages(data);
+                } else {
+                    console.error("API вернул не массив:", data);
+                    setMessages([]); // Устанавливаем пустой массив как fallback
+                }
+            } catch (error) {
+                console.error("Ошибка загрузки сообщений:", error);
+                setMessages([]);
+            }
         };
+
         loadMessages();
 
         const pusher = new Pusher(
@@ -42,47 +52,43 @@ export default function ChatRu(){
 
         const channel = pusher.subscribe("chat-channel");
 
-        channel.bind("new-message" ,async  (data: Message) => {
+        channel.bind("new-message", async (data: Message) => {
             setMessages((prev) => {
-                const exists = prev.some(
-                    (msg) => msg.id === data.id
-                );
-                if(exists) return prev;
+                // Добавляем проверку, что prev - массив
+                if (!Array.isArray(prev)) {
+                    console.error("prev не массив:", prev);
+                    return [data]; // Возвращаем новый массив с сообщением
+                }
 
-                return [...prev,data];
+                const exists = prev.some((msg) => msg.id === data.id);
+                if (exists) return prev;
+
+                return [...prev, data];
             });
 
-
-
-            if(data.sender !== myId){
+            if (data.sender !== username) {
                 await fetch("/api/read", {
                     method: "POST",
                     body: JSON.stringify({
                         id: data.id
                     })
-                })
+                });
             }
         });
 
-        channel.bind("message-read", (data:{id:string}) => {
-           setMessages((prev) =>
-                prev.map((msg) =>
-                    msg.id === data.id
-                        ? {...msg , read: true}
-                        : msg
-                )
-           )
+        channel.bind("typing", (data: { sender: string }) => {
+            if (data.sender === username) return;
+            setTypingUser(data.sender);
+            setTimeout(() => {
+                setTypingUser("");
+            }, 1000);
         });
-
 
         return () => {
             channel.unbind_all();
             channel.unsubscribe();
-        }
-
-
-    },[myId])
-
+        };
+    }, [username]);
 
     useEffect(() => {
         bottomRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -96,27 +102,26 @@ export default function ChatRu(){
             body: JSON.stringify({
                 id: crypto.randomUUID(),
                 text: message,
-                sender: myId,
-                read:false,
+                sender: username,
+                read: false,
             }),
         });
 
         setMessage("");
-    }
+    };
 
     return (
         <>
             <section className={'min-h-screen bg-black px-0 flex flex-col'}>
-                <ChatHeader  />
-                <div className={'max-w-4xl mx-auto  w-full  px-4 flex flex-1 flex-col'}>
-
-                    <div className={'flex-1  overflow-y-auto py-4 '}>
-                        {messages.map((msg , i) => {
-                            const isMe = msg.sender === myId;
-
-                            return(
-                                <div key={i}
-                                    className={`
+                <ChatHeader />
+                <div className={'max-w-4xl mx-auto w-full px-4 flex flex-1 flex-col'}>
+                    <div className={'flex-1 overflow-y-auto py-4'}>
+                        {/* Добавляем проверку, что messages массив перед map */}
+                        {Array.isArray(messages) && messages.map((msg, i) => {
+                            const isMe = msg.sender === username;
+                            return (
+                                <div key={msg.id || i} // Лучше использовать msg.id вместо i
+                                     className={`
                                         mb-2 flex   
                                         ${isMe ? "justify-end" : "justify-start"}
                                     `}
@@ -127,53 +132,46 @@ export default function ChatRu(){
                                         px-5 py-3 
                                         max-w-[70%]
                                         text-white  
-                                        ${isMe 
-                                        ? "bg-[#111] shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]   rounded-br-sm" 
+                                        ${isMe
+                                        ? "bg-[#111] shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] rounded-br-sm"
                                         : "rounded-bl-sm bg-violet-700"}
                                     `}>
-                                        <div>
-                                            {msg.text}
-                                        </div>
-
-
-                                            {isMe && (
-                                                <div className={'text-sm text-right mt-1 opacity-70 '}>
-                                                    {
-                                                        msg.read
-                                                            ? "Прочитано только что"
-                                                            : "Отправлено только что"
-                                                    }
-                                                </div>
-                                            )}
-
+                                        <div>{msg.text}</div>
+                                        {isMe && (
+                                            <div className={'text-sm text-right mt-1 opacity-70'}>
+                                                {msg.read ? "Прочитано только что" : "Отправлено только что"}
+                                            </div>
+                                        )}
                                     </div>
-
-
-
                                 </div>
-                            )
+                            );
                         })}
                         <div ref={bottomRef} />
                     </div>
-
-                    <div className={'flex gap-2  bg-black py-4   sticky bottom-0 max-[480px]:shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] ' +
-                        'max-[480px]:rounded-xl'}>
+                    {typingUser && (
+                        <div className={'text-zinc-400 text-sm animate-pulse mb-2'}>
+                            {typingUser} печатает....
+                        </div>
+                    )}
+                    <div className={'flex gap-2 bg-black py-4 sticky bottom-0 max-[480px]:shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)] max-[480px]:rounded-xl'}>
                         <input
-                            placeholder={'kraken chat , send message'}
+                            placeholder={'kraken chat, send message'}
                             value={message}
-                            onChange={(e) => setMessage(e.target.value)}
+                            onChange={async (e) => {
+                                setMessage(e.target.value);
+                                await fetch("/api/typing", {
+                                    method: "POST",
+                                    body: JSON.stringify({ sender: username })
+                                });
+                            }}
                             className={`
-                            w-full
-                                text-white bg-black py-4 px-6 rounded-2xl outline-none border border-gray-700 focus:border-violet-600
-                                    
+                                w-full text-white bg-black py-4 px-6 rounded-2xl outline-none 
+                                border border-gray-700 focus:border-violet-600
                             `}
                             onKeyDown={(e) => {
-                                if(e.key === "Enter") {
-                                    sendMessage();
-                                }
+                                if (e.key === "Enter") sendMessage();
                             }}
                         />
-
                         <button
                             onClick={sendMessage}
                             className={`hover:bg-white/10 transition
@@ -181,27 +179,24 @@ export default function ChatRu(){
                                 outline-none border-none cursor-pointer
                             `}
                         >
-                            <ArrowRight size={30} className={'text-white'}/>
+                            <ArrowRight size={30} className={'text-white'} />
                         </button>
                     </div>
-
                 </div>
             </section>
         </>
-    )
+    );
 }
 
+function ChatHeader() {
+    const [open, setOpen] = useState(false);
 
-
-function ChatHeader(){
-    const [open , setOpen] = useState(false);
-
-    return<>
+    return (
         <div className={'bg-black px-0 py-4'}>
-            <div className="max-w-4xl mx-auto ">
+            <div className="max-w-4xl mx-auto">
                 <div className={`flex items-center justify-between py-4 px-3 bg-zinc-950 rounded-3xl shadow-[inset_4px_4px_30px_0_hsla(0,0%,100%,.15)]`}>
                     <Link href={'/'} className={"flex items-center gap-1 max-[425px]:w-25"}>
-                        <Image src={krakenLogo} alt={'kraken'} width={150} height={150}  />
+                        <Image src={krakenLogo} alt={'kraken'} width={150} height={150} />
                         <span className={'font-bold font-mono text-2xl max-[425px]:text-lg'}>gram</span>
                     </Link>
                     <ul className={'flex items-center gap-3 max-[768px]:hidden'}>
@@ -210,54 +205,29 @@ function ChatHeader(){
                     </ul>
                     <button
                         className={`md:hidden cursor-pointer outline-none 
-                        text-white p-2 rounded-xl bg-white/5 border border-white/5 backdrop-blur-lg  z-50`}
+                            text-white p-2 rounded-xl bg-white/5 border border-white/5 backdrop-blur-lg z-50`}
                         onClick={() => setOpen(!open)}
                     >
-                        {open ? <X  size={30} /> : <Equal size={30} />}
+                        {open ? <X size={30} /> : <Equal size={30} />}
                     </button>
                 </div>
-
                 <div className={`
                     md:hidden overflow-hidden transition-all duration-500 ease-in-out
-                    ${open ? "max-h-64  opacity-100 mt-3" : "opacity-0 max-h-0"}
+                    ${open ? "max-h-64 opacity-100 mt-3" : "opacity-0 max-h-0"}
                 `}>
                     <div className={`
                         flex flex-col gap-4 p-5 rounded-xl bg-white/5 backdrop-blur-2xl 
                         shadow-[0_8px_32px_rgba(255,255,255,0.08)] border border-white/10 
                     `}>
-                        <Link
-                            href="/"
-                            className="
-                                text-white
-                                font-mono
-                                font-black
-                                text-lg
-                                hover:text-gray-300
-                                transition
-                            "
-                            onClick={() => setOpen(false)}
-                        >
+                        <Link href="/" className="text-white font-mono font-black text-lg hover:text-gray-300 transition" onClick={() => setOpen(false)}>
                             home
                         </Link>
-
-                        <Link
-                            href="/planc"
-                            className="
-                                text-white
-                                font-mono
-                                font-black
-                                text-lg
-                                hover:text-gray-300
-                                transition
-                            "
-                            onClick={() => setOpen(false)}
-                        >
+                        <Link href="/planc" className="text-white font-mono font-black text-lg hover:text-gray-300 transition" onClick={() => setOpen(false)}>
                             pricing
                         </Link>
                     </div>
                 </div>
-
             </div>
         </div>
-    </>
+    );
 }
