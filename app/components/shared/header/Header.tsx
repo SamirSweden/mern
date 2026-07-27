@@ -14,7 +14,7 @@ import {
     ListOrdered,
     ArrowDown,
     Gamepad2,
-    Gem
+    Gem, Egg
 } from "lucide-react";
 import {useRouter , usePathname} from "next/navigation";
 import {useState , useEffect} from "react";
@@ -22,6 +22,8 @@ import Image from "next/image";
 
 
 const krakenLogo = "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/K-logo-wikipedia.svg/1280px-K-logo-wikipedia.svg.png"
+
+
 
 const links = [
     {
@@ -49,6 +51,11 @@ const links = [
         label: "Crypto games",
         icon:<Gamepad2 />
     },
+    {
+        href:"/watchlist",
+        label: "Watchlist",
+        icon:<Egg />
+    }
 ];
 
 const protocolDropdown  = [

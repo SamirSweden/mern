@@ -1,10 +1,13 @@
-import Image from "next/image";
 
 
 export default function WeexBanner(){
     return (
         <>
-            <section className={'relative w-full h-screen overflow-hidden'}>
+            <section className={'relative w-full h-screen overflow-hidden bg-cover bg-center'}
+                     style={{
+                         backgroundImage:"url('https://images.squarespace-cdn.com/content/v1/67f3e6c85dbf022079ca5e64/1755361912047-DRPV1UQQ78DC0NYDNYI5/a-futuristic-tech-inspired-artwork-featu_NCU_diS-SfGLnhJtIleUsA_1eZrfiMMQJOVI6xlbwZWCQ.jpeg')"
+                     }}
+            >
                 <div className={'absolute inset-0 bg-black/20 z-10'}  />
                 <div className="relative z-10 flex h-full flex-col justify-end items-start p-4 sm:p-6 md:p-10">
                    <div className={`backdrop-blur-xs bg-white/10 px-4 py-4 rounded-2xl

@@ -2,7 +2,6 @@ const Sx = () => {
     return (
         <div className="min-h-screen bg-black text-white">
             <div className="max-w-5xl mx-auto">
-                {/* Header */}
                 <div className="flex items-center justify-between px-5 py-4 border-b border-zinc-800">
                     <h1 className="text-xl font-bold">elite_dev</h1>
 
@@ -12,7 +11,6 @@ const Sx = () => {
                     </div>
                 </div>
 
-                {/* Profile */}
                 <div className="p-5">
                     <div className="flex items-center gap-6">
                         <img
@@ -75,3 +73,6 @@ const Sx = () => {
 };
 
 export default Sx;
+
+
+
