@@ -153,12 +153,12 @@ const Header = () => {
                         </div>
 
                         <div className={'flex items-center '}>
-                            <button onClick={() => router.push('/dashboard')}
+                            <button onClick={() => router.push('/login')}
                             className={`max-[710px]:hidden    
                             py-1.5 px-5 rounded-full capitalize cursor-pointer
                             ${scrolled ? "bg-white text-black" : "bg-yellow-400 text-black text-bold hover:bg-yellow-600  "}
                             `}
-                            >dashboard</button>
+                            >login</button>
 
                         </div>
 

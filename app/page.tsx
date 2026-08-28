@@ -8,6 +8,7 @@ import ProCard from "@/app/components/banners/cards/ProCard";
 import ThreeCards from "@/app/components/banners/cards/ThreeCards";
 import PreFooter from "@/app/components/UI/PreFooter";
 import WeexBanner from "@/app/components/banners/banner/WeexBanner";
+import TryKraken from "@/app/components/try-kraken/TryKraken";
 
 
 export default function Home(){
@@ -21,7 +22,8 @@ export default function Home(){
                 <CryptoBanner/>
                 <ProCard />
                 <ThreeCards />
-                <PreFooter/>
+                <TryKraken />
+                <PreFooter />
             </>
     )
 }

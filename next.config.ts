@@ -109,6 +109,11 @@ const nextConfig: NextConfig = {
             {
                 protocol: "https",
                 hostname: "d2tfhb4luz96yb.cloudfront.net"
+            },
+            {
+                protocol:"https",
+                hostname:"assets-cms.kraken.com",
+                pathname:"/images/**"
             }
         ]
     },
