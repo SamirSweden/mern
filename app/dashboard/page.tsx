@@ -10,7 +10,7 @@ export default function Dashboard() {
 
     const [username] = useState(
         typeof window !== "undefined"
-        ? localStorage.getItem("username")
+            ? localStorage.getItem("username")
             : ""
     )
 
