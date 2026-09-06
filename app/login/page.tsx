@@ -26,11 +26,12 @@ export default function LoginPage() {
         const data = await response.json();
 
         if(!response.ok) {
-            alert("error occured");
+            alert("an error occured");
             return;
         }
-        console.log(data)
-        router.push("/login");
+
+        localStorage.setItem("username", data.username);
+        router.push("/dashboard");
     }
 
     return <>
