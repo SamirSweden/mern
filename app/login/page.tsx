@@ -40,6 +40,8 @@ export default function LoginPage() {
                     Registration
                 </h1>
 
+                <p className={'text-gray-400 text-sm text-center mb-4'}>Enjoy by using Kraken</p>
+
                 <div className="flex flex-col gap-5">
                     <input
                         onChange={(e) => setUsername(e.target.value)}
@@ -54,7 +56,7 @@ export default function LoginPage() {
                         value={password}
                         type="password"
                         placeholder="Password"
-                        className={'w-full py-3 mt-2 rounded-lg bg-white text-black font-semibold text-sm hover:bg-neutral-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-neutral-900 focus:ring-white transition cursor-pointer'}
+                        className={'w-full px-4 py-3 rounded-lg bg-neutral-800 border border-neutral-700 text-white text-sm placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent transition'}
                     />
 
                     <button
